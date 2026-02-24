@@ -3,11 +3,8 @@
 import Cmlx
 import Foundation
 
-@available(iOS 16, macOS 13.3, *)
 infix operator ** : BitwiseShiftPrecedence
-@available(iOS 16, macOS 13.3, *)
 infix operator .&& : LogicalConjunctionPrecedence
-@available(iOS 16, macOS 13.3, *)
 infix operator .|| : LogicalDisjunctionPrecedence
 
 @available(iOS 16, macOS 13.3, *)
