@@ -4,12 +4,14 @@ import Cmlx
 import Foundation
 
 // return a +1 mlx_vector_array containing the given arrays
+@available(iOS 16, macOS 13.3, *)
 func new_mlx_vector_array(_ arrays: some Collection<MLXArray>) -> mlx_vector_array {
     withExtendedLifetime(arrays) {
         mlx_vector_array_new_data(arrays.map { $0.ctx }, arrays.count)
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 func mlx_vector_array_values(_ vector_array: mlx_vector_array) -> [MLXArray] {
     (0 ..< mlx_vector_array_size(vector_array))
         .map { index in
@@ -20,6 +22,7 @@ func mlx_vector_array_values(_ vector_array: mlx_vector_array) -> [MLXArray] {
         }
 }
 
+@available(iOS 16, macOS 13.3, *)
 func mlx_map_array_values(_ mlx_map: mlx_map_string_to_array) -> [String: MLXArray] {
     var result = [String: MLXArray]()
 
@@ -44,6 +47,7 @@ func mlx_map_array_values(_ mlx_map: mlx_map_string_to_array) -> [String: MLXArr
     return result
 }
 
+@available(iOS 16, macOS 13.3, *)
 func mlx_map_string_values(_ mlx_map: mlx_map_string_to_string) -> [String: String] {
     var result = [String: String]()
 
@@ -65,6 +69,7 @@ func mlx_map_string_values(_ mlx_map: mlx_map_string_to_string) -> [String: Stri
     return result
 }
 
+@available(iOS 16, macOS 13.3, *)
 func new_mlx_array_map(_ dictionary: [String: MLXArray]) -> mlx_map_string_to_array {
     withExtendedLifetime(dictionary) {
         let mlx_map = mlx_map_string_to_array_new()
@@ -77,6 +82,7 @@ func new_mlx_array_map(_ dictionary: [String: MLXArray]) -> mlx_map_string_to_ar
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 func new_mlx_string_map(_ dictionary: [String: String]) -> mlx_map_string_to_string {
     withExtendedLifetime(dictionary) {
         let mlx_map = mlx_map_string_to_string_new()
@@ -90,6 +96,7 @@ func new_mlx_string_map(_ dictionary: [String: String]) -> mlx_map_string_to_str
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 func new_mlx_closure(_ f: @escaping ([MLXArray]) -> [MLXArray]) -> mlx_closure {
 
     // holds reference to `f()` as capture state for the mlx_closure
@@ -132,6 +139,7 @@ func new_mlx_closure(_ f: @escaping ([MLXArray]) -> [MLXArray]) -> mlx_closure {
     return mlx_closure_new_func_payload(trampoline, payload, free)
 }
 
+@available(iOS 16, macOS 13.3, *)
 func new_mlx_kwargs_closure(keys: [String], _ f: @escaping ([MLXArray]) -> [MLXArray])
     -> mlx_closure_kwargs
 {

@@ -4,6 +4,7 @@ import Cmlx
 import Foundation
 import Numerics
 
+@available(iOS 16, macOS 13.3, *)
 public final class MLXArray {
 
     /// Internal pointer to the mlx-c wrapper on `mlx::core::array`, used with `Cmlx` interop.
@@ -607,12 +608,14 @@ public final class MLXArray {
     public var at: ArrayAt { ArrayAt(array: self) }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXArray: Updatable, Evaluatable {
     public func innerState() -> [MLXArray] {
         [self]
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXArray: CustomStringConvertible {
     public var description: String {
         var s = mlx_string_new()

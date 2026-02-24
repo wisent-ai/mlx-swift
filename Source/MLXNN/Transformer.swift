@@ -8,6 +8,7 @@ import MLX
 /// ### See Also
 /// - <doc:transformers>
 /// - ``init(dimensions:numHeads:queryInputDimensions:keyInputDimensions:valueInputDimensions:valueDimensions:valueOutputDimensions:bias:)``
+@available(iOS 16, macOS 13.3, *)
 open class MultiHeadAttention: Module {
 
     public let numHeads: Int
@@ -114,6 +115,7 @@ open class MultiHeadAttention: Module {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 class TransformerEncoderLayer: Module {
 
     let attention: MultiHeadAttention
@@ -175,6 +177,7 @@ class TransformerEncoderLayer: Module {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 class TransformerEncoder: Module {
 
     let layers: [TransformerEncoderLayer]
@@ -204,6 +207,7 @@ class TransformerEncoder: Module {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 class TransformerDecoderLayer: Module {
 
     @ModuleInfo(key: "self_attention") var selfAttention: MultiHeadAttention
@@ -284,6 +288,7 @@ class TransformerDecoderLayer: Module {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 class TransformerDecoder: Module {
 
     let layers: [TransformerDecoderLayer]
@@ -328,6 +333,7 @@ class TransformerDecoder: Module {
 /// ### See Also
 /// - <doc:transformers>
 /// - <https://arxiv.org/abs/1706.03762>
+@available(iOS 16, macOS 13.3, *)
 open class Transformer: Module {
 
     let encoder: TransformerEncoder

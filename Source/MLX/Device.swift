@@ -6,6 +6,7 @@ import Foundation
 ///Type of device.
 ///
 ///See ``Device`` and ``StreamOrDevice``.
+@available(iOS 16, macOS 13.3, *)
 public enum DeviceType: String, Hashable, Sendable {
     case cpu
     case gpu
@@ -25,6 +26,7 @@ public enum DeviceType: String, Hashable, Sendable {
 /// ### See Also
 /// - <doc:using-streams>
 /// - ``StreamOrDevice``
+@available(iOS 16, macOS 13.3, *)
 public final class Device: @unchecked Sendable, Equatable {
 
     let ctx: mlx_device
@@ -170,6 +172,7 @@ public final class Device: @unchecked Sendable, Equatable {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension Device: CustomStringConvertible {
     public var description: String {
         var s = mlx_string_new()
@@ -192,6 +195,7 @@ extension Device: CustomStringConvertible {
 ///     - device: device to be used
 ///     - fn: function to be executed
 @available(*, deprecated, message: "please use Device.withDefaultDevice()")
+@available(iOS 16, macOS 13.3, *)
 public func using<R>(device: Device, fn: () throws -> R) rethrows -> R {
     try Device.withDefaultDevice(device, fn)
 }

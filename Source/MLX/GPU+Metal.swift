@@ -12,6 +12,7 @@ import Metal
 /// ### See Also
 /// - <doc:running-on-ios>
 /// - ``Memory``
+@available(iOS 16, macOS 13.3, *)
 public enum GPU {
 
     public typealias Snapshot = Memory.Snapshot

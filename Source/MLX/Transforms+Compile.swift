@@ -4,6 +4,7 @@ import Cmlx
 import Foundation
 
 // Note: this is all immutable state -- the `id` property is only set at init time
+@available(iOS 16, macOS 13.3, *)
 final class CompiledFunction: @unchecked (Sendable) {
 
     /// unique (for the lifetime of the object) identifier for the compiled function
@@ -138,6 +139,7 @@ final class CompiledFunction: @unchecked (Sendable) {
 ///
 /// ### See Also
 /// - <doc:compilation>
+@available(iOS 16, macOS 13.3, *)
 public func compile(
     inputs: [any Updatable] = [], outputs: [any Updatable] = [], shapeless: Bool = false,
     _ f: @escaping ([MLXArray]) -> [MLXArray]
@@ -155,6 +157,7 @@ public func compile(
 /// ### See Also
 /// - <doc:compilation>
 /// - ``compile(inputs:outputs:shapeless:_:)-([Updatable],[Updatable],Bool,([MLXArray])->[MLXArray])``
+@available(iOS 16, macOS 13.3, *)
 public func compile(
     inputs: [any Updatable] = [], outputs: [any Updatable] = [], shapeless: Bool = false,
     _ f: @escaping (MLXArray) -> MLXArray
@@ -174,6 +177,7 @@ public func compile(
 /// ### See Also
 /// - <doc:compilation>
 /// - ``compile(inputs:outputs:shapeless:_:)-([Updatable],[Updatable],Bool,([MLXArray])->[MLXArray])``
+@available(iOS 16, macOS 13.3, *)
 public func compile(
     inputs: [any Updatable] = [], outputs: [any Updatable] = [], shapeless: Bool = false,
     _ f: @escaping (MLXArray, MLXArray) -> MLXArray
@@ -195,6 +199,7 @@ public func compile(
 /// ### See Also
 /// - <doc:compilation>
 /// - ``compile(inputs:outputs:shapeless:_:)-([Updatable],[Updatable],Bool,([MLXArray])->[MLXArray])``
+@available(iOS 16, macOS 13.3, *)
 public func compile(
     inputs: [any Updatable] = [], outputs: [any Updatable] = [], shapeless: Bool = false,
     _ f: @Sendable @escaping (MLXArray, MLXArray, MLXArray) -> MLXArray
@@ -213,6 +218,7 @@ public func compile(
 /// Globally enable or disable ``compile(inputs:outputs:shapeless:_:)-([Updatable],[Updatable],Bool,([MLXArray])->[MLXArray])``.
 ///
 /// Default is enabled.
+@available(iOS 16, macOS 13.3, *)
 public func compile(enable: Bool = true) {
     if enable {
         mlx_enable_compile()

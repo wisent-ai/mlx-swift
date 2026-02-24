@@ -3,16 +3,19 @@
 import Foundation
 
 /// Protocol for types that can be used as a provider of random keys, e.g. for ``MLXRandom``.
+@available(iOS 16, macOS 13.3, *)
 public protocol RandomStateOrKey {
     func asRandomKey() -> MLXArray
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXArray: RandomStateOrKey {
     public func asRandomKey() -> MLXArray {
         self
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXRandom {
 
     /// Random state factory.
@@ -90,17 +93,20 @@ extension MLXRandom {
 /// - the passed key, either an ``MLXArray`` or ``MLXRandom/RandomState``
 /// - the task-local ``MLXRandom/RandomState``, see ``withRandomState(_:body:)-18ob4``
 /// - the global RandomState, ``MLXRandom/globalState``
+@available(iOS 16, macOS 13.3, *)
 public func resolve(key: (some RandomStateOrKey)? = MLXArray?.none) -> MLXArray {
     key?.asRandomKey() ?? MLXRandom.taskLocalRandomState?.asRandomKey()
         ?? MLXRandom.globalState.next()
 }
 
 /// Use the given ``MLXRandom/RandomState`` scoped to the current task and body.
+@available(iOS 16, macOS 13.3, *)
 public func withRandomState<R>(_ state: MLXRandom.RandomState, body: () throws -> R) rethrows -> R {
     try MLXRandom.$taskLocalRandomState.withValue(state, operation: body)
 }
 
 /// Use the given ``MLXRandom/RandomState`` scoped to the current task and body.
+@available(iOS 16, macOS 13.3, *)
 public func withRandomState<R>(_ state: MLXRandom.RandomState, body: () async throws -> R)
     async rethrows -> R
 {

@@ -3,6 +3,7 @@
 import Cmlx
 import Foundation
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXArray {
 
     /// Construct an array of zeros.
@@ -661,6 +662,7 @@ extension MLXArray {
 /// - <doc:initialization>
 /// - ``zeros(like:stream:)``
 /// - ``ones(_:type:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func zeros(
     _ shape: some Collection<Int>, type: (some HasDType).Type = Float.self,
     stream: StreamOrDevice = .default
@@ -687,6 +689,7 @@ public func zeros(
 /// - <doc:initialization>
 /// - ``zeros(like:stream:)``
 /// - ``ones(_:type:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func zeros(
     _ shape: some Collection<Int>, dtype: DType, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -712,6 +715,7 @@ public func zeros(
 /// - <doc:initialization>
 /// - ``zeros(_:type:stream:)``
 /// - ``ones(_:type:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func zeros(like array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_zeros_like(&result, array.ctx, stream.ctx)
@@ -735,6 +739,7 @@ public func zeros(like array: MLXArray, stream: StreamOrDevice = .default) -> ML
 /// - <doc:initialization>
 /// - ``ones(like:stream:)``
 /// - ``zeros(_:type:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func ones(
     _ shape: some Collection<Int>, type: (some HasDType).Type = Float.self,
     stream: StreamOrDevice = .default
@@ -761,6 +766,7 @@ public func ones(
 /// - <doc:initialization>
 /// - ``zeros(like:stream:)``
 /// - ``ones(_:type:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func ones(
     _ shape: some Collection<Int>, dtype: DType, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -786,6 +792,7 @@ public func ones(
 /// - <doc:initialization>
 /// - ``ones(_:type:stream:)``
 /// - ``zeros(_:type:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func ones(like array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_ones_like(&result, array.ctx, stream.ctx)
@@ -811,6 +818,7 @@ public func ones(like array: MLXArray, stream: StreamOrDevice = .default) -> MLX
 /// ### See Also
 /// - <doc:initialization>
 /// - ``identity(_:type:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func eye(
     _ n: Int, m: Int? = nil, k: Int = 0, type: (some HasDType).Type = Float.self,
     stream: StreamOrDevice = .default
@@ -839,6 +847,7 @@ public func eye(
 /// ### See Also
 /// - <doc:initialization>
 /// - ``identity(_:type:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func eye(
     _ n: Int, m: Int? = nil, k: Int = 0, dtype: DType, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -869,6 +878,7 @@ public func eye(
 /// - <doc:initialization>
 /// - ``full(_:values:stream:)``
 /// - ``repeated(_:count:axis:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func full(
     _ shape: some Collection<Int>, values: some ScalarOrArray, type: (some HasDType).Type,
     stream: StreamOrDevice = .default
@@ -901,6 +911,7 @@ public func full(
 /// - <doc:initialization>
 /// - ``full(_:values:stream:)``
 /// - ``repeated(_:count:axis:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func full(
     _ shape: some Collection<Int>, values: MLXArray, dtype: DType, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -930,6 +941,7 @@ public func full(
 /// - <doc:initialization>
 /// - ``full(_:values:type:stream:)``
 /// - ``repeated(_:count:axis:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func full(
     _ shape: some Collection<Int>, values: some ScalarOrArray, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -956,6 +968,7 @@ public func full(
 /// ### See Also
 /// - <doc:initialization>
 /// - ``eye(_:m:k:type:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func identity(
     _ n: Int, type: (some HasDType).Type = Float.self, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -981,6 +994,7 @@ public func identity(
 /// ### See Also
 /// - <doc:initialization>
 /// - ``eye(_:m:k:type:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func identity(_ n: Int, dtype: DType, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_identity(&result, n.int32, dtype.cmlxDtype, stream.ctx)
@@ -1005,6 +1019,7 @@ public func identity(_ n: Int, dtype: DType, stream: StreamOrDevice = .default) 
 /// ### See Also
 /// - <doc:initialization>
 /// - ``linspace(_:_:count:stream:)-7vj0o``
+@available(iOS 16, macOS 13.3, *)
 public func linspace<T: HasDType>(
     _ start: T, _ stop: T, count: Int = 50, stream: StreamOrDevice = .default
 ) -> MLXArray where T: BinaryInteger {
@@ -1031,6 +1046,7 @@ public func linspace<T: HasDType>(
 /// ### See Also
 /// - <doc:initialization>
 /// - ``linspace(_:_:count:stream:)-6w959``
+@available(iOS 16, macOS 13.3, *)
 public func linspace<T: HasDType>(
     _ start: T, _ stop: T, count: Int = 50, stream: StreamOrDevice = .default
 ) -> MLXArray where T: BinaryFloatingPoint {
@@ -1055,6 +1071,7 @@ public func linspace<T: HasDType>(
 /// ### See Also
 /// - <doc:initialization>
 /// - ``arange(_:_:step:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func arange(_ stop: Int, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_arange(&result, 0, Double(stop), 1, DType.int32.cmlxDtype, stream.ctx)
@@ -1079,6 +1096,7 @@ public func arange(_ stop: Int, stream: StreamOrDevice = .default) -> MLXArray {
 /// ### See Also
 /// - <doc:initialization>
 /// - ``arange(_:_:step:dtype:stream:)-(Int,_,_,_,_)``
+@available(iOS 16, macOS 13.3, *)
 public func arange(
     _ start: Int, _ stop: Int, step: Int = 1, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -1105,6 +1123,7 @@ public func arange(
 /// ### See Also
 /// - <doc:initialization>
 /// - ``arange(_:_:step:dtype:stream:)-(Int,_,_,_,_)``
+@available(iOS 16, macOS 13.3, *)
 public func arange(_ stop: Int, dtype: DType, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_arange(&result, 0, Double(stop), 1, dtype.cmlxDtype, stream.ctx)
@@ -1130,6 +1149,7 @@ public func arange(_ stop: Int, dtype: DType, stream: StreamOrDevice = .default)
 /// ### See Also
 /// - <doc:initialization>
 /// - ``arange(_:_:step:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func arange(
     _ start: Int, _ stop: Int, step: Int = 1, dtype: DType, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -1155,6 +1175,7 @@ public func arange(
 /// ### See Also
 /// - <doc:initialization>
 /// - ``arange(_:_:step:dtype:stream:)-(Double,_,_,_,_)``
+@available(iOS 16, macOS 13.3, *)
 public func arange(
     _ stop: Double, dtype: DType = .float32, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -1182,6 +1203,7 @@ public func arange(
 /// ### See Also
 /// - <doc:initialization>
 /// - ``arange(_:dtype:stream:)-(Double,_,_)``
+@available(iOS 16, macOS 13.3, *)
 public func arange(
     _ start: Double, _ stop: Double, step: Double = 1.0, dtype: DType = .float32,
     stream: StreamOrDevice = .default
@@ -1200,6 +1222,7 @@ public func arange(
 /// - ``repeated(_:count:stream:)``
 /// - ``full(_:values:stream:)``
 @available(*, deprecated, renamed: "repeated(_:count:axis:stream:)")
+@available(iOS 16, macOS 13.3, *)
 public func `repeat`(_ array: MLXArray, count: Int, axis: Int, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -1217,6 +1240,7 @@ public func `repeat`(_ array: MLXArray, count: Int, axis: Int, stream: StreamOrD
 /// - ``repeated(_:count:axis:stream:)``
 /// - ``full(_:values:stream:)``
 @available(*, deprecated, renamed: "repeated(_:count:stream:)")
+@available(iOS 16, macOS 13.3, *)
 public func `repeat`(_ array: MLXArray, count: Int, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_repeat(&result, array.ctx, count.int32, stream.ctx)
@@ -1242,6 +1266,7 @@ public func `repeat`(_ array: MLXArray, count: Int, stream: StreamOrDevice = .de
 /// - <doc:initialization>
 /// - ``repeated(_:count:stream:)``
 /// - ``full(_:values:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func repeated(_ array: MLXArray, count: Int, axis: Int, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -1268,6 +1293,7 @@ public func repeated(_ array: MLXArray, count: Int, axis: Int, stream: StreamOrD
 /// - <doc:initialization>
 /// - ``repeated(_:count:axis:stream:)``
 /// - ``full(_:values:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func repeated(_ array: MLXArray, count: Int, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_repeat(&result, array.ctx, count.int32, stream.ctx)
@@ -1292,6 +1318,7 @@ public func repeated(_ array: MLXArray, count: Int, stream: StreamOrDevice = .de
 ///
 /// ### See Also
 /// - <doc:initialization>
+@available(iOS 16, macOS 13.3, *)
 public func tri(
     _ n: Int, m: Int? = nil, k: Int = 0, type: (some HasDType).Type = Float.self,
     stream: StreamOrDevice = .default
@@ -1319,6 +1346,7 @@ public func tri(
 ///
 /// ### See Also
 /// - <doc:initialization>
+@available(iOS 16, macOS 13.3, *)
 public func tri(
     _ n: Int, m: Int? = nil, k: Int = 0, dtype: DType, stream: StreamOrDevice = .default
 ) -> MLXArray {

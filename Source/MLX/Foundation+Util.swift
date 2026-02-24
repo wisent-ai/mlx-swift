@@ -2,6 +2,7 @@
 
 import Foundation
 
+@available(iOS 16, macOS 13.3, *)
 extension [Int] {
 
     /// Convenience to coerce array of `Int` to `Int32` -- Cmlx uses `Int32` for many things but it is
@@ -19,6 +20,7 @@ extension [Int] {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension Sequence<Int> {
 
     /// Convenience to coerce  sequence of `Int` to `Int32` -- Cmlx uses `Int32` for many things but it is
@@ -34,6 +36,7 @@ extension Sequence<Int> {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension Int {
 
     /// Convenience to convert `Int` to `Int32` -- Cmlx uses `Int32` for many things but it is

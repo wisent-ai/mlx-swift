@@ -9,6 +9,7 @@ import MLXNN
 /// ### See Also
 /// - <doc:MLXOptimizers>
 /// - ``OptimizerBase``
+@available(iOS 16, macOS 13.3, *)
 public protocol Optimizer: Updatable, Evaluatable {
 
     /// Apply the gradients to the parameters of the model and update the model with the new parameters.
@@ -24,6 +25,7 @@ public protocol Optimizer: Updatable, Evaluatable {
 ///
 /// ### See Also
 /// - <doc:MLXOptimizers>
+@available(iOS 16, macOS 13.3, *)
 open class OptimizerBase<State: Updatable>: Optimizer {
 
     /// Stores a `State` value in a structure that matches the model parameters
@@ -80,6 +82,7 @@ open class OptimizerBase<State: Updatable>: Optimizer {
 ///
 /// ### See Also
 /// - <doc:MLXOptimizers>
+@available(iOS 16, macOS 13.3, *)
 open class OptimizerBaseArrayState: OptimizerBase<MLXArray> {
     override open func newState(parameter: MLXArray) -> MLXArray {
         MLXArray.zeros(like: parameter)
@@ -87,6 +90,7 @@ open class OptimizerBaseArrayState: OptimizerBase<MLXArray> {
 }
 
 /// State container for ``OptimizerBase`` holding a tuple of `MLXArray`.
+@available(iOS 16, macOS 13.3, *)
 public struct TupleState: Updatable {
     let values: (MLXArray, MLXArray)
 
@@ -111,6 +115,7 @@ public struct TupleState: Updatable {
 ///
 /// ### See Also
 /// - <doc:MLXOptimizers>
+@available(iOS 16, macOS 13.3, *)
 open class SGD: OptimizerBaseArrayState {
 
     /// The learning rate
@@ -187,6 +192,7 @@ open class SGD: OptimizerBaseArrayState {
 ///
 /// ### See Also
 /// - <doc:MLXOptimizers>
+@available(iOS 16, macOS 13.3, *)
 open class RMSprop: OptimizerBaseArrayState {
 
     /// The learning rate
@@ -226,6 +232,7 @@ open class RMSprop: OptimizerBaseArrayState {
 ///
 /// ### See Also
 /// - <doc:MLXOptimizers>
+@available(iOS 16, macOS 13.3, *)
 open class AdaGrad: OptimizerBaseArrayState {
 
     /// The learning rate
@@ -260,6 +267,7 @@ open class AdaGrad: OptimizerBaseArrayState {
 ///
 /// ### See Also
 /// - <doc:MLXOptimizers>
+@available(iOS 16, macOS 13.3, *)
 open class AdaDelta: OptimizerBase<TupleState> {
 
     /// The learning rate
@@ -309,6 +317,7 @@ open class AdaDelta: OptimizerBase<TupleState> {
 ///
 /// ### See Also
 /// - <doc:MLXOptimizers>
+@available(iOS 16, macOS 13.3, *)
 open class Adam: OptimizerBase<TupleState> {
 
     /// The learning rate
@@ -357,6 +366,7 @@ open class Adam: OptimizerBase<TupleState> {
 ///
 /// ### See Also
 /// - <doc:MLXOptimizers>
+@available(iOS 16, macOS 13.3, *)
 open class AdamW: Adam {
 
     /// The weight decay
@@ -394,6 +404,7 @@ open class AdamW: Adam {
 ///
 /// ### See Also
 /// - <doc:MLXOptimizers>
+@available(iOS 16, macOS 13.3, *)
 open class Adamax: OptimizerBase<TupleState> {
 
     /// The learning rate
@@ -445,6 +456,7 @@ open class Adamax: OptimizerBase<TupleState> {
 ///
 /// ### See Also
 /// - <doc:MLXOptimizers>
+@available(iOS 16, macOS 13.3, *)
 open class Lion: OptimizerBaseArrayState {
 
     /// The learning rate
@@ -491,6 +503,7 @@ open class Lion: OptimizerBaseArrayState {
 ///
 /// ### See Also
 /// - <doc:MLXOptimizers>
+@available(iOS 16, macOS 13.3, *)
 open class Adafactor: OptimizerBase<Adafactor.State> {
 
     /// The learning rate
@@ -664,6 +677,7 @@ open class Adafactor: OptimizerBase<Adafactor.State> {
 /// - Parameters:
 ///     - gradients: an array of MLXArray
 ///     - maxNorm: the maximum allowed global norm of th gradients
+@available(iOS 16, macOS 13.3, *)
 public func clipGradNorm(gradients: some Collection<MLXArray>, maxNorm: Float) -> (
     [MLXArray], MLXArray
 ) {
@@ -685,6 +699,7 @@ public func clipGradNorm(gradients: some Collection<MLXArray>, maxNorm: Float) -
 /// - Parameters:
 ///     - gradients: a NestedDictionary of MLXArray
 ///     - maxNorm: the maximum allowed global norm of th gradients
+@available(iOS 16, macOS 13.3, *)
 public func clipGradNorm(gradients: ModuleParameters, maxNorm: Float) -> (
     ModuleParameters, MLXArray
 ) {

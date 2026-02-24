@@ -10,6 +10,7 @@ import Foundation
 ///
 /// ### See Also
 /// - ``compile(inputs:outputs:shapeless:_:)-([Updatable],[Updatable],Bool,([MLXArray])->[MLXArray])``
+@available(iOS 16, macOS 13.3, *)
 public protocol Updatable {
     func innerState() -> [MLXArray]
 }
@@ -25,10 +26,12 @@ public protocol Updatable {
 /// - `MLXOptimizers.Optimizer`
 ///
 /// Are all evaluatable.
+@available(iOS 16, macOS 13.3, *)
 public protocol Evaluatable {
     func innerState() -> [MLXArray]
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension [MLXArray]: Updatable, Evaluatable {
     public func innerState() -> [MLXArray] {
         self

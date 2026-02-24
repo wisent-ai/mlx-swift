@@ -37,6 +37,7 @@ import MLX
 ///   ],
 /// }
 /// ```
+@available(iOS 16, macOS 13.3, *)
 open class Sequential: Module, UnaryLayer {
 
     @ModuleInfo public var layers: [UnaryLayer]
@@ -98,6 +99,7 @@ open class Sequential: Module, UnaryLayer {
 ///
 /// See ``Sequential/init(layers:)-43yu``
 @resultBuilder
+@available(iOS 16, macOS 13.3, *)
 public struct SequentialBuilder {
 
     public static func buildArray(_ array: [UnaryLayer]) -> [UnaryLayer] {

@@ -7,6 +7,7 @@ import Foundation
 ///
 /// This talks directly to the Cmlx API and is intentionally scoped to this file
 /// so that higher-level policy logic remains testable and composable.
+@available(iOS 16, macOS 13.3, *)
 private enum WiredMemoryBackend {
     /// Whether this process can adjust wired memory on the current device.
     ///
@@ -35,6 +36,7 @@ private enum WiredMemoryBackend {
 ///
 /// Events are only emitted in DEBUG builds. In release builds the event stream
 /// is empty and finishes immediately.
+@available(iOS 16, macOS 13.3, *)
 public struct WiredMemoryEvent: Sendable {
     public enum Kind: String, Sendable {
         /// The baseline wired limit was captured from the system.
@@ -120,6 +122,7 @@ public struct WiredMemoryEvent: Sendable {
 /// group, then uses the maximum across groups to avoid double-counting and to
 /// allow heterogeneous strategies to coexist. For reference-type policies,
 /// provide a stable `id` to define grouping semantics.
+@available(iOS 16, macOS 13.3, *)
 public protocol WiredMemoryPolicy: Sendable, Identifiable where ID == AnyHashable {
     /// Compute the desired wired limit in bytes for the current active set.
     ///
@@ -137,6 +140,7 @@ public protocol WiredMemoryPolicy: Sendable, Identifiable where ID == AnyHashabl
     func canAdmit(baseline: Int, activeSizes: [Int], newSize: Int) -> Bool
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension WiredMemoryPolicy {
     public func canAdmit(baseline: Int, activeSizes: [Int], newSize: Int) -> Bool {
         true
@@ -144,11 +148,13 @@ extension WiredMemoryPolicy {
 }
 
 /// Hashable policies get an `id` for free.
+@available(iOS 16, macOS 13.3, *)
 extension WiredMemoryPolicy where Self: Hashable {
     public var id: AnyHashable { AnyHashable(self) }
 }
 
 /// Policy that sums active ticket sizes and adds them to the baseline.
+@available(iOS 16, macOS 13.3, *)
 public struct WiredSumPolicy: WiredMemoryPolicy, Hashable, Sendable {
     /// Stable grouping identifier for this policy instance.
     public let identifier: UUID
@@ -163,6 +169,7 @@ public struct WiredSumPolicy: WiredMemoryPolicy, Hashable, Sendable {
 }
 
 /// Policy that uses the maximum active ticket size and adds it to the baseline.
+@available(iOS 16, macOS 13.3, *)
 public struct WiredMaxPolicy: WiredMemoryPolicy, Hashable, Sendable {
     /// Stable grouping identifier for this policy instance.
     public let identifier: UUID
@@ -181,6 +188,7 @@ public struct WiredMaxPolicy: WiredMemoryPolicy, Hashable, Sendable {
 /// These settings implement hysteresis to prevent small or frequent shrinks
 /// while active work is running. Growing the limit is always allowed; shrinking
 /// is gated by a minimum drop and a minimum time between changes.
+@available(iOS 16, macOS 13.3, *)
 public struct WiredMemoryManagerConfiguration: Sendable, Hashable {
     /// Minimum fractional drop required before shrinking while tickets are active.
     /// Example: 0.25 means the desired limit must be at least 25% lower than current.
@@ -229,6 +237,7 @@ public struct WiredMemoryManagerConfiguration: Sendable, Hashable {
 /// Reservation tickets participate in admission and limit calculation, but do not
 /// keep the wired limit elevated on their own. This allows modeling long-lived
 /// weights without wiring memory while the system is idle.
+@available(iOS 16, macOS 13.3, *)
 public enum WiredMemoryTicketKind: Sendable {
     /// Active work that should drive limit updates (e.g. inference).
     case active
@@ -242,6 +251,7 @@ public enum WiredMemoryTicketKind: Sendable {
 /// A ticket represents a single unit of memory demand. Tickets are started and
 /// ended explicitly and are safe to start/end multiple times (extra calls are
 /// ignored). Use `withWiredLimit` to ensure cancellation-safe pairing.
+@available(iOS 16, macOS 13.3, *)
 public struct WiredMemoryTicket: Sendable, Identifiable {
     /// Unique identifier for this ticket.
     public let id: UUID
@@ -285,6 +295,7 @@ public struct WiredMemoryTicket: Sendable, Identifiable {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension WiredMemoryTicket {
     /// Guards against calling `end()` more than once when task cancellation
     /// races with normal completion inside `withWiredLimit`.
@@ -337,6 +348,7 @@ extension WiredMemoryTicket {
 /// The wired limit is a global resource. This manager serializes updates,
 /// performs admission control, and restores the baseline when work completes.
 /// Use the shared singleton in production; multiple managers are undefined.
+@available(iOS 16, macOS 13.3, *)
 public actor WiredMemoryManager {
     /// Shared singleton used by default for tickets.
     public static let shared = WiredMemoryManager()
@@ -794,6 +806,7 @@ public actor WiredMemoryManager {
     #endif
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension WiredMemoryPolicy {
     /// Convenience to create a ticket bound to a policy and manager.
     public func ticket(

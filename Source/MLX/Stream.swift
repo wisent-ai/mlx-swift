@@ -22,6 +22,7 @@ import Foundation
 /// - <doc:using-streams>
 /// - ``Stream``
 /// - ``Device``
+@available(iOS 16, macOS 13.3, *)
 public struct StreamOrDevice: Sendable, CustomStringConvertible, Equatable {
 
     public let stream: Stream
@@ -79,6 +80,7 @@ public struct StreamOrDevice: Sendable, CustomStringConvertible, Equatable {
 /// ### See Also
 /// - <doc:using-streams>
 /// - ``StreamOrDevice``
+@available(iOS 16, macOS 13.3, *)
 public final class Stream: @unchecked Sendable, Equatable {
 
     let ctx: mlx_stream
@@ -158,6 +160,7 @@ public final class Stream: @unchecked Sendable, Equatable {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension Stream: CustomStringConvertible {
     public var description: String {
         var s = mlx_string_new()

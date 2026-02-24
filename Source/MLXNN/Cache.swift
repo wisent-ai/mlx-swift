@@ -5,6 +5,7 @@ import Foundation
 /// Simple cache for holding prepared MLXArrays, etc.
 ///
 /// See ``RoPE``
+@available(iOS 16, macOS 13.3, *)
 class Cache<Key: Hashable, Element>: @unchecked (Sendable) {
 
     let queue = DispatchQueue(label: "Cache")

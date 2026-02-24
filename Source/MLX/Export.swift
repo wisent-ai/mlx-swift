@@ -37,6 +37,7 @@ import Foundation
 /// ### See Also
 /// - ``exportFunctions(to:shapeless:_:build:)``
 /// - ``importFunction(from:)``
+@available(iOS 16, macOS 13.3, *)
 public func exportFunction(
     to url: URL, shapeless: Bool = false, _ f: @escaping ([MLXArray]) -> [MLXArray]
 ) -> FunctionExporterSingle {
@@ -87,6 +88,7 @@ public func exportFunction(
 /// ### See Also
 /// - ``exportFunction(to:shapeless:_:)``
 /// - ``importFunction(from:)``
+@available(iOS 16, macOS 13.3, *)
 public func exportFunctions(
     to url: URL, shapeless: Bool = false, _ f: @escaping ([MLXArray]) -> [MLXArray],
     build: (FunctionExporterMultiple) throws -> Void
@@ -114,6 +116,7 @@ public func exportFunctions(
 /// ### See Also
 /// - ``exportFunction(to:shapeless:_:)``
 @dynamicCallable
+@available(iOS 16, macOS 13.3, *)
 public final class FunctionExporterSingle {
     let url: URL
     let shapeless: Bool
@@ -172,6 +175,7 @@ public final class FunctionExporterSingle {
 /// ### See Also
 /// - ``exportFunctions(to:shapeless:_:build:)``
 @dynamicCallable
+@available(iOS 16, macOS 13.3, *)
 public final class FunctionExporterMultiple {
     let exporter: mlx_function_exporter
 
@@ -228,6 +232,7 @@ public final class FunctionExporterMultiple {
 /// ### See Also
 /// - ``exportFunction(to:shapeless:_:)``
 /// - ``exportFunctions(to:shapeless:_:build:)``
+@available(iOS 16, macOS 13.3, *)
 public func importFunction(from url: URL) throws -> ImportedFunction {
     try ImportedFunction(url: url)
 }
@@ -257,6 +262,7 @@ public func importFunction(from url: URL) throws -> ImportedFunction {
 /// let r = try f2(a, y: b)[0]
 /// ```
 @dynamicCallable
+@available(iOS 16, macOS 13.3, *)
 public final class ImportedFunction {
 
     private let ctx: mlx_imported_function

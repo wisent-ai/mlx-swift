@@ -5,6 +5,7 @@ import Foundation
 
 // MARK: - Backing / Bytes
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXArray {
 
     /// Return the dimension where the storage is contiguous.
@@ -277,6 +278,7 @@ extension MLXArray {
 }
 
 /// Return the strides for contiguous memory
+@available(iOS 16, macOS 13.3, *)
 func contiguousStrides(shape: [Int]) -> [Int] {
     var result = [Int]()
     var current = 1

@@ -6,6 +6,7 @@ import MLX
 /// Upsample the input signal spatially.
 ///
 /// See ``Upsample/init(scaleFactor:mode:)`` for more information.
+@available(iOS 16, macOS 13.3, *)
 open class Upsample: Module, UnaryLayer {
 
     public enum Mode: Sendable {
@@ -79,6 +80,7 @@ open class Upsample: Module, UnaryLayer {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 private func upsampleNearest(_ x: MLXArray, scale: [Float]) -> MLXArray {
     let dimensions = x.ndim - 2
     precondition(
@@ -121,8 +123,10 @@ private func upsampleNearest(_ x: MLXArray, scale: [Float]) -> MLXArray {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 private typealias IndexWeight = (MLXArray, MLXArray)
 
+@available(iOS 16, macOS 13.3, *)
 private func interpolate(
     _ x: MLXArray, scale: [Float], indexes: (Int, Float, Bool, Int, Int) -> [IndexWeight],
     alignCorners: Bool
@@ -182,6 +186,7 @@ private func interpolate(
 /// ```
 ///
 /// - Parameter values: input values
+@available(iOS 16, macOS 13.3, *)
 private func product<T>(values: [[T]]) -> [[T]] {
     guard !values.isEmpty else { return [] }
 
@@ -209,6 +214,7 @@ private func product<T>(values: [[T]]) -> [[T]] {
     return result
 }
 
+@available(iOS 16, macOS 13.3, *)
 private func nearestIndices(dimension N: Int, scale: Float, dim: Int, ndim: Int) -> MLXArray {
     let M = Int(scale * Float(N))
     var indices = arange(M, dtype: .float32)
@@ -226,6 +232,7 @@ private func nearestIndices(dimension N: Int, scale: Float, dim: Int, ndim: Int)
     return indices.asType(.uint32).reshaped(shape)
 }
 
+@available(iOS 16, macOS 13.3, *)
 private func linearIndices(dimension: Int, scale: Float, alignCorners: Bool, dim: Int, ndim: Int)
     -> [IndexWeight]
 {
@@ -242,6 +249,7 @@ private func linearIndices(dimension: Int, scale: Float, alignCorners: Bool, dim
     ]
 }
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledGetWeight1: @Sendable (MLXArray, MLXArray) -> MLXArray = {
     // PyTorch uses -0.5 for antialiasing=true (compatibility with PIL)
     // and uses -0.75 for antialiasing=false (compatibility with OpenCV)
@@ -253,6 +261,7 @@ private let compiledGetWeight1: @Sendable (MLXArray, MLXArray) -> MLXArray = {
     }
 }()
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledGetWeight2: @Sendable (MLXArray, MLXArray) -> MLXArray = {
     // PyTorch uses -0.5 for antialiasing=true (compatibility with PIL)
     // and uses -0.75 for antialiasing=false (compatibility with OpenCV)
@@ -264,6 +273,7 @@ private let compiledGetWeight2: @Sendable (MLXArray, MLXArray) -> MLXArray = {
     }
 }()
 
+@available(iOS 16, macOS 13.3, *)
 private func cubicIndices(dimension: Int, scale: Float, alignCorners: Bool, dim: Int, ndim: Int)
     -> [IndexWeight]
 {
@@ -294,6 +304,7 @@ private func cubicIndices(dimension: Int, scale: Float, alignCorners: Bool, dim:
     ]
 }
 
+@available(iOS 16, macOS 13.3, *)
 private func scaledIndices(dimension N: Int, scale: Float, alignCorners: Bool, dim: Int, ndim: Int)
     -> MLXArray
 {

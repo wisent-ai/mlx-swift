@@ -12,6 +12,7 @@ import MLX
 /// ### See Also
 /// - ``Dropout2d``
 /// - ``Dropout3d``
+@available(iOS 16, macOS 13.3, *)
 open class Dropout: Module, UnaryLayer {
 
     public let p1: Float
@@ -52,6 +53,7 @@ open class Dropout: Module, UnaryLayer {
 /// ### See Also
 /// - ``Dropout``
 /// - ``Dropout3d``
+@available(iOS 16, macOS 13.3, *)
 open class Dropout2d: Module, UnaryLayer {
 
     public let p1: Float
@@ -99,6 +101,7 @@ open class Dropout2d: Module, UnaryLayer {
 /// ### See Also
 /// - ``Dropout``
 /// - ``Dropout2d``
+@available(iOS 16, macOS 13.3, *)
 open class Dropout3d: Module, UnaryLayer {
 
     public let p1: Float

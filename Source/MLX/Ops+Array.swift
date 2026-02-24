@@ -16,6 +16,7 @@ import Foundation
 /// ### See Also
 /// - <doc:arithmetic>
 /// - ``MLXArray/abs(stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func abs(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_abs(&result, array.ctx, stream.ctx)
@@ -48,6 +49,7 @@ public func abs(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArra
 /// - ``all(_:axis:keepDims:stream:)``
 /// - ``all(_:keepDims:stream:)``
 /// - ``MLXArray/all(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func all(
     _ array: MLXArray, axes: some Collection<Int>, keepDims: Bool = false,
     stream: StreamOrDevice = .default
@@ -70,6 +72,7 @@ public func all(
 /// - ``all(_:axes:keepDims:stream:)``
 /// - ``all(_:keepDims:stream:)``
 /// - ``MLXArray/all(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func all(
     _ array: MLXArray, axis: Int, keepDims: Bool = false, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -90,6 +93,7 @@ public func all(
 /// - ``all(_:axes:keepDims:stream:)``
 /// - ``all(_:axis:keepDims:stream:)``
 /// - ``MLXArray/all(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func all(_ array: MLXArray, keepDims: Bool = false, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -135,6 +139,7 @@ public func all(_ array: MLXArray, keepDims: Bool = false, stream: StreamOrDevic
 /// - ``isClose(_:_:rtol:atol:equalNaN:stream:)``
 /// - ``arrayEqual(_:_:equalNAN:stream:)``
 /// - ``MLXArray/arrayEqual(_:equalNAN:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func allClose(
     _ array: MLXArray, _ other: some ScalarOrArray, rtol: Double = 1e-5, atol: Double = 1e-8,
     equalNaN: Bool = false, stream: StreamOrDevice = .default
@@ -171,6 +176,7 @@ public func allClose(
 /// - ``any(_:axis:keepDims:stream:)``
 /// - ``any(_:keepDims:stream:)``
 /// - ``MLXArray/any(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func any(
     _ array: MLXArray, axes: some Collection<Int>, keepDims: Bool = false,
     stream: StreamOrDevice = .default
@@ -193,6 +199,7 @@ public func any(
 /// - ``any(_:axes:keepDims:stream:)``
 /// - ``any(_:keepDims:stream:)``
 /// - ``MLXArray/any(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func any(
     _ array: MLXArray, axis: Int, keepDims: Bool = false, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -213,6 +220,7 @@ public func any(
 /// - ``any(_:axes:keepDims:stream:)``
 /// - ``any(_:axis:keepDims:stream:)``
 /// - ``MLXArray/any(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func any(_ array: MLXArray, keepDims: Bool = false, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -241,6 +249,7 @@ public func any(_ array: MLXArray, keepDims: Bool = false, stream: StreamOrDevic
 /// - ``argMax(_:keepDims:stream:)``
 /// - ``argMin(_:axis:keepDims:stream:)``
 /// - ``MLXArray/argMax(axis:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func argMax(
     _ array: MLXArray, axis: Int, keepDims: Bool = false, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -268,6 +277,7 @@ public func argMax(
 /// - ``argMax(_:axis:keepDims:stream:)``
 /// - ``argMin(_:axis:keepDims:stream:)``
 /// - ``MLXArray/argMax(axis:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func argMax(_ array: MLXArray, keepDims: Bool = false, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -296,6 +306,7 @@ public func argMax(_ array: MLXArray, keepDims: Bool = false, stream: StreamOrDe
 /// - ``argMin(_:keepDims:stream:)``
 /// - ``argMax(_:axis:keepDims:stream:)``
 /// - ``MLXArray/argMin(axis:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func argMin(
     _ array: MLXArray, axis: Int, keepDims: Bool = false, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -323,6 +334,7 @@ public func argMin(
 /// - ``argMin(_:axis:keepDims:stream:)``
 /// - ``argMax(_:axis:keepDims:stream:)``
 /// - ``MLXArray/argMin(axis:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func argMin(_ array: MLXArray, keepDims: Bool = false, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -351,6 +363,7 @@ public func argMin(_ array: MLXArray, keepDims: Bool = false, stream: StreamOrDe
 /// - ``isClose(_:_:rtol:atol:equalNaN:stream:)``
 /// - ``MLXArray/.==(_:_:)-(MLXArray,MLXArray)``
 /// - ``MLXArray/arrayEqual(_:equalNAN:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func arrayEqual(
     _ array: MLXArray, _ other: some ScalarOrArray, equalNAN: Bool = false,
     stream: StreamOrDevice = .default
@@ -367,6 +380,7 @@ public func arrayEqual(
 ///
 /// ### See Also
 /// - <doc:arithmetic>
+@available(iOS 16, macOS 13.3, *)
 public func bitwiseInvert(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_bitwise_invert(&result, array.ctx, stream.ctx)
@@ -380,6 +394,7 @@ public func bitwiseInvert(_ array: MLXArray, stream: StreamOrDevice = .default) 
 ///
 /// ### See Also
 /// - <doc:arithmetic>
+@available(iOS 16, macOS 13.3, *)
 public func bitwiseAnd(
     _ a: some ScalarOrArray, _ b: some ScalarOrArray, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -396,6 +411,7 @@ public func bitwiseAnd(
 ///
 /// ### See Also
 /// - <doc:arithmetic>
+@available(iOS 16, macOS 13.3, *)
 public func bitwiseOr(
     _ a: some ScalarOrArray, _ b: some ScalarOrArray, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -412,6 +428,7 @@ public func bitwiseOr(
 ///
 /// ### See Also
 /// - <doc:arithmetic>
+@available(iOS 16, macOS 13.3, *)
 public func bitwiseXOr(
     _ a: some ScalarOrArray, _ b: some ScalarOrArray, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -426,6 +443,7 @@ public func bitwiseXOr(
 /// ### See Also
 /// - <doc:arithmetic>
 /// - ``MLXArray/cos(stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func cos(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_cos(&result, array.ctx, stream.ctx)
@@ -436,6 +454,7 @@ public func cos(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArra
 ///
 /// ### See Also
 /// - <doc:arithmetic>
+@available(iOS 16, macOS 13.3, *)
 public func conjugate(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_conjugate(&result, array.ctx, stream.ctx)
@@ -455,6 +474,7 @@ public func conjugate(_ array: MLXArray, stream: StreamOrDevice = .default) -> M
 /// - <doc:cumulative>
 /// - ``cummax(_:reverse:inclusive:stream:)``
 /// - ``MLXArray/cummax(axis:reverse:inclusive:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func cummax(
     _ array: MLXArray, axis: Int, reverse: Bool = false, inclusive: Bool = true,
     stream: StreamOrDevice = .default
@@ -477,6 +497,7 @@ public func cummax(
 /// - <doc:cumulative>
 /// - ``cummax(_:axis:reverse:inclusive:stream:)``
 /// - ``MLXArray/cummax(axis:reverse:inclusive:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func cummax(
     _ array: MLXArray, reverse: Bool = false, inclusive: Bool = true,
     stream: StreamOrDevice = .default
@@ -500,6 +521,7 @@ public func cummax(
 /// - <doc:cumulative>
 /// - ``cummin(_:reverse:inclusive:stream:)``
 /// - ``MLXArray/cummin(axis:reverse:inclusive:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func cummin(
     _ array: MLXArray, axis: Int, reverse: Bool = false, inclusive: Bool = true,
     stream: StreamOrDevice = .default
@@ -522,6 +544,7 @@ public func cummin(
 /// - <doc:cumulative>
 /// - ``cummin(_:axis:reverse:inclusive:stream:)``
 /// - ``MLXArray/cummin(axis:reverse:inclusive:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func cummin(
     _ array: MLXArray, reverse: Bool = false, inclusive: Bool = true,
     stream: StreamOrDevice = .default
@@ -545,6 +568,7 @@ public func cummin(
 /// - <doc:cumulative>
 /// - ``cumprod(_:reverse:inclusive:stream:)``
 /// - ``MLXArray/cumprod(axis:reverse:inclusive:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func cumprod(
     _ array: MLXArray, axis: Int, reverse: Bool = false, inclusive: Bool = true,
     stream: StreamOrDevice = .default
@@ -567,6 +591,7 @@ public func cumprod(
 /// - <doc:cumulative>
 /// - ``cumprod(_:axis:reverse:inclusive:stream:)``
 /// - ``MLXArray/cumprod(axis:reverse:inclusive:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func cumprod(
     _ array: MLXArray, reverse: Bool = false, inclusive: Bool = true,
     stream: StreamOrDevice = .default
@@ -590,6 +615,7 @@ public func cumprod(
 /// - <doc:cumulative>
 /// - ``cumsum(_:reverse:inclusive:stream:)``
 /// - ``MLXArray/cumsum(axis:reverse:inclusive:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func cumsum(
     _ array: MLXArray, axis: Int, reverse: Bool = false, inclusive: Bool = true,
     stream: StreamOrDevice = .default
@@ -612,6 +638,7 @@ public func cumsum(
 /// - <doc:cumulative>
 /// - ``cumsum(_:axis:reverse:inclusive:stream:)``
 /// - ``MLXArray/cumsum(axis:reverse:inclusive:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func cumsum(
     _ array: MLXArray, reverse: Bool = false, inclusive: Bool = true,
     stream: StreamOrDevice = .default
@@ -635,6 +662,7 @@ public func cumsum(
 ///
 /// ### See Also
 /// - ``diagonal(_:offset:axis1:axis2:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func diag(_ array: MLXArray, k: Int = 0, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_diag(&result, array.ctx, k.int32, stream.ctx)
@@ -660,6 +688,7 @@ public func diag(_ array: MLXArray, k: Int = 0, stream: StreamOrDevice = .defaul
 ///
 /// ### See Also
 /// - ``diag(_:k:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func diagonal(
     _ array: MLXArray, offset: Int = 0, axis1: Int = 0, axis2: Int = 1,
     stream: StreamOrDevice = .default
@@ -675,6 +704,7 @@ public func diagonal(
 /// - <doc:arithmetic>
 /// - ``MLXArray/exp(stream:)``
 /// - ``expm1(_:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func exp(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_exp(&result, array.ctx, stream.ctx)
@@ -709,6 +739,7 @@ public func exp(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArra
 /// ### See Also
 /// - <doc:shapes>
 /// - ``MLXArray/flattened(start:end:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func flattened(
     _ array: MLXArray, start: Int = 0, end: Int = -1, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -725,6 +756,7 @@ public func flattened(
 /// - ``floorDivide(_:_:stream:)``
 /// - ``ceil(_:stream:)``
 /// - ``MLXArray/floor(stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func floor(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_floor(&result, array.ctx, stream.ctx)
@@ -749,6 +781,7 @@ public func floor(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXAr
 /// ### See Also
 /// - <doc:arithmetic>
 /// - ``floor(_:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func floorDivide(
     _ array: MLXArray, _ other: some ScalarOrArray, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -766,6 +799,7 @@ public func floorDivide(
 ///
 /// ### See Also
 /// - <doc:arithmetic>
+@available(iOS 16, macOS 13.3, *)
 public func leftShift(
     _ a: some ScalarOrArray, _ b: some ScalarOrArray, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -780,6 +814,7 @@ public func leftShift(
 /// ### See Also
 /// - <doc:arithmetic>
 /// - ``MLXArray/log(stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func log(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_log(&result, array.ctx, stream.ctx)
@@ -794,6 +829,7 @@ public func log(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArra
 /// - ``log10(_:stream:)``
 /// - ``log1p(_:stream:)``
 /// - ``MLXArray/log2(stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func log2(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_log2(&result, array.ctx, stream.ctx)
@@ -808,6 +844,7 @@ public func log2(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArr
 /// - ``log2(_:stream:)``
 /// - ``log1p(_:stream:)``
 /// - ``MLXArray/log10(stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func log10(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_log10(&result, array.ctx, stream.ctx)
@@ -822,6 +859,7 @@ public func log10(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXAr
 /// - ``log2(_:stream:)``
 /// - ``log10(_:stream:)``
 /// - ``MLXArray/log1p(stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func log1p(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_log1p(&result, array.ctx, stream.ctx)
@@ -847,6 +885,7 @@ public func log1p(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXAr
 /// - ``logSumExp(_:axis:keepDims:stream:)``
 /// - ``logSumExp(_:keepDims:stream:)``
 /// - ``MLXArray/logSumExp(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func logSumExp(
     _ array: MLXArray, axes: some Collection<Int>, keepDims: Bool = false,
     stream: StreamOrDevice = .default
@@ -875,6 +914,7 @@ public func logSumExp(
 /// - ``logSumExp(_:axes:keepDims:stream:)``
 /// - ``logSumExp(_:keepDims:stream:)``
 /// - ``MLXArray/logSumExp(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func logSumExp(
     _ array: MLXArray, axis: Int, keepDims: Bool = false, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -901,6 +941,7 @@ public func logSumExp(
 /// - ``logSumExp(_:axes:keepDims:stream:)``
 /// - ``logSumExp(_:axis:keepDims:stream:)``
 /// - ``MLXArray/logSumExp(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func logSumExp(_ array: MLXArray, keepDims: Bool = false, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -945,6 +986,7 @@ public func logSumExp(_ array: MLXArray, keepDims: Bool = false, stream: StreamO
 /// - ``addMM(_:_:_:alpha:beta:stream:)``
 /// - ``blockMaskedMM(_:_:blockSize:maskOut:maskLHS:maskRHS:stream:)``
 /// - ``MLXArray/matmul(_:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func matmul(_ a: MLXArray, _ b: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_matmul(&result, a.ctx, b.ctx, stream.ctx)
@@ -971,6 +1013,7 @@ public func matmul(_ a: MLXArray, _ b: MLXArray, stream: StreamOrDevice = .defau
 /// - ``max(_:axis:keepDims:stream:)``
 /// - ``max(_:keepDims:stream:)``
 /// - ``MLXArray/max(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func max(
     _ array: MLXArray, axes: some Collection<Int>, keepDims: Bool = false,
     stream: StreamOrDevice = .default
@@ -1000,6 +1043,7 @@ public func max(
 /// - ``max(_:axes:keepDims:stream:)``
 /// - ``max(_:keepDims:stream:)``
 /// - ``MLXArray/max(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func max(
     _ array: MLXArray, axis: Int, keepDims: Bool = false, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -1027,6 +1071,7 @@ public func max(
 /// - ``max(_:axes:keepDims:stream:)``
 /// - ``max(_:axis:keepDims:stream:)``
 /// - ``MLXArray/max(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func max(_ array: MLXArray, keepDims: Bool = false, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -1055,6 +1100,7 @@ public func max(_ array: MLXArray, keepDims: Bool = false, stream: StreamOrDevic
 /// - ``mean(_:axis:keepDims:stream:)``
 /// - ``mean(_:keepDims:stream:)``
 /// - ``MLXArray/mean(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func mean(
     _ array: MLXArray, axes: some Collection<Int>, keepDims: Bool = false,
     stream: StreamOrDevice = .default
@@ -1084,6 +1130,7 @@ public func mean(
 /// - ``mean(_:axes:keepDims:stream:)``
 /// - ``mean(_:keepDims:stream:)``
 /// - ``MLXArray/mean(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func mean(
     _ array: MLXArray, axis: Int, keepDims: Bool = false, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -1111,6 +1158,7 @@ public func mean(
 /// - ``mean(_:axes:keepDims:stream:)``
 /// - ``mean(_:axis:keepDims:stream:)``
 /// - ``MLXArray/mean(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func mean(_ array: MLXArray, keepDims: Bool = false, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -1139,6 +1187,7 @@ public func mean(_ array: MLXArray, keepDims: Bool = false, stream: StreamOrDevi
 /// - ``min(_:axis:keepDims:stream:)``
 /// - ``min(_:keepDims:stream:)``
 /// - ``MLXArray/min(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func min(
     _ array: MLXArray, axes: some Collection<Int>, keepDims: Bool = false,
     stream: StreamOrDevice = .default
@@ -1168,6 +1217,7 @@ public func min(
 /// - ``min(_:axes:keepDims:stream:)``
 /// - ``min(_:keepDims:stream:)``
 /// - ``MLXArray/min(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func min(
     _ array: MLXArray, axis: Int, keepDims: Bool = false, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -1195,6 +1245,7 @@ public func min(
 /// - ``min(_:axes:keepDims:stream:)``
 /// - ``min(_:axis:keepDims:stream:)``
 /// - ``MLXArray/min(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func min(_ array: MLXArray, keepDims: Bool = false, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -1233,6 +1284,7 @@ public func min(_ array: MLXArray, keepDims: Bool = false, stream: StreamOrDevic
 /// - <doc:shapes>
 /// - ``swappedAxes(_:_:_:stream:)``
 /// - ``MLXArray/movedAxis(source:destination:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func movedAxis(
     _ array: MLXArray, source: Int, destination: Int, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -1260,6 +1312,7 @@ public func movedAxis(
 /// - ``MLXArray/pow(_:stream:)``
 /// - ``pow(_:_:stream:)-(_,ScalarOrArray,_)``
 /// - ``pow(_:_:stream:)-(ScalarOrArray,_,_)``
+@available(iOS 16, macOS 13.3, *)
 public func pow(_ array: MLXArray, _ other: MLXArray, stream: StreamOrDevice = .default) -> MLXArray
 {
     var result = mlx_array_new()
@@ -1285,6 +1338,7 @@ public func pow(_ array: MLXArray, _ other: MLXArray, stream: StreamOrDevice = .
 /// - ``MLXArray/pow(_:stream:)``
 /// - ``pow(_:_:stream:)-(MLXArray,MLXArray,_)``
 /// - ``pow(_:_:stream:)-(ScalarOrArray,_,_)``
+@available(iOS 16, macOS 13.3, *)
 public func pow(_ array: MLXArray, _ other: some ScalarOrArray, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -1310,6 +1364,7 @@ public func pow(_ array: MLXArray, _ other: some ScalarOrArray, stream: StreamOr
 /// - ``MLXArray/pow(_:stream:)``
 /// - ``pow(_:_:stream:)-(MLXArray,MLXArray,_)``
 /// - ``pow(_:_:stream:)-(_,ScalarOrArray,_)``
+@available(iOS 16, macOS 13.3, *)
 public func pow(_ array: some ScalarOrArray, _ other: MLXArray, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -1337,6 +1392,7 @@ public func pow(_ array: some ScalarOrArray, _ other: MLXArray, stream: StreamOr
 /// - ``product(_:axis:keepDims:stream:)``
 /// - ``product(_:keepDims:stream:)``
 /// - ``MLXArray/product(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func product(
     _ array: MLXArray, axes: some Collection<Int>, keepDims: Bool = false,
     stream: StreamOrDevice = .default
@@ -1366,6 +1422,7 @@ public func product(
 /// - ``product(_:axes:keepDims:stream:)``
 /// - ``product(_:keepDims:stream:)``
 /// - ``MLXArray/product(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func product(
     _ array: MLXArray, axis: Int, keepDims: Bool = false, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -1393,6 +1450,7 @@ public func product(
 /// - ``product(_:axes:keepDims:stream:)``
 /// - ``product(_:axis:keepDims:stream:)``
 /// - ``MLXArray/product(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func product(_ array: MLXArray, keepDims: Bool = false, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -1406,6 +1464,7 @@ public func product(_ array: MLXArray, keepDims: Bool = false, stream: StreamOrD
 /// ### See Also
 /// - <doc:arithmetic>
 /// - ``MLXArray/reciprocal(stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func reciprocal(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_reciprocal(&result, array.ctx, stream.ctx)
@@ -1424,6 +1483,7 @@ public func reciprocal(_ array: MLXArray, stream: StreamOrDevice = .default) -> 
 /// - <doc:shapes>
 /// - ``MLXArray/reshaped(_:stream:)-(Collection<Int>,StreamOrDevice)``
 /// - ``reshaped(_:_:stream:)-(MLXArray,Collection<Int>,StreamOrDevice)``
+@available(iOS 16, macOS 13.3, *)
 public func reshaped(
     _ array: MLXArray, _ newShape: some Collection<Int>, stream: StreamOrDevice = .default
 )
@@ -1446,6 +1506,7 @@ public func reshaped(
 /// - <doc:shapes>
 /// - ``MLXArray/reshaped(_:stream:)-(Int...,StreamOrDevice)``
 /// - ``reshaped(_:_:stream:)-(MLXArray,Int...,StreamOrDevice)``
+@available(iOS 16, macOS 13.3, *)
 public func reshaped(_ array: MLXArray, _ newShape: Int..., stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -1462,6 +1523,7 @@ public func reshaped(_ array: MLXArray, _ newShape: Int..., stream: StreamOrDevi
 ///
 /// ### See Also
 /// - <doc:arithmetic>
+@available(iOS 16, macOS 13.3, *)
 public func rightShift(
     _ a: some ScalarOrArray, _ b: some ScalarOrArray, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -1486,6 +1548,7 @@ public func rightShift(
 /// - <doc:arithmetic>
 /// - ``floor(_:stream:)``
 /// - ``MLXArray/round(decimals:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func round(_ array: MLXArray, decimals: Int = 0, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -1499,6 +1562,7 @@ public func round(_ array: MLXArray, decimals: Int = 0, stream: StreamOrDevice =
 /// ### See Also
 /// - <doc:arithmetic>
 /// - ``MLXArray/rsqrt(stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func rsqrt(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_rsqrt(&result, array.ctx, stream.ctx)
@@ -1510,6 +1574,7 @@ public func rsqrt(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXAr
 /// ### See Also
 /// - <doc:arithmetic>
 /// - ``MLXArray/sin(stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func sin(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_sin(&result, array.ctx, stream.ctx)
@@ -1543,6 +1608,7 @@ public func sin(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArra
 /// - ``split(_:parts:axis:stream:)``
 /// - ``split(_:indices:axis:stream:)``
 /// - ``MLXArray/split(parts:axis:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func split(_ array: MLXArray, parts: Int, axis: Int = 0, stream: StreamOrDevice = .default)
     -> [MLXArray]
 {
@@ -1572,6 +1638,7 @@ public func split(_ array: MLXArray, parts: Int, axis: Int = 0, stream: StreamOr
 /// - ``split(_:parts:axis:stream:)``
 /// - ``split(_:indices:axis:stream:)``
 /// - ``MLXArray/split(parts:axis:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func split(_ array: MLXArray, axis: Int = 0, stream: StreamOrDevice = .default)
     -> (MLXArray, MLXArray)
 {
@@ -1594,6 +1661,7 @@ public func split(_ array: MLXArray, axis: Int = 0, stream: StreamOrDevice = .de
 /// - <doc:shapes>
 /// - ``split(_:parts:axis:stream:)``
 /// - ``MLXArray/split(indices:axis:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func split(
     _ array: MLXArray, indices: some Collection<Int>, axis: Int = 0,
     stream: StreamOrDevice = .default
@@ -1609,6 +1677,7 @@ public func split(
 /// ### See Also
 /// - <doc:arithmetic>
 /// - ``MLXArray/sqrt(stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func sqrt(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_sqrt(&result, array.ctx, stream.ctx)
@@ -1620,6 +1689,7 @@ public func sqrt(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArr
 /// ### See Also
 /// - <doc:arithmetic>
 /// - ``MLXArray/square(stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func square(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_square(&result, array.ctx, stream.ctx)
@@ -1638,6 +1708,7 @@ public func square(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXA
 /// - ``squeezed(_:axis:stream:)``
 /// - ``squeezed(_:stream:)``
 /// - ``MLXArray/squeezed(axes:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func squeezed(
     _ array: MLXArray, axes: some Collection<Int>, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -1658,6 +1729,7 @@ public func squeezed(
 /// - ``squeezed(_:axes:stream:)``
 /// - ``squeezed(_:stream:)``
 /// - ``MLXArray/squeezed(axes:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func squeezed(_ array: MLXArray, axis: Int, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_squeeze_axis(&result, array.ctx, axis.int32, stream.ctx)
@@ -1671,6 +1743,7 @@ public func squeezed(_ array: MLXArray, axis: Int, stream: StreamOrDevice = .def
 /// - ``squeezed(_:axes:stream:)``
 /// - ``squeezed(_:axis:stream:)``
 /// - ``MLXArray/squeezed(axes:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func squeezed(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_squeeze(&result, array.ctx, stream.ctx)
@@ -1690,6 +1763,7 @@ public func squeezed(_ array: MLXArray, stream: StreamOrDevice = .default) -> ML
 /// - ``sum(_:axis:keepDims:stream:)``
 /// - ``sum(_:keepDims:stream:)``
 /// - ``MLXArray/sum(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func sum(
     _ array: MLXArray, axes: some Collection<Int>, keepDims: Bool = false,
     stream: StreamOrDevice = .default
@@ -1712,6 +1786,7 @@ public func sum(
 /// - ``sum(_:axes:keepDims:stream:)``
 /// - ``sum(_:keepDims:stream:)``
 /// - ``MLXArray/sum(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func sum(
     _ array: MLXArray, axis: Int, keepDims: Bool = false, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -1732,6 +1807,7 @@ public func sum(
 /// - ``sum(_:axes:keepDims:stream:)``
 /// - ``sum(_:axis:keepDims:stream:)``
 /// - ``MLXArray/sum(axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func sum(_ array: MLXArray, keepDims: Bool = false, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -1769,6 +1845,7 @@ public func sum(_ array: MLXArray, keepDims: Bool = false, stream: StreamOrDevic
 /// ### See Also
 /// - <doc:shapes>
 /// - ``MLXArray/swappedAxes(_:_:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func swappedAxes(
     _ array: MLXArray, _ axis1: Int, _ axis2: Int, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -1791,6 +1868,7 @@ public func swappedAxes(
 /// ### See Also
 /// - ``take(_:_:stream:)``
 /// - ``MLXArray/take(_:axis:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func take(
     _ array: MLXArray, _ indices: MLXArray, axis: Int, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -1804,6 +1882,7 @@ public func take(
 /// ### See Also
 /// - ``take(_:_:axis:stream:)``
 /// - ``MLXArray/take(_:axis:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func take(_ array: MLXArray, _ indices: MLXArray, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -1825,6 +1904,7 @@ public func take(_ array: MLXArray, _ indices: MLXArray, stream: StreamOrDevice 
 /// - ``transposed(_:axis:stream:)``
 /// - ``transposed(_:stream:)``
 /// - ``MLXArray/transposed(axes:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func transposed(
     _ array: MLXArray, axes: some Collection<Int>, stream: StreamOrDevice = .default
 )
@@ -1835,6 +1915,7 @@ public func transposed(
     return MLXArray(result)
 }
 
+@available(iOS 16, macOS 13.3, *)
 public func transposed(_ array: MLXArray, _ axes: Int..., stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -1852,6 +1933,7 @@ public func transposed(_ array: MLXArray, _ axes: Int..., stream: StreamOrDevice
 /// - ``transposed(_:axes:stream:)``
 /// - ``transposed(_:stream:)``
 /// - ``MLXArray/transposed(axes:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func transposed(_ array: MLXArray, axis: Int, stream: StreamOrDevice = .default) -> MLXArray
 {
     var result = mlx_array_new()
@@ -1868,6 +1950,7 @@ public func transposed(_ array: MLXArray, axis: Int, stream: StreamOrDevice = .d
 /// - ``transposed(_:axes:stream:)``
 /// - ``transposed(_:axis:stream:)``
 /// - ``MLXArray/transposed(axes:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func transposed(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_transpose(&result, array.ctx, stream.ctx)
@@ -1877,6 +1960,7 @@ public func transposed(_ array: MLXArray, stream: StreamOrDevice = .default) -> 
 /// Transpose the dimensions of the array.
 ///
 /// Cover for ``transposed(_:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func T(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     transposed(array, stream: stream)
 }
@@ -1895,6 +1979,7 @@ public func T(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray 
 /// - ``variance(_:axis:keepDims:ddof:stream:)``
 /// - ``variance(_:keepDims:ddof:stream:)``
 /// - ``MLXArray/variance(axes:keepDims:ddof:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func variance(
     _ array: MLXArray, axes: some Collection<Int>, keepDims: Bool = false, ddof: Int = 0,
     stream: StreamOrDevice = .default
@@ -1918,6 +2003,7 @@ public func variance(
 /// - ``variance(_:axes:keepDims:ddof:stream:)``
 /// - ``variance(_:keepDims:ddof:stream:)``
 /// - ``MLXArray/variance(axes:keepDims:ddof:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func variance(
     _ array: MLXArray, axis: Int, keepDims: Bool = false, ddof: Int = 0,
     stream: StreamOrDevice = .default
@@ -1940,6 +2026,7 @@ public func variance(
 /// - ``variance(_:axes:keepDims:ddof:stream:)``
 /// - ``variance(_:axis:keepDims:ddof:stream:)``
 /// - ``MLXArray/variance(axes:keepDims:ddof:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func variance(
     _ array: MLXArray, keepDims: Bool = false, ddof: Int = 0, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -1964,6 +2051,7 @@ public func variance(
 ///
 /// ### See Also
 ///- ``MLXArray/view(dtype:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func view(_ array: MLXArray, dtype: DType, stream: StreamOrDevice = .default) -> MLXArray {
     var result = mlx_array_new()
     mlx_view(&result, array.ctx, dtype.cmlxDtype, stream.ctx)

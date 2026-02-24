@@ -6,12 +6,14 @@ import Foundation
 /// lock to be held while doing any eval or asyncEval.  This is
 /// a recursive lock to handle any cases where a closure might
 /// call back into eval.
+@available(iOS 16, macOS 13.3, *)
 let evalLock = NSRecursiveLock()
 
 /// Evaluate one or more `MLXArray`
 ///
 /// ### See Also
 /// - <doc:lazy-evaluation>
+@available(iOS 16, macOS 13.3, *)
 public func eval(_ arrays: MLXArray...) {
     let vector_array = new_mlx_vector_array(arrays)
     _ = evalLock.withLock {
@@ -24,6 +26,7 @@ public func eval(_ arrays: MLXArray...) {
 ///
 /// ### See Also
 /// - <doc:lazy-evaluation>
+@available(iOS 16, macOS 13.3, *)
 public func eval(_ arrays: some Collection<MLXArray>) {
     let vector_array = new_mlx_vector_array(arrays)
     _ = evalLock.withLock {
@@ -37,6 +40,7 @@ public func eval(_ arrays: some Collection<MLXArray>) {
 /// ### See Also
 /// - <doc:lazy-evaluation>
 /// - ``asyncEval(_:)-(Collection<MLXArray>)``
+@available(iOS 16, macOS 13.3, *)
 public func asyncEval(_ arrays: some Collection<MLXArray>) {
     let vector_array = new_mlx_vector_array(arrays)
     _ = evalLock.withLock {
@@ -66,6 +70,7 @@ public func asyncEval(_ arrays: some Collection<MLXArray>) {
 /// ### See Also
 /// - <doc:lazy-evaluation>
 /// - ``asyncEval(_:)-(Collection<MLXArray>)``
+@available(iOS 16, macOS 13.3, *)
 public func eval(_ values: Any...) {
     var arrays = [MLXArray]()
 
@@ -79,6 +84,7 @@ public func eval(_ values: Any...) {
 /// Evaluate one or more `MLXArray`.
 ///
 /// See ``eval(_:)``
+@available(iOS 16, macOS 13.3, *)
 public func eval(_ values: some Sequence<Any>) {
     var arrays = [MLXArray]()
 
@@ -93,6 +99,7 @@ public func eval(_ values: some Sequence<Any>) {
 ///
 /// ### See Also
 /// - <doc:lazy-evaluation>
+@available(iOS 16, macOS 13.3, *)
 public func checkedEval(_ values: Any...) throws {
     var arrays = [MLXArray]()
 
@@ -109,6 +116,7 @@ public func checkedEval(_ values: Any...) throws {
 ///
 /// ### See Also
 /// - <doc:lazy-evaluation>
+@available(iOS 16, macOS 13.3, *)
 public func checkedEval(_ values: some Sequence<Any>) throws {
     var arrays = [MLXArray]()
 
@@ -141,6 +149,7 @@ public func checkedEval(_ values: some Sequence<Any>) throws {
 ///
 /// ### See Also
 /// - <doc:lazy-evaluation>
+@available(iOS 16, macOS 13.3, *)
 public func asyncEval(_ values: Any...) {
     var arrays = [MLXArray]()
 
@@ -154,6 +163,7 @@ public func asyncEval(_ values: Any...) {
 /// Evaluate one or more `MLXArray` asynchronously.
 ///
 /// See ``asyncEval(_:)-(Collection<MLXArray>)``
+@available(iOS 16, macOS 13.3, *)
 public func asyncEval(_ values: some Sequence<Any>) {
     var arrays = [MLXArray]()
 
@@ -164,6 +174,7 @@ public func asyncEval(_ values: some Sequence<Any>) {
     asyncEval(arrays)
 }
 
+@available(iOS 16, macOS 13.3, *)
 private func collect(_ item: Any, into arrays: inout [MLXArray]) {
     switch item {
     case let v as Evaluatable:

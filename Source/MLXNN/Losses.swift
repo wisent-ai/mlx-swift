@@ -4,6 +4,7 @@ import Foundation
 import MLX
 
 /// Different types of loss reductions
+@available(iOS 16, macOS 13.3, *)
 public enum LossReduction: String, Sendable {
     /// take the `mean` of the loss. This produces a a scalar array
     case mean
@@ -37,6 +38,7 @@ public enum LossReduction: String, Sendable {
 ///
 /// ### See Also
 /// - <doc:losses>
+@available(iOS 16, macOS 13.3, *)
 public func crossEntropy(
     logits: MLXArray, targets: MLXArray, weights: MLXArray? = nil, axis: Int = -1,
     labelSmoothing: Float = 0, reduction: LossReduction = .none
@@ -97,6 +99,7 @@ public func crossEntropy(
 ///
 /// ### See Also
 /// - <doc:losses>
+@available(iOS 16, macOS 13.3, *)
 public func binaryCrossEntropy(
     logits: MLXArray, targets: MLXArray,
     weights: MLXArray? = nil, withLogits: Bool = true,
@@ -126,6 +129,7 @@ public func binaryCrossEntropy(
 ///
 /// ### See Also
 /// - <doc:losses>
+@available(iOS 16, macOS 13.3, *)
 public func l1Loss(predictions: MLXArray, targets: MLXArray, reduction: LossReduction = .mean)
     -> MLXArray
 {
@@ -143,6 +147,7 @@ public func l1Loss(predictions: MLXArray, targets: MLXArray, reduction: LossRedu
 ///
 /// ### See Also
 /// - <doc:losses>
+@available(iOS 16, macOS 13.3, *)
 public func mseLoss(predictions: MLXArray, targets: MLXArray, reduction: LossReduction = .mean)
     -> MLXArray
 {
@@ -161,6 +166,7 @@ public func mseLoss(predictions: MLXArray, targets: MLXArray, reduction: LossRed
 ///
 /// ### See Also
 /// - <doc:losses>
+@available(iOS 16, macOS 13.3, *)
 public func nllLoss(
     inputs: MLXArray, targets: MLXArray, axis: Int = -1, reduction: LossReduction = .none
 ) -> MLXArray {
@@ -186,6 +192,7 @@ public func nllLoss(
 ///
 /// ### See Also
 /// - <doc:losses>
+@available(iOS 16, macOS 13.3, *)
 public func klDivLoss(
     inputs: MLXArray, targets: MLXArray, axis: Int = -1, reduction: LossReduction = .none
 ) -> MLXArray {
@@ -208,6 +215,7 @@ public func klDivLoss(
 ///
 /// ### See Also
 /// - <doc:losses>
+@available(iOS 16, macOS 13.3, *)
 public func smoothL1Loss(
     predictions: MLXArray, targets: MLXArray, beta: Float = 1, reduction: LossReduction = .mean
 ) -> MLXArray {
@@ -234,6 +242,7 @@ public func smoothL1Loss(
 ///
 /// ### See Also
 /// - <doc:losses>
+@available(iOS 16, macOS 13.3, *)
 public func tripletLoss(
     anchors: MLXArray, positives: MLXArray, negatives: MLXArray, axis: Int = -1, p: Int = 2,
     margin: Float = 1.0, eps: Float = 1e-6, reduction: LossReduction = .none
@@ -258,6 +267,7 @@ public func tripletLoss(
 ///
 /// ### See Also
 /// - <doc:losses>
+@available(iOS 16, macOS 13.3, *)
 public func hingeLoss(inputs: MLXArray, targets: MLXArray, reduction: LossReduction = .none)
     -> MLXArray
 {
@@ -276,6 +286,7 @@ public func hingeLoss(inputs: MLXArray, targets: MLXArray, reduction: LossReduct
 ///
 /// ### See Also
 /// - <doc:losses>
+@available(iOS 16, macOS 13.3, *)
 public func huberLoss(
     inputs: MLXArray, targets: MLXArray, delta: Float = 1.0, reduction: LossReduction = .none
 ) -> MLXArray {
@@ -302,6 +313,7 @@ public func huberLoss(
 ///
 /// ### See Also
 /// - <doc:losses>
+@available(iOS 16, macOS 13.3, *)
 public func logCoshLoss(inputs: MLXArray, targets: MLXArray, reduction: LossReduction = .none)
     -> MLXArray
 {
@@ -323,6 +335,7 @@ public func logCoshLoss(inputs: MLXArray, targets: MLXArray, reduction: LossRedu
 ///
 /// ### See Also
 /// - <doc:losses>
+@available(iOS 16, macOS 13.3, *)
 public func cosineSimilarityLoss(
     x1: MLXArray, x2: MLXArray, axis: Int = 1, eps: Float = 1e-8, reduction: LossReduction = .none
 ) -> MLXArray {

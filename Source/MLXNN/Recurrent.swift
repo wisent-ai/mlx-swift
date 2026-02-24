@@ -6,6 +6,7 @@ import MLX
 /// An Elman recurrent layer.
 ///
 /// See ``RNN/init(inputSize:hiddenSize:bias:nonLinearity:)``
+@available(iOS 16, macOS 13.3, *)
 open class RNN: Module {
 
     public let hiddenSize: Int
@@ -80,6 +81,7 @@ open class RNN: Module {
 /// A gated recurrent unit (GRU) RNN layer.
 ///
 /// See ``GRU/init(inputSize:hiddenSize:bias:)``
+@available(iOS 16, macOS 13.3, *)
 open class GRU: Module {
 
     public let hiddenSize: Int
@@ -181,6 +183,7 @@ open class GRU: Module {
 /// An LSTM recurrent layer.
 ///
 /// See ``LSTM/init(inputSize:hiddenSize:bias:)``
+@available(iOS 16, macOS 13.3, *)
 open class LSTM: Module {
 
     public let hiddenSize: Int

@@ -4,6 +4,7 @@ import Foundation
 import MLX
 
 /// Protocol for layers that can be quantized
+@available(iOS 16, macOS 13.3, *)
 public protocol Quantizable {
 
     /// Return the module as a quantized representation
@@ -14,6 +15,7 @@ public protocol Quantizable {
     func toQuantized(groupSize: Int, bits: Int, mode: QuantizationMode) -> Module
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension Quantizable {
     public func toQuantized(groupSize: Int, bits: Int) -> Module {
         toQuantized(groupSize: groupSize, bits: bits, mode: .affine)
@@ -21,6 +23,7 @@ extension Quantizable {
 }
 
 /// Protocol for layers that are quantized.
+@available(iOS 16, macOS 13.3, *)
 public protocol Quantized: Module {
     var groupSize: Int { get }
     var bits: Int { get }
@@ -28,6 +31,7 @@ public protocol Quantized: Module {
 }
 
 /// Quantize any ``Quantizable`` layer that is not already quantized.
+@available(iOS 16, macOS 13.3, *)
 public func quantizeSingle(
     layer: Module, groupSize: Int = 64, bits: Int = 4, mode: QuantizationMode = .affine
 ) -> Quantized? {
@@ -54,6 +58,7 @@ public func quantizeSingle(
 ///   - apply: function to attempt the quantization -- the default implementation will quantize ``Linear`` and ``Embedding``
 /// ### See Also
 /// - ``quantize(model:filter:apply:)-(_,_,(Module,Int,Int,QuantizationMode)->Module?)``
+@available(iOS 16, macOS 13.3, *)
 public func quantize(
     model: Module,
     groupSize: Int = 64, bits: Int = 4, mode: QuantizationMode = .affine,
@@ -80,6 +85,7 @@ public func quantize(
 
 @available(*, deprecated, message: "use quantize that takes a 4 argument apply")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func quantize(
     model: Module, groupSize: Int = 64, bits: Int = 4,
     filter: (String, Module) -> Bool = { _, _ in true },
@@ -103,6 +109,7 @@ public func quantize(
 ///   - apply: function to attempt the quantization -- the default implementation will quantize ``Linear`` and ``Embedding`` layers
 /// ### See Also
 /// - ``quantize(model:groupSize:bits:filter:apply:)``
+@available(iOS 16, macOS 13.3, *)
 public func quantize(
     model: Module,
     filter: (String, Module) -> (groupSize: Int, bits: Int, mode: QuantizationMode)?,
@@ -128,6 +135,7 @@ public func quantize(
 
 @available(*, deprecated, message: "use quantize that takes a 4 argument apply")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func quantize(
     model: Module,
     filter: (String, Module) -> (groupSize: Int, bits: Int)?,
@@ -151,6 +159,7 @@ public func quantize(
 }
 
 /// The same as ``Embedding`` but with a quantized weight matrix.
+@available(iOS 16, macOS 13.3, *)
 open class QuantizedEmbedding: Embedding, Quantized {
 
     public let groupSize: Int
@@ -235,6 +244,7 @@ open class QuantizedEmbedding: Embedding, Quantized {
 ///
 /// ### See Also
 /// - ``QuantizedLinear/init(_:_:bias:groupSize:bits:mode:)``
+@available(iOS 16, macOS 13.3, *)
 open class QuantizedLinear: Linear, Quantized {
 
     public let groupSize: Int

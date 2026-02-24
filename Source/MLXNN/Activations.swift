@@ -17,6 +17,7 @@ import MLX
 /// ### See Also
 /// - <doc:activations>
 /// - ``Sigmoid``
+@available(iOS 16, macOS 13.3, *)
 public func sigmoid(_ x: MLXArray) -> MLXArray {
     MLX.sigmoid(x)
 }
@@ -32,6 +33,7 @@ public func sigmoid(_ x: MLXArray) -> MLXArray {
 /// ### See Also
 /// - <doc:activations>
 /// - ``ReLU``
+@available(iOS 16, macOS 13.3, *)
 public func relu(_ x: MLXArray) -> MLXArray {
     compiledRelu(x)
 }
@@ -47,6 +49,7 @@ public func relu(_ x: MLXArray) -> MLXArray {
 /// ### See Also
 /// - <doc:activations>
 /// - ``LeakyReLU``
+@available(iOS 16, macOS 13.3, *)
 public func leakyRelu(_ x: MLXArray, negativeSlope: Float = 0.01) -> MLXArray {
     let negativeSlope = negativeSlope.asMLXArray(dtype: x.dtype)
     return compiledLeakyRelu(x, negativeSlope)
@@ -54,6 +57,7 @@ public func leakyRelu(_ x: MLXArray, negativeSlope: Float = 0.01) -> MLXArray {
 
 @available(*, deprecated, renamed: "logSoftmax(_:axis:)")
 @_documentation(visibility: internal)
+@available(iOS 16, macOS 13.3, *)
 public func logSoftMax(_ x: MLXArray, axis: Int = -1) -> MLXArray {
     logSoftmax(x, axis: axis)
 }
@@ -69,6 +73,7 @@ public func logSoftMax(_ x: MLXArray, axis: Int = -1) -> MLXArray {
 /// ### See Also
 /// - <doc:activations>
 /// - ``LogSoftmax``
+@available(iOS 16, macOS 13.3, *)
 public func logSoftmax(_ x: MLXArray, axis: Int = -1) -> MLXArray {
     x - logSumExp(x, axis: axis, keepDims: true)
 }
@@ -83,6 +88,7 @@ public func logSoftmax(_ x: MLXArray, axis: Int = -1) -> MLXArray {
 ///
 /// ### See Also
 /// - <doc:activations>
+@available(iOS 16, macOS 13.3, *)
 public func elu(_ x: MLXArray, alpha: Float = 1.0) -> MLXArray {
     let alpha = alpha.asMLXArray(dtype: x.dtype)
     return compiledElu(x, alpha)
@@ -99,6 +105,7 @@ public func elu(_ x: MLXArray, alpha: Float = 1.0) -> MLXArray {
 /// ### See Also
 /// - <doc:activations>
 /// - ``ReLU6``
+@available(iOS 16, macOS 13.3, *)
 public func relu6(_ x: MLXArray) -> MLXArray {
     compiledRelu6(x)
 }
@@ -114,12 +121,14 @@ public func relu6(_ x: MLXArray) -> MLXArray {
 /// /// ### See Also
 /// - <doc:activations>
 /// - ``ReLUSquared``
+@available(iOS 16, macOS 13.3, *)
 public func reluSquared(_ x: MLXArray) -> MLXArray {
     compiledReluSquared(x)
 }
 
 @available(*, deprecated, renamed: "softplus(_:)")
 @_documentation(visibility: internal)
+@available(iOS 16, macOS 13.3, *)
 public func softPlus(_ x: MLXArray) -> MLXArray {
     softplus(x)
 }
@@ -135,12 +144,14 @@ public func softPlus(_ x: MLXArray) -> MLXArray {
 /// ### See Also
 /// - <doc:activations>
 /// - ``Softplus``
+@available(iOS 16, macOS 13.3, *)
 public func softplus(_ x: MLXArray) -> MLXArray {
     logAddExp(x, 0)
 }
 
 @available(*, deprecated, renamed: "softplus(_:)")
 @_documentation(visibility: internal)
+@available(iOS 16, macOS 13.3, *)
 public func softSign(_ x: MLXArray) -> MLXArray {
     softsign(x)
 }
@@ -156,6 +167,7 @@ public func softSign(_ x: MLXArray) -> MLXArray {
 /// ### See Also
 /// - <doc:activations>
 /// - ``Softsign``
+@available(iOS 16, macOS 13.3, *)
 public func softsign(_ x: MLXArray) -> MLXArray {
     compiledSoftsign(x)
 }
@@ -177,6 +189,7 @@ public func softsign(_ x: MLXArray) -> MLXArray {
 /// - Parameters:
 ///   - x: input array
 ///   - lambda: lambda value
+@available(iOS 16, macOS 13.3, *)
 public func softshrink(_ x: MLXArray, lambda: Float = 0.5) -> MLXArray {
     let lambda = lambda.asMLXArray(dtype: x.dtype)
     return compiledSoftshrink(x, lambda)
@@ -193,6 +206,7 @@ public func softshrink(_ x: MLXArray, lambda: Float = 0.5) -> MLXArray {
 /// ### See Also
 /// - <doc:activations>
 /// - ``CELU``
+@available(iOS 16, macOS 13.3, *)
 public func celu(_ x: MLXArray, alpha: Float = 1.0) -> MLXArray {
     let alpha = alpha.asMLXArray(dtype: x.dtype)
     return compiledCelu(x, alpha)
@@ -209,6 +223,7 @@ public func celu(_ x: MLXArray, alpha: Float = 1.0) -> MLXArray {
 /// ### See Also
 /// - <doc:activations>
 /// - ``SiLU``
+@available(iOS 16, macOS 13.3, *)
 public func silu(_ x: MLXArray) -> MLXArray {
     compiledSilu(x)
 }
@@ -224,6 +239,7 @@ public func silu(_ x: MLXArray) -> MLXArray {
 /// ### See Also
 /// - <doc:activations>
 /// - ``LogSigmoid``
+@available(iOS 16, macOS 13.3, *)
 public func logSigmoid(_ x: MLXArray) -> MLXArray {
     compiledLogSigmoid(x)
 }
@@ -241,6 +257,7 @@ public func logSigmoid(_ x: MLXArray) -> MLXArray {
 /// - ``GELU``
 /// - ``geluApproximate(_:)``
 /// - ``geluFastApproximate(_:)``
+@available(iOS 16, macOS 13.3, *)
 public func gelu(_ x: MLXArray) -> MLXArray {
     compiledGelu(x)
 }
@@ -258,6 +275,7 @@ public func gelu(_ x: MLXArray) -> MLXArray {
 /// - ``GELU``
 /// - ``gelu(_:)``
 /// - ``geluFastApproximate(_:)``
+@available(iOS 16, macOS 13.3, *)
 public func geluApproximate(_ x: MLXArray) -> MLXArray {
     compiledGeluApproximate(x)
 }
@@ -275,6 +293,7 @@ public func geluApproximate(_ x: MLXArray) -> MLXArray {
 /// - ``GELU``
 /// - ``gelu(_:)``
 /// - ``geluApproximate(_:)``
+@available(iOS 16, macOS 13.3, *)
 public func geluFastApproximate(_ x: MLXArray) -> MLXArray {
     compiledGeluFastApproximate(x)
 }
@@ -287,6 +306,7 @@ public func geluFastApproximate(_ x: MLXArray) -> MLXArray {
 /// ### See Also
 /// - <doc:activations>
 /// - ``GLU``
+@available(iOS 16, macOS 13.3, *)
 public func glu(_ x: MLXArray, axis: Int = -1) -> MLXArray {
     let (a, b) = x.split(axis: axis)
     return a * sigmoid(b)
@@ -306,6 +326,7 @@ public func glu(_ x: MLXArray, axis: Int = -1) -> MLXArray {
 /// ### See Also
 /// - <doc:activations>
 /// - ``Step``
+@available(iOS 16, macOS 13.3, *)
 public func step(_ x: MLXArray, threshold: Float = 0.0) -> MLXArray {
     MLX.where(x .> threshold, 1, 0)
 }
@@ -322,6 +343,7 @@ public func step(_ x: MLXArray, threshold: Float = 0.0) -> MLXArray {
 /// - <doc:activations>
 /// - ``SELU``
 /// - ``elu(_:alpha:)``
+@available(iOS 16, macOS 13.3, *)
 public func selu(_ x: MLXArray) -> MLXArray {
     compiledSelu(x)
 }
@@ -337,6 +359,7 @@ public func selu(_ x: MLXArray) -> MLXArray {
 /// ### See Also
 /// - <doc:activations>
 /// - ``PReLU``
+@available(iOS 16, macOS 13.3, *)
 public func prelu(_ x: MLXArray, alpha: MLXArray) -> MLXArray {
     compiledPrelu(x, alpha)
 }
@@ -356,6 +379,7 @@ public func prelu(_ x: MLXArray, alpha: MLXArray) -> MLXArray {
 /// ### See Also
 /// - <doc:activations>
 /// - ``Mish``
+@available(iOS 16, macOS 13.3, *)
 public func mish(_ x: MLXArray) -> MLXArray {
     compiledMish(x)
 }
@@ -371,6 +395,7 @@ public func mish(_ x: MLXArray) -> MLXArray {
 /// ### See Also
 /// - <doc:activations>
 /// - ``HardSwish``
+@available(iOS 16, macOS 13.3, *)
 public func hardSwish(_ x: MLXArray) -> MLXArray {
     compiledHardSwish(x)
 }
@@ -387,6 +412,7 @@ public func hardSwish(_ x: MLXArray) -> MLXArray {
 ///   - x: input array
 ///   - min: minimum value
 ///   - max: maximum value
+@available(iOS 16, macOS 13.3, *)
 public func hardTanH(_ x: MLXArray, min: Float = -1, max: Float = 1) -> MLXArray {
     let min = min.asMLXArray(dtype: x.dtype)
     let max = max.asMLXArray(dtype: x.dtype)
@@ -410,6 +436,7 @@ public func hardTanH(_ x: MLXArray, min: Float = -1, max: Float = 1) -> MLXArray
 /// - Parameters:
 ///   - x: input array
 ///   - lambda: lambda value
+@available(iOS 16, macOS 13.3, *)
 public func hardShrink(_ x: MLXArray, lambda: Float = 0.5) -> MLXArray {
     let lambda = lambda.asMLXArray(dtype: x.dtype)
     return compiledHardShrink(x, lambda)
@@ -426,6 +453,7 @@ public func hardShrink(_ x: MLXArray, lambda: Float = 0.5) -> MLXArray {
 /// - Parameters:
 ///   - x: input array
 ///   - axis: axis to evaluate on
+@available(iOS 16, macOS 13.3, *)
 public func softmin(_ x: MLXArray, axis: Int = -1) -> MLXArray {
     softmax(-x, axis: axis)
 }
@@ -438,6 +466,7 @@ public func softmin(_ x: MLXArray, axis: Int = -1) -> MLXArray {
 /// ### See Also
 /// - <doc:activations>
 /// - ``glu(_:axis:)``
+@available(iOS 16, macOS 13.3, *)
 open class GLU: Module, UnaryLayer {
     public var axis: Int
 
@@ -465,6 +494,7 @@ open class GLU: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``sigmoid(_:)``
+@available(iOS 16, macOS 13.3, *)
 open class Sigmoid: Module, UnaryLayer {
     open func callAsFunction(_ x: MLXArray) -> MLXArray {
         sigmoid(x)
@@ -486,6 +516,7 @@ open class Sigmoid: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``mish(_:)``
+@available(iOS 16, macOS 13.3, *)
 open class Mish: Module, UnaryLayer {
     open func callAsFunction(_ x: MLXArray) -> MLXArray {
         mish(x)
@@ -503,6 +534,7 @@ open class Mish: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``relu(_:)``
+@available(iOS 16, macOS 13.3, *)
 open class ReLU: Module, UnaryLayer {
     open func callAsFunction(_ x: MLXArray) -> MLXArray {
         relu(x)
@@ -520,6 +552,7 @@ open class ReLU: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``leakyRelu(_:negativeSlope:)``
+@available(iOS 16, macOS 13.3, *)
 open class LeakyReLU: Module, UnaryLayer {
 
     public var negativeSlope: Float
@@ -544,6 +577,7 @@ open class LeakyReLU: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``relu6(_:)``
+@available(iOS 16, macOS 13.3, *)
 open class ReLU6: Module, UnaryLayer {
     open func callAsFunction(_ x: MLXArray) -> MLXArray {
         relu6(x)
@@ -561,6 +595,7 @@ open class ReLU6: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``reluSquared(_:)``
+@available(iOS 16, macOS 13.3, *)
 open class ReLUSquared: Module, UnaryLayer {
     open func callAsFunction(_ x: MLXArray) -> MLXArray {
         reluSquared(x)
@@ -569,6 +604,7 @@ open class ReLUSquared: Module, UnaryLayer {
 
 @available(*, deprecated, renamed: "Softmax")
 @_documentation(visibility: internal)
+@available(iOS 16, macOS 13.3, *)
 open class SoftMax: Module, UnaryLayer {
     open func callAsFunction(_ x: MLXArray) -> MLXArray {
         softmax(x)
@@ -585,6 +621,7 @@ open class SoftMax: Module, UnaryLayer {
 ///
 /// ### See Also
 /// - <doc:activations>
+@available(iOS 16, macOS 13.3, *)
 open class Softmax: Module, UnaryLayer {
     public var axis: Int
 
@@ -608,6 +645,7 @@ open class Softmax: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``softmin(_:axis:)``
+@available(iOS 16, macOS 13.3, *)
 open class Softmin: Module, UnaryLayer {
     public var axis: Int
 
@@ -622,6 +660,7 @@ open class Softmin: Module, UnaryLayer {
 
 @available(*, deprecated, renamed: "Softplus")
 @_documentation(visibility: internal)
+@available(iOS 16, macOS 13.3, *)
 open class SoftPlus: Module, UnaryLayer {
     open func callAsFunction(_ x: MLXArray) -> MLXArray {
         softPlus(x)
@@ -639,6 +678,7 @@ open class SoftPlus: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``softplus(_:)``
+@available(iOS 16, macOS 13.3, *)
 open class Softplus: Module, UnaryLayer {
     open func callAsFunction(_ x: MLXArray) -> MLXArray {
         softplus(x)
@@ -647,6 +687,7 @@ open class Softplus: Module, UnaryLayer {
 
 @available(*, deprecated, renamed: "Softsign")
 @_documentation(visibility: internal)
+@available(iOS 16, macOS 13.3, *)
 open class SoftSign: Module, UnaryLayer {
     open func callAsFunction(_ x: MLXArray) -> MLXArray {
         softsign(x)
@@ -664,6 +705,7 @@ open class SoftSign: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``softsign(_:)``
+@available(iOS 16, macOS 13.3, *)
 open class Softsign: Module, UnaryLayer {
     open func callAsFunction(_ x: MLXArray) -> MLXArray {
         softsign(x)
@@ -687,6 +729,7 @@ open class Softsign: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``softshrink(_:lambda:)``
+@available(iOS 16, macOS 13.3, *)
 open class Softshrink: Module, UnaryLayer {
     public var lambda: Float
 
@@ -711,6 +754,7 @@ open class Softshrink: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``elu(_:alpha:)``
+@available(iOS 16, macOS 13.3, *)
 open class ELU: Module, UnaryLayer {
     public var alpha: Float
 
@@ -735,6 +779,7 @@ open class ELU: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``celu(_:alpha:)``
+@available(iOS 16, macOS 13.3, *)
 open class CELU: Module, UnaryLayer {
     public var alpha: Float
 
@@ -759,6 +804,7 @@ open class CELU: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``silu(_:)``
+@available(iOS 16, macOS 13.3, *)
 open class SiLU: Module, UnaryLayer {
     open func callAsFunction(_ x: MLXArray) -> MLXArray {
         silu(x)
@@ -767,6 +813,7 @@ open class SiLU: Module, UnaryLayer {
 
 @available(*, deprecated, renamed: "LogSoftmax")
 @_documentation(visibility: internal)
+@available(iOS 16, macOS 13.3, *)
 open class LogSoftMax: Module, UnaryLayer {
     open func callAsFunction(_ x: MLXArray) -> MLXArray {
         logSoftmax(x)
@@ -784,6 +831,7 @@ open class LogSoftMax: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``logSoftmax(_:axis:)``
+@available(iOS 16, macOS 13.3, *)
 open class LogSoftmax: Module, UnaryLayer {
     public var axis: Int
 
@@ -807,6 +855,7 @@ open class LogSoftmax: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``logSigmoid(_:)``
+@available(iOS 16, macOS 13.3, *)
 open class LogSigmoid: Module, UnaryLayer {
     open func callAsFunction(_ x: MLXArray) -> MLXArray {
         logSigmoid(x)
@@ -824,6 +873,7 @@ open class LogSigmoid: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``prelu(_:alpha:)``
+@available(iOS 16, macOS 13.3, *)
 open class PReLU: Module, UnaryLayer {
 
     public let weight: MLXArray
@@ -851,6 +901,7 @@ open class PReLU: Module, UnaryLayer {
 /// - ``gelu(_:)``
 /// - ``geluApproximate(_:)``
 /// - ``geluFastApproximate(_:)``
+@available(iOS 16, macOS 13.3, *)
 open class GELU: Module, UnaryLayer {
 
     public enum Approximation: Sendable {
@@ -884,6 +935,7 @@ open class GELU: Module, UnaryLayer {
 }
 
 /// Applies the hyperbolic tangent function
+@available(iOS 16, macOS 13.3, *)
 open class Tanh: Module, UnaryLayer {
     open func callAsFunction(_ x: MLXArray) -> MLXArray {
         tanh(x)
@@ -901,6 +953,7 @@ open class Tanh: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``hardSwish(_:)``
+@available(iOS 16, macOS 13.3, *)
 open class HardSwish: Module, UnaryLayer {
     open func callAsFunction(_ x: MLXArray) -> MLXArray {
         hardSwish(x)
@@ -918,6 +971,7 @@ open class HardSwish: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``hardTanH(_:min:max:)``
+@available(iOS 16, macOS 13.3, *)
 open class HardTanh: Module, UnaryLayer {
     public var min: Float
     public var max: Float
@@ -950,6 +1004,7 @@ open class HardTanh: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``hardShrink(_:lambda:)``
+@available(iOS 16, macOS 13.3, *)
 open class HardShrink: Module, UnaryLayer {
     public var lambda: Float
 
@@ -977,6 +1032,7 @@ open class HardShrink: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``step(_:threshold:)``
+@available(iOS 16, macOS 13.3, *)
 open class Step: Module, UnaryLayer {
 
     public var threshold: Float
@@ -1002,6 +1058,7 @@ open class Step: Module, UnaryLayer {
 /// ### See Also
 /// - <doc:activations>
 /// - ``selu(_:)``
+@available(iOS 16, macOS 13.3, *)
 open class SELU: Module, UnaryLayer {
     open func callAsFunction(_ x: MLXArray) -> MLXArray {
         selu(x)
@@ -1010,90 +1067,105 @@ open class SELU: Module, UnaryLayer {
 
 // MARK: - Compiled Activation Functions
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledLeakyRelu: @Sendable (MLXArray, MLXArray) -> MLXArray = {
     compile(shapeless: true) { x, negativeSlope in
         maximum(negativeSlope * x, x)
     }
 }()
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledElu: @Sendable (MLXArray, MLXArray) -> MLXArray = {
     compile(shapeless: true) { x, alpha in
         which(x .> 0, x, alpha * (MLX.exp(x) - 1))
     }
 }()
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledRelu6: @Sendable (MLXArray) -> MLXArray = {
     compile(shapeless: true) { x in
         minimum(maximum(x, 0), 6)
     }
 }()
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledSoftsign: @Sendable (MLXArray) -> MLXArray = {
     compile(shapeless: true) { x in
         x / (1 + abs(x))
     }
 }()
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledSoftshrink: @Sendable (MLXArray, MLXArray) -> MLXArray = {
     compile(shapeless: true) { x, lambda in
         which(abs(x) .> lambda, x - sign(x) * lambda, 0)
     }
 }()
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledCelu: @Sendable (MLXArray, MLXArray) -> MLXArray = {
     compile(shapeless: true) { x, alpha in
         maximum(x, 0.0) + alpha * (exp(minimum(x, 0.0) / alpha) - 1)
     }
 }()
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledSilu: @Sendable (MLXArray) -> MLXArray = {
     compile(shapeless: true) { x in
         x * sigmoid(x)
     }
 }()
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledLogSigmoid: @Sendable (MLXArray) -> MLXArray = {
     compile(shapeless: true) { x in
         -softplus(-x)
     }
 }()
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledGelu: @Sendable (MLXArray) -> MLXArray = {
     compile(shapeless: true) { x in
         x * (1 + erf(x / sqrt(2))) / 2
     }
 }()
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledGeluApproximate: @Sendable (MLXArray) -> MLXArray = {
     compile(shapeless: true) { x in
         0.5 * x * (1 + tanh(sqrt(2 / Float.pi) * (x + 0.044715 * x ** 3)))
     }
 }()
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledGeluFastApproximate: @Sendable (MLXArray) -> MLXArray = {
     compile(shapeless: true) { x in
         x * sigmoid(1.702 * x)
     }
 }()
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledSelu: @Sendable (MLXArray) -> MLXArray = {
     compile(shapeless: true) { x in
         elu(x, alpha: 1.67326) * 1.0507
     }
 }()
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledPrelu: @Sendable (MLXArray, MLXArray) -> MLXArray = {
     compile(shapeless: true) { x, alpha in
         maximum(0, x) + alpha * minimum(0, x)
     }
 }()
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledMish: @Sendable (MLXArray) -> MLXArray = {
     compile(shapeless: true) { x in
         x * tanh(softplus(x))
     }
 }()
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledHardSwish: @Sendable (MLXArray) -> MLXArray = {
     compile(shapeless: true) { x in
         let maxXPlus3 = maximum(x + 3, 0)
@@ -1101,24 +1173,28 @@ private let compiledHardSwish: @Sendable (MLXArray) -> MLXArray = {
     }
 }()
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledHardTanh: @Sendable (MLXArray, MLXArray, MLXArray) -> MLXArray = {
     compile(shapeless: true) { x, min, max in
         minimum(maximum(x, min), max)
     }
 }()
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledHardShrink: @Sendable (MLXArray, MLXArray) -> MLXArray = {
     compile(shapeless: true) { x, lambda in
         which(abs(x) .> lambda, x, 0)
     }
 }()
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledRelu: @Sendable (MLXArray) -> MLXArray = {
     compile(shapeless: true) { x in
         maximum(x, 0)
     }
 }()
 
+@available(iOS 16, macOS 13.3, *)
 private let compiledReluSquared: @Sendable (MLXArray) -> MLXArray = {
     compile(shapeless: true) { x in
         return relu(x).square()

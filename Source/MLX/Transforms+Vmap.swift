@@ -14,6 +14,7 @@ import Foundation
 ///
 /// ### See Also
 /// - <doc:vmap>
+@available(iOS 16, macOS 13.3, *)
 public func vmap(
     _ f: @escaping ([MLXArray]) -> [MLXArray],
     inAxes: some Sequence<Int?> = [0],
@@ -72,6 +73,7 @@ public func vmap(
 /// ### See Also
 /// - <doc:vmap>
 /// - ``vmap(_:inAxes:outAxes:)``
+@available(iOS 16, macOS 13.3, *)
 public func vmap(
     _ f: @escaping (MLXArray) -> MLXArray,
     inAxes: Int? = 0,
@@ -87,6 +89,7 @@ public func vmap(
 /// ### See Also
 /// - <doc:vmap>
 /// - ``vmap(_:inAxes:outAxes:)``
+@available(iOS 16, macOS 13.3, *)
 public func vmap(
     _ f: @escaping (MLXArray, MLXArray) -> MLXArray,
     inAxes: (Int?, Int?) = (0, 0),

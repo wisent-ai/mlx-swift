@@ -4,6 +4,7 @@ import Cmlx
 import Foundation
 import Numerics
 
+@available(iOS 16, macOS 13.3, *)
 private func shapePrecondition(shape: (some Collection<Int>)?, count: Int) {
     if let shape {
         let total = shape.reduce(1, *)
@@ -11,6 +12,7 @@ private func shapePrecondition(shape: (some Collection<Int>)?, count: Int) {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 private func shapePrecondition(shape: (some Collection<Int>)?, byteCount: Int, type: DType) {
     if let shape {
         let total = shape.reduce(1, *) * type.size
@@ -19,6 +21,7 @@ private func shapePrecondition(shape: (some Collection<Int>)?, byteCount: Int, t
 }
 
 // holds reference to `finalizer` as capture state
+@available(iOS 16, macOS 13.3, *)
 private class FinalizerCaptureState {
     let f: () -> Void
 
@@ -28,6 +31,7 @@ private class FinalizerCaptureState {
 }
 
 // the C function that the mlx_array_new_data_managed_payload will call
+@available(iOS 16, macOS 13.3, *)
 func finalizerTrampoline(
     payload: UnsafeMutableRawPointer?
 ) {
@@ -35,6 +39,7 @@ func finalizerTrampoline(
     state.f()
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXArray {
 
     /// Initialize an MLXArray by transferring ownership of a raw pointer.
@@ -598,6 +603,7 @@ extension MLXArray {
 
 // MARK: - Expressible by literals
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXArray: ExpressibleByArrayLiteral {
 
     // Note: MLXArray does not implement ExpressibleByFloatLiteral etc. because
