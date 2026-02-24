@@ -221,7 +221,7 @@ let package = Package(
 
     platforms: [
         .macOS("14.0"),
-        .iOS(.v16),
+        .iOS(.v17),
         .tvOS(.v17),
         .visionOS(.v1),
     ],
