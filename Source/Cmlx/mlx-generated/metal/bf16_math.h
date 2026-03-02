@@ -223,6 +223,8 @@ functions to accordingly automatically handle the casting
     return static_cast<otype>(__metal_trunc(static_cast<ctype>(x), mfast));    \
   }
 
+#if __METAL_VERSION__ >= 310
+
 namespace metal {
 
 instantiate_metal_math_funcs(
@@ -252,6 +254,8 @@ instantiate_metal_math_funcs(
 } // namespace precise
 
 } // namespace metal
+
+#endif // __METAL_VERSION__ >= 310
 
 ///////////////////////////////////////////////////////////////////////////////
 // Metal simd for bfloat16
@@ -367,6 +371,8 @@ instantiate_metal_math_funcs(
     return static_cast<otype>(__metal_simd_xor(static_cast<ctype>(data)));     \
   }
 
+#if __METAL_VERSION__ >= 310
+
 namespace metal {
 
 instantiate_metal_simd_comm_funcs(
@@ -378,3 +384,5 @@ instantiate_metal_simd_comm_funcs(
 instantiate_metal_simd_reduction_funcs(bfloat16_t, bfloat16_t, float);
 
 } // namespace metal
+
+#endif // __METAL_VERSION__ >= 310
