@@ -67,9 +67,7 @@ instantiate_default_limit(int64_t);
 
 instantiate_float_limit(half);
 instantiate_float_limit(float);
-#if __METAL_VERSION__ >= 310
 instantiate_float_limit(bfloat16_t);
-#endif
 
 template <>
 struct Limits<bool> {
@@ -323,7 +321,6 @@ inline float log1p(float x) {
   return x * (metal::log(xp1) / (xp1 - 1.0f));
 }
 
-#if __METAL_VERSION__ >= 310
 inline bfloat16_t log1p(bfloat16_t x) {
   float xp1 = 1.0f + static_cast<float>(x);
   if (xp1 == Limits<float>::max) {
@@ -335,7 +332,6 @@ inline bfloat16_t log1p(bfloat16_t x) {
 
   return bfloat16_t(x * (metal::log(xp1) / (xp1 - 1.0f)));
 }
-#endif
 
 inline complex64_t log1p(complex64_t in) {
   float x = in.real;

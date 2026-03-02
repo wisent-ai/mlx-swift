@@ -225,7 +225,5 @@ template <typename T, typename IdxT, int N = 4>
   instantiate_rope_g(name, type)
 
 instantiate_rope(float16, half)
-#if __METAL_VERSION__ >= 310
 instantiate_rope(bfloat16, bfloat16_t)
-#endif
 instantiate_rope(float32, float) // clang-format on

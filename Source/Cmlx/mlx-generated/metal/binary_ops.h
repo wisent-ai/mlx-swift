@@ -27,12 +27,10 @@ struct FloorDivide {
   half operator()(half x, half y) {
     return trunc(x / y);
   }
-#if __METAL_VERSION__ >= 310
   template <>
   bfloat16_t operator()(bfloat16_t x, bfloat16_t y) {
     return trunc(x / y);
   }
-#endif
 };
 
 struct Divide {

@@ -39,8 +39,6 @@ using namespace metal;
   instantiate_sdpa_vector_aggregation(type, 256)
 
 instantiate_sdpa_vector_heads(float)
-#if __METAL_VERSION__ >= 310
 instantiate_sdpa_vector_heads(bfloat16_t)
-#endif
 instantiate_sdpa_vector_heads(float16_t)
     // clang-format on

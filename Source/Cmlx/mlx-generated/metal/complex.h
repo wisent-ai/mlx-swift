@@ -15,11 +15,7 @@ static constexpr constant bool can_convert_to_complex64 =
 template <typename T>
 static constexpr constant bool can_convert_from_complex64 =
     !is_same_v<T, complex64_t> &&
-#if __METAL_VERSION__ >= 310
     (is_convertible_v<float, T> || is_convertible_v<bfloat16_t, T>);
-#else
-    is_convertible_v<float, T>;
-#endif
 
 struct complex64_t {
   float real;

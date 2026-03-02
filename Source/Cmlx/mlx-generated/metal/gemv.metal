@@ -542,9 +542,7 @@ template <
 
 instantiate_gemv_blocks(float32, float);
 instantiate_gemv_blocks(float16, half);
-#if __METAL_VERSION__ >= 310
 instantiate_gemv_blocks(bfloat16, bfloat16_t);
-#endif
 instantiate_gemv_blocks(complex64, complex64_t);
 
 template <
@@ -651,9 +649,7 @@ template <
 
 instantiate_gemv_bs_blocks(float32, float);
 instantiate_gemv_bs_blocks(float16, half);
-#if __METAL_VERSION__ >= 310
 instantiate_gemv_bs_blocks(bfloat16, bfloat16_t);
-#endif
 instantiate_gemv_bs_blocks(complex64, complex64_t);
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -757,9 +753,7 @@ template <
 // clang-format off
 instantiate_gemv_t_blocks(float32, float);
 instantiate_gemv_t_blocks(float16, half);
-#if __METAL_VERSION__ >= 310
 instantiate_gemv_t_blocks(bfloat16, bfloat16_t);
-#endif
 instantiate_gemv_t_blocks(complex64, complex64_t); // clang-format on
 
 template <
@@ -870,7 +864,5 @@ template <
 // clang-format off
 instantiate_gemv_t_bs_blocks(float32, float);
 instantiate_gemv_t_bs_blocks(float16, half);
-#if __METAL_VERSION__ >= 310
 instantiate_gemv_t_bs_blocks(bfloat16, bfloat16_t);
-#endif
 instantiate_gemv_t_bs_blocks(complex64, complex64_t); // clang-format on
