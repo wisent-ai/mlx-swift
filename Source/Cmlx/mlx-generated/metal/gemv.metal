@@ -1,4 +1,5 @@
 // Copyright © 2023-2024 Apple Inc.
+#if __METAL_VERSION__ >= 310
 
 #include <metal_simdgroup>
 #include <metal_stdlib>
@@ -866,3 +867,4 @@ instantiate_gemv_t_bs_blocks(float32, float);
 instantiate_gemv_t_bs_blocks(float16, half);
 instantiate_gemv_t_bs_blocks(bfloat16, bfloat16_t);
 instantiate_gemv_t_bs_blocks(complex64, complex64_t); // clang-format on
+#endif // __METAL_VERSION__ >= 310

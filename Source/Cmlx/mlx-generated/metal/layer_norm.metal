@@ -1,4 +1,5 @@
 // Copyright © 2024 Apple Inc.
+#if __METAL_VERSION__ >= 310
 
 #include <metal_common>
 #include <metal_simdgroup>
@@ -431,3 +432,4 @@ template <typename T, int N_READS = 4>
 instantiate_layer_norm(float32, float)
 instantiate_layer_norm(float16, half)
 instantiate_layer_norm(bfloat16, bfloat16_t) // clang-format on
+#endif // __METAL_VERSION__ >= 310

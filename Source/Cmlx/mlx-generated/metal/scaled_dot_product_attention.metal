@@ -1,4 +1,5 @@
 #include <metal_stdlib>
+#if __METAL_VERSION__ >= 310
 
 // clang-format off
 #include "utils.h"
@@ -42,3 +43,4 @@ instantiate_sdpa_vector_heads(float)
 instantiate_sdpa_vector_heads(bfloat16_t)
 instantiate_sdpa_vector_heads(float16_t)
     // clang-format on
+#endif // __METAL_VERSION__ >= 310

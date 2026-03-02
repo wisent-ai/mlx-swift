@@ -1,4 +1,5 @@
 // Copyright © 2023 Apple Inc.
+#if __METAL_VERSION__ >= 310
 
 #include <metal_simdgroup>
 
@@ -180,3 +181,4 @@ instantiate_arg_reduce(int64, int64_t)
 instantiate_arg_reduce(float16, half)
 instantiate_arg_reduce(float32, float)
 instantiate_arg_reduce(bfloat16, bfloat16_t) // clang-format on
+#endif // __METAL_VERSION__ >= 310

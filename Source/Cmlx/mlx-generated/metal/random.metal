@@ -1,4 +1,5 @@
 // Copyright © 2023 Apple Inc.
+#if __METAL_VERSION__ >= 310
 
 #include "utils.h"
 
@@ -101,3 +102,4 @@ rbits threefry2x32_hash(const thread uint2& key, uint2 count) {
     }
   }
 }
+#endif // __METAL_VERSION__ >= 310

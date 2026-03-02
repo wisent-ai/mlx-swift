@@ -1,4 +1,5 @@
 // Copyright © 2024-25 Apple Inc.
+#if __METAL_VERSION__ >= 310
 
 // clang-format off
 #include "../../../utils.h"
@@ -25,3 +26,4 @@ instantiate_attn_mask_helper(bfloat16, bfloat16_t);
 
 instantiate_attn_mask_helper(float32, float);
 // clang-format on
+#endif // __METAL_VERSION__ >= 310

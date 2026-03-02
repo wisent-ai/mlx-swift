@@ -1,4 +1,5 @@
 // Copyright © 2023-2024 Apple Inc.
+#if __METAL_VERSION__ >= 310
 
 #include <metal_math>
 
@@ -227,3 +228,4 @@ template <typename T, typename IdxT, int N = 4>
 instantiate_rope(float16, half)
 instantiate_rope(bfloat16, bfloat16_t)
 instantiate_rope(float32, float) // clang-format on
+#endif // __METAL_VERSION__ >= 310
