@@ -40,9 +40,11 @@ struct fp4_e2m1 {
     return static_cast<float>(this->operator float16_t());
   }
 
+#if __METAL_VERSION__ >= 310
   operator bfloat16_t() {
     return static_cast<bfloat16_t>(this->operator float16_t());
   }
+#endif
 
   uint8_t bits;
 };

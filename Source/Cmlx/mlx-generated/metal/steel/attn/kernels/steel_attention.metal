@@ -21,7 +21,9 @@
     instantiate_attn_shapes_helper(iname, itype, bool_, bool)
 
 instantiate_attn_mask_helper(float16, half);
+#if __METAL_VERSION__ >= 310
 instantiate_attn_mask_helper(bfloat16, bfloat16_t);
+#endif
 
 instantiate_attn_mask_helper(float32, float);
 // clang-format on

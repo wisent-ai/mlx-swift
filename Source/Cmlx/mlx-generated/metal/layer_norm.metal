@@ -430,4 +430,6 @@ template <typename T, int N_READS = 4>
 
 instantiate_layer_norm(float32, float)
 instantiate_layer_norm(float16, half)
-instantiate_layer_norm(bfloat16, bfloat16_t) // clang-format on
+#if __METAL_VERSION__ >= 310
+instantiate_layer_norm(bfloat16, bfloat16_t)
+#endif // clang-format on

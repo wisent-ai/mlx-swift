@@ -37,9 +37,11 @@ struct fp8_e4m3 {
     return (sign ? -converted : converted);
   }
 
+#if __METAL_VERSION__ >= 310
   operator bfloat16_t() {
     return static_cast<bfloat16_t>(this->operator float16_t());
   }
+#endif
 
   operator float() {
     return static_cast<float>(this->operator float16_t());
@@ -66,10 +68,12 @@ struct fp8_e8m0 {
     bits = static_cast<uint8_t>(n + 127);
   }
 
+#if __METAL_VERSION__ >= 310
   operator bfloat16_t() {
     uint16_t out = (bits == 0 ? 0x40 : (static_cast<uint16_t>(bits) << 7));
     return as_type<bfloat16_t>(out);
   }
+#endif
 
   operator float() {
     uint32_t out = (bits == 0 ? 0x400000 : (static_cast<uint16_t>(bits) << 23));

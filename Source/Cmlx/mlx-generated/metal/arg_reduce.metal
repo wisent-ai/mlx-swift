@@ -179,4 +179,6 @@ instantiate_arg_reduce(int32, int32_t)
 instantiate_arg_reduce(int64, int64_t)
 instantiate_arg_reduce(float16, half)
 instantiate_arg_reduce(float32, float)
-instantiate_arg_reduce(bfloat16, bfloat16_t) // clang-format on
+#if __METAL_VERSION__ >= 310
+instantiate_arg_reduce(bfloat16, bfloat16_t)
+#endif // clang-format on

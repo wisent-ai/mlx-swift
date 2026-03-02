@@ -164,7 +164,9 @@ template <typename T, int N>
 
 instantiate_naive_unfold_nd_dims(float32, float);
 instantiate_naive_unfold_nd_dims(float16, half);
+#if __METAL_VERSION__ >= 310
 instantiate_naive_unfold_nd_dims(bfloat16, bfloat16_t);
+#endif
 
 ///////////////////////////////////////////////////////////////////////////////
 /// Depthwise convolution kernels
@@ -286,7 +288,9 @@ template <typename T>
 
 instantiate_depthconv2d(float32, float);
 instantiate_depthconv2d(float16, half);
+#if __METAL_VERSION__ >= 310
 instantiate_depthconv2d(bfloat16, bfloat16_t);
+#endif
 
 template <typename T, typename IdxT>
 [[kernel]] void depthwise_conv_1d(
@@ -320,7 +324,9 @@ template <typename T, typename IdxT>
 
 instantiate_depthconv1d(float32, float);
 instantiate_depthconv1d(float16, half);
+#if __METAL_VERSION__ >= 310
 instantiate_depthconv1d(bfloat16, bfloat16_t);
+#endif
 
 ///////////////////////////////////////////////////////////////////////////////
 /// Winograd kernels
@@ -697,5 +703,7 @@ winograd_conv_2d_output_transform(
 
 // clang-format off
 instantiate_winograd_conv_2d(float32, float);
+#if __METAL_VERSION__ >= 310
 instantiate_winograd_conv_2d(bfloat16, bfloat16_t);
+#endif
 instantiate_winograd_conv_2d(float16, half); // clang-format on
