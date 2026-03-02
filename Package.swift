@@ -339,6 +339,7 @@ let package = Package(
     cxxLanguageStandard: .gnucxx20
 )
 
+#if !TUIST
 if Context.environment["MLX_SWIFT_BUILD_DOC"] == "1"
     || Context.environment["SPI_GENERATE_DOCS"] == "1"
 {
@@ -347,3 +348,4 @@ if Context.environment["MLX_SWIFT_BUILD_DOC"] == "1"
         .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.3.0")
     )
 }
+#endif
