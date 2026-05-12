@@ -212,6 +212,10 @@ let cmlx = Target.target(
         .headerSearchPath("fmt/include"),
         .define("MLX_VERSION", to: "\"0.24.2\""),
         .define("MLX_ENABLE_NAX", to: "1"),
+        // Xcode 26.5+ Clang rejects fmt's consteval constructors at compile time.
+        // Pre-define FMT_CONSTEVAL to empty so the consteval qualifier is a no-op;
+        // format strings are then validated at runtime instead of compile time.
+        .define("FMT_CONSTEVAL", to: ""),
     ],
     linkerSettings: linkerSettings
 )
