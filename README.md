@@ -1,6 +1,6 @@
 # MLX Swift
 
-[**Installation**](#installation) | [**Documentation**](https://swiftpackageindex.com/ml-explore/mlx-swift/main/documentation/mlx) | [**Examples**](#examples)
+[**Installation**](#installation) | [**Wisent Swift and MLX documentation**](https://wisent.com/docs) | [**Examples**](#examples)
 
 MLX Swift is a Swift API for [MLX](https://ml-explore.github.io/mlx/build/html/index.html).
 
@@ -175,15 +175,8 @@ popd
 
 ## Contributing
 
-Check out the [contribution guidelines](CONTRIBUTING.md) for more information
-on contributing to MLX. See the
-[docs](https://swiftpackageindex.com/ml-explore/mlx-swift/main/documentation/mlx/install) for more
-information on building from source, and running tests.
+Read the [Wisent Swift and MLX documentation](https://wisent.com/docs) before proposing an API change. Every change should include appropriate tests and keep public API documentation current.
 
-We are grateful for all of [our
-contributors](ACKNOWLEDGMENTS.md#Individual-Contributors). If you contribute
-to MLX Swift and wish to be acknowledged, please add your name to the list in your
-pull request.
 
 MLX Swift was initially developed by David Koski and Ronan Collobert, and is
 now maintained by David Koski. MLX Swift is built on top of

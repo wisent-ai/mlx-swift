@@ -75,11 +75,8 @@
 		C3AEA0352EAAE7A9000BD280 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.5.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		C3CBE6B52EAC14DE0029A645 /* MLXNN.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLXNN.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3CBE6CF2EAC15310029A645 /* MLXOptimizers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLXOptimizers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C3CBF17F2EAC22110029A645 /* ACKNOWLEDGMENTS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = ACKNOWLEDGMENTS.md; path = ../ACKNOWLEDGMENTS.md; sourceTree = SOURCE_ROOT; };
-		C3CBF1802EAC22110029A645 /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CODE_OF_CONDUCT.md; path = ../CODE_OF_CONDUCT.md; sourceTree = SOURCE_ROOT; };
-		C3CBF1812EAC22110029A645 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CONTRIBUTING.md; path = ../CONTRIBUTING.md; sourceTree = SOURCE_ROOT; };
+		C3CBF17F2EAC22110029A645 /* THIRD_PARTY_NOTICES */ = {isa = PBXFileReference; lastKnownFileType = text; name = THIRD_PARTY_NOTICES; path = ../THIRD_PARTY_NOTICES; sourceTree = SOURCE_ROOT; };
 		C3CBF1822EAC22110029A645 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = SOURCE_ROOT; };
-		C3CBF1832EAC22110029A645 /* MAINTENANCE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = MAINTENANCE.md; path = ../MAINTENANCE.md; sourceTree = SOURCE_ROOT; };
 		C3CBF1842EAC22110029A645 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -1632,13 +1629,10 @@
 			isa = PBXGroup;
 			children = (
 				C319FC0A2F1564BE00620953 /* MLX.xctestplan */,
-				C3CBF17F2EAC22110029A645 /* ACKNOWLEDGMENTS.md */,
+				C3CBF17F2EAC22110029A645 /* THIRD_PARTY_NOTICES */,
 				C3AE8EFC2EAAA40E000BD280 /* Cmlx */,
-				C3CBF1802EAC22110029A645 /* CODE_OF_CONDUCT.md */,
-				C3CBF1812EAC22110029A645 /* CONTRIBUTING.md */,
 				C3AEA0302EAAE79A000BD280 /* Frameworks */,
 				C3CBF1822EAC22110029A645 /* LICENSE */,
-				C3CBF1832EAC22110029A645 /* MAINTENANCE.md */,
 				C3434F7C2EABEF1E0010D6B8 /* MLX */,
 				C3CBE6E92EAC15530029A645 /* MLXNN */,
 				C3CBE6FF2EAC15650029A645 /* MLXOptimizers */,
