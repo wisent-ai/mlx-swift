@@ -1,0 +1,22 @@
+# Paths this repository declares to the violation audit, each with its reason.
+#
+# This repository is a fork of Apple's mlx-swift, kept mergeable with
+# upstream. Every directory below holds upstream's files: the Swift API
+# (Source/MLX*, Source/Examples), the vendored C and C++ sources it bundles
+# (Source/Cmlx: MLX itself, fmt, nlohmann/json, googletest, the Metal
+# headers), upstream's tests, its build helpers and its Xcode project, and a
+# repository root whose contents Swift Package Manager and CMake decide.
+#
+# Our own work here is patches on top, and a patch has to land on upstream's
+# file. Re-laying out a 1599-line upstream file into modules would turn every
+# later upstream change into a conflict, which costs more than the limit was
+# ever meant to save. The limits exist for source a person here edits and
+# navigates; when we write something of our own in this repository it goes in
+# a directory of ours and is not listed below.
+Source/
+Tests/
+tools/
+cmake/
+xcode/
+Package.swift
+.
