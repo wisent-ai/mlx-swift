@@ -40,6 +40,9 @@ contains the complete code and documentation for these examples, including
 [guidelines on porting models](https://swiftpackageindex.com/ml-explore/mlx-swift-examples/main/documentation/mlxlmcommon/porting)
 from MLX Python.
 
+The [MLX Swift Examples repo](https://github.com/ml-explore/mlx-swift-examples)
+contains the complete code and documentation for these examples.
+
 ## Installation
 
 The ``MLX`` Swift package can be built and run from Xcode or SwiftPM. A CMake installation is also provided, featuring a native Linux build option.
