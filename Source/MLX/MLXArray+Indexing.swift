@@ -3,19 +3,23 @@
 import Cmlx
 import Foundation
 
+@available(iOS 16, macOS 13.3, *)
 private func int32Range(_ count: Int) -> [Int32] {
     Array(0 ..< Int32(count))
 }
 
+@available(iOS 16, macOS 13.3, *)
 private func int32Range(_ start: Int, _ end: Int) -> [Int32] {
     Array(Int32(start) ..< Int32(end))
 }
 
+@available(iOS 16, macOS 13.3, *)
 private func ones(_ count: Int) -> [Int32] {
     Array(repeating: 1, count: count)
 }
 
 @inlinable
+@available(iOS 16, macOS 13.3, *)
 func resolve(axis: Int, ndim: Int) -> Int {
     if axis < 0 {
         return axis + ndim
@@ -24,6 +28,7 @@ func resolve(axis: Int, ndim: Int) -> Int {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXArray: Sequence {
 
     private struct MLXArrayIterator: IteratorProtocol {
@@ -49,6 +54,7 @@ extension MLXArray: Sequence {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXArray {
 
     func leadingSingletonDimensionsRemoved(stream: StreamOrDevice = .default) -> MLXArray {
@@ -479,6 +485,7 @@ extension MLXArray {
 
 // MARK: - Support
 
+@available(iOS 16, macOS 13.3, *)
 func countNonNewAxisOperations(_ operations: some Sequence<MLXArrayIndexOperation>) -> Int {
     operations
         .filter { !$0.isNewAxis }
@@ -491,6 +498,7 @@ func countNonNewAxisOperations(_ operations: some Sequence<MLXArrayIndexOperatio
 ///   - shape: array shape
 ///   - operations: operations
 /// - Returns: new operations with `.ellipsis` replaced
+@available(iOS 16, macOS 13.3, *)
 func expandEllipsisOperations(shape: [Int32], operations: [MLXArrayIndexOperation])
     -> [MLXArrayIndexOperation]
 {
@@ -527,6 +535,7 @@ func expandEllipsisOperations(shape: [Int32], operations: [MLXArrayIndexOperatio
 ///   - src: input array
 ///   - operation: single index operation
 /// - Returns: MLXArray get result
+@available(iOS 16, macOS 13.3, *)
 func getItem(src: MLXArray, operation: MLXArrayIndexOperation, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -569,6 +578,7 @@ func getItem(src: MLXArray, operation: MLXArrayIndexOperation, stream: StreamOrD
 ///   - array: source array
 ///   - operations: array of index operations
 /// - Returns: array with the indices applied
+@available(iOS 16, macOS 13.3, *)
 func getItemND(
     src: MLXArray, operations: [MLXArrayIndexOperation], stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -737,6 +747,7 @@ func getItemND(
 ///   and all ``MLXArrayIndexOperation/newAxis`` removed.
 ///   - gatherFirst: if true put the int/array indices at the front else put them at the back
 /// - Returns: maxDimensions of any of the `.array` operations and the result MLXArray
+@available(iOS 16, macOS 13.3, *)
 func gatherND(
     src: MLXArray, operations: [MLXArrayIndexOperation], gatherFirst: Bool,
     stream: StreamOrDevice = .default
@@ -830,6 +841,7 @@ func gatherND(
 
 // MARK: - index set (slice)
 
+@available(iOS 16, macOS 13.3, *)
 func updateSlice(
     src: MLXArray, operations: [MLXArrayIndexOperation], update: MLXArray,
     stream: StreamOrDevice = .default
@@ -945,6 +957,7 @@ func updateSlice(
 ///   - operations: array of index operations
 ///   - update: the update value
 /// - Returns: scatter indices, update value, scatter axes
+@available(iOS 16, macOS 13.3, *)
 func scatterArguments(
     src: MLXArray, operations: [MLXArrayIndexOperation], update: MLXArray,
     stream: StreamOrDevice = .default
@@ -1143,6 +1156,7 @@ func scatterArguments(
 ///   - operations: array of index operations
 ///   - update: the update value
 /// - Returns: scatter indices, update value, scatter axes
+@available(iOS 16, macOS 13.3, *)
 func scatterArguments(
     src: MLXArray, index: Int32, update: MLXArray, stream: StreamOrDevice = .default
 ) -> ([MLXArray], MLXArray, [Int32]) {
@@ -1169,6 +1183,7 @@ func scatterArguments(
 ///   - operations: array of index operations
 ///   - update: the update value
 /// - Returns: scatter indices, update value, scatter axes
+@available(iOS 16, macOS 13.3, *)
 func scatterArguments(
     src: MLXArray, array: MLXArray, update: MLXArray, stream: StreamOrDevice = .default
 ) -> ([MLXArray], MLXArray, [Int32]) {
@@ -1198,6 +1213,7 @@ func scatterArguments(
 ///   - operations: array of index operations
 ///   - update: the update value
 /// - Returns: scatter indices, update value, scatter axes
+@available(iOS 16, macOS 13.3, *)
 func scatterArguments(
     src: MLXArray, slice: MLXSlice, update: MLXArray, stream: StreamOrDevice = .default
 ) -> ([MLXArray], MLXArray, [Int32]) {
@@ -1256,6 +1272,7 @@ func scatterArguments(
 ///
 /// ### See Also
 /// - <doc:indexing>
+@available(iOS 16, macOS 13.3, *)
 public enum MLXArrayIndexOperation: CustomStringConvertible {
     /// `...` or `Ellipsis` in python -- this will expand to be full range slices of all collected axes
     case ellipsis
@@ -1335,30 +1352,35 @@ public enum MLXArrayIndexOperation: CustomStringConvertible {
 /// ### See Also
 /// - <doc:indexing>
 /// - ``MLXArray/subscript(_:stream:)-375a0``
+@available(iOS 16, macOS 13.3, *)
 public protocol MLXArrayIndex {
 
     /// Provide the represeting ``MLXArrayIndexOperation``
     var mlxArrayIndexOperation: MLXArrayIndexOperation { get }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension Int: MLXArrayIndex {
     public var mlxArrayIndexOperation: MLXArrayIndexOperation {
         .index(self.int32)
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXArray: MLXArrayIndex {
     public var mlxArrayIndexOperation: MLXArrayIndexOperation {
         .array(self)
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 public struct MLXEllipsisIndex: MLXArrayIndex, Sendable {
     public var mlxArrayIndexOperation: MLXArrayIndexOperation {
         .ellipsis
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXArrayIndex where Self == MLXEllipsisIndex {
 
     /// Implementation of the `.ellipsis` MLXArray index.
@@ -1385,12 +1407,14 @@ extension MLXArrayIndex where Self == MLXEllipsisIndex {
     public static var ellipsis: Self { Self() }
 }
 
+@available(iOS 16, macOS 13.3, *)
 public struct MLXNewAxisIndex: MLXArrayIndex, Sendable {
     public var mlxArrayIndexOperation: MLXArrayIndexOperation {
         .newAxis
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXArrayIndex where Self == MLXNewAxisIndex {
 
     /// Implementation of the `.newAxis`MLXArray index.
@@ -1431,6 +1455,7 @@ extension MLXArrayIndex where Self == MLXNewAxisIndex {
 /// ### See Also
 /// - <doc:indexing>
 /// - ``MLXArrayIndex/stride(from:to:by:)``
+@available(iOS 16, macOS 13.3, *)
 public struct MLXSlice: Equatable, CustomStringConvertible, Sendable {
 
     private let _start: Int32?
@@ -1504,6 +1529,7 @@ public struct MLXSlice: Equatable, CustomStringConvertible, Sendable {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXArrayIndex where Self == MLXSlice {
     /// MLXArray index for general slicing.
     ///
@@ -1556,42 +1582,49 @@ extension MLXArrayIndex where Self == MLXSlice {
 /// ### See Also
 /// - <doc:indexing>
 /// - ``MLXArrayIndex/stride(from:to:by:)``
+@available(iOS 16, macOS 13.3, *)
 @inlinable public func stride(from start: Int? = nil, to end: Int? = nil, by stride: Int? = nil)
     -> MLXSlice
 {
     MLXSlice(start: start?.int32, end: end?.int32, stride: stride?.int32)
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXSlice: MLXArrayIndex {
     public var mlxArrayIndexOperation: MLXArrayIndexOperation {
         .slice(self)
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension Range<Int>: MLXArrayIndex {
     public var mlxArrayIndexOperation: MLXArrayIndexOperation {
         .slice(.init(start: self.lowerBound.int32, end: self.upperBound.int32))
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension ClosedRange<Int>: MLXArrayIndex {
     public var mlxArrayIndexOperation: MLXArrayIndexOperation {
         .slice(.init(start: self.lowerBound.int32, end: self.upperBound.int32 + 1))
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension PartialRangeUpTo<Int>: MLXArrayIndex {
     public var mlxArrayIndexOperation: MLXArrayIndexOperation {
         .slice(.init(start: 0, end: self.upperBound.int32))
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension PartialRangeThrough<Int>: MLXArrayIndex {
     public var mlxArrayIndexOperation: MLXArrayIndexOperation {
         .slice(.init(start: 0, end: self.upperBound.int32 + 1))
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension PartialRangeFrom<Int>: MLXArrayIndex {
     public var mlxArrayIndexOperation: MLXArrayIndexOperation {
         .slice(.init(start: self.lowerBound.int32))

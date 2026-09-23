@@ -8,6 +8,7 @@ import MLX
     *, deprecated,
     message: "`import MLXRandom` is deprecated. All methods are now available through `import MLX"
 )
+@available(iOS 16, macOS 13.3, *)
 public let deprecationWarning: Void = ()
 
 /// Seed the global PRNG.
@@ -16,6 +17,7 @@ public let deprecationWarning: Void = ()
 /// - ``key(_:)``
 @available(*, deprecated, message: "seed is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func seed(_ seed: UInt64) {
     return MLXRandom.seed(seed)
 }
@@ -27,6 +29,7 @@ public func seed(_ seed: UInt64) {
 /// random number generation.
 @available(*, deprecated, message: "key is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func key(_ seed: UInt64) -> MLXArray {
     return MLXRandom.key(seed)
 }
@@ -37,6 +40,7 @@ public func key(_ seed: UInt64) -> MLXArray {
 /// - ``split(key:stream:)``
 @available(*, deprecated, message: "split is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func split(key: MLXArray, into num: Int, stream: StreamOrDevice = .default) -> [MLXArray] {
     return MLXRandom.split(key: key, into: num, stream: stream)
 }
@@ -47,6 +51,7 @@ public func split(key: MLXArray, into num: Int, stream: StreamOrDevice = .defaul
 /// - ``split(key:into:stream:)``
 @available(*, deprecated, message: "split is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func split(key: MLXArray, stream: StreamOrDevice = .default) -> (MLXArray, MLXArray) {
     return MLXRandom.split(key: key, stream: stream)
 }
@@ -67,6 +72,7 @@ public func split(key: MLXArray, stream: StreamOrDevice = .default) -> (MLXArray
 /// ```
 @available(*, deprecated, message: "uniform is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func uniform<R: HasDType, T>(
     _ range: Range<R>, _ shape: [Int] = [], type: T.Type = Float.self, key: MLXArray? = nil,
     stream: StreamOrDevice = .default
@@ -84,6 +90,7 @@ public func uniform<R: HasDType, T>(
 /// ```
 @available(*, deprecated, message: "uniform is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func uniform<T>(
     _ range: Range<Float> = 0 ..< 1, _ shape: [Int] = [], type: T.Type = Float.self,
     key: MLXArray? = nil, stream: StreamOrDevice = .default
@@ -107,6 +114,7 @@ public func uniform<T>(
 /// ```
 @available(*, deprecated, message: "uniform is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func uniform<T>(
     low: ScalarOrArray, high: ScalarOrArray, _ shape: [Int]? = nil, type: T.Type = Float.self,
     key: MLXArray? = nil, stream: StreamOrDevice = .default
@@ -130,6 +138,7 @@ public func uniform<T>(
 /// ```
 @available(*, deprecated, message: "uniform is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func uniform(
     low: ScalarOrArray, high: ScalarOrArray, _ shape: [Int]? = nil, dtype: DType = .float32,
     key: MLXArray? = nil, stream: StreamOrDevice = .default
@@ -160,6 +169,7 @@ public func uniform(
 ///   - key: PRNG key
 @available(*, deprecated, message: "normal is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func normal<T>(
     _ shape: [Int] = [], type: T.Type = Float.self, loc: Float = 0, scale: Float = 1,
     key: MLXArray? = nil,
@@ -191,6 +201,7 @@ public func normal<T>(
 ///   - key: PRNG key
 @available(*, deprecated, message: "normal is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func normal(
     _ shape: [Int] = [], dtype: DType = .float32, loc: Float = 0, scale: Float = 1,
     key: MLXArray? = nil,
@@ -217,6 +228,7 @@ public func normal(
 ///   - key: PRNG key
 @available(*, deprecated, message: "multivariateNormal is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func multivariateNormal(
     mean: MLXArray, covariance: MLXArray, shape: [Int] = [], dtype: DType = .float32,
     key: MLXArray? = nil, stream: StreamOrDevice = .default
@@ -242,6 +254,7 @@ public func multivariateNormal(
 /// ```
 @available(*, deprecated, message: "randInt is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func randInt<T>(
     _ range: Range<T>, _ shape: [Int] = [], key: MLXArray? = nil, stream: StreamOrDevice = .default
 ) -> MLXArray where T: HasDType, T: BinaryInteger {
@@ -263,6 +276,7 @@ public func randInt<T>(
 /// ```
 @available(*, deprecated, message: "randInt is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func randInt(
     low: ScalarOrArray, high: ScalarOrArray, _ shape: [Int]? = nil, key: MLXArray? = nil,
     stream: StreamOrDevice = .default
@@ -286,6 +300,7 @@ public func randInt(
 /// ```
 @available(*, deprecated, message: "randInt is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func randInt<T>(
     low: ScalarOrArray, high: ScalarOrArray, _ shape: [Int]? = nil, type: T.Type,
     key: MLXArray? = nil, stream: StreamOrDevice = .default
@@ -309,6 +324,7 @@ public func randInt<T>(
 /// ```
 @available(*, deprecated, message: "bernoulli is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func bernoulli(_ shape: [Int] = [], key: MLXArray? = nil, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -335,6 +351,7 @@ public func bernoulli(_ shape: [Int] = [], key: MLXArray? = nil, stream: StreamO
 /// ```
 @available(*, deprecated, message: "bernoulli is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func bernoulli(
     _ p: ScalarOrArray, _ shape: [Int]? = nil, key: MLXArray? = nil,
     stream: StreamOrDevice = .default
@@ -362,6 +379,7 @@ public func bernoulli(
 /// - [JAX Documentation](https://jax.readthedocs.io/en/latest/_modules/jax/_src/random.html#truncated_normal)
 @available(*, deprecated, message: "truncatedNormal is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func truncatedNormal<R: HasDType, T>(
     _ range: Range<R>, _ shape: [Int] = [], type: T.Type = Float.self, key: MLXArray? = nil,
     stream: StreamOrDevice = .default
@@ -379,6 +397,7 @@ public func truncatedNormal<R: HasDType, T>(
 /// ```
 @available(*, deprecated, message: "truncatedNormal is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func truncatedNormal<T>(
     _ range: Range<Float>, _ shape: [Int] = [], type: T.Type = Float.self, key: MLXArray? = nil,
     stream: StreamOrDevice = .default
@@ -401,6 +420,7 @@ public func truncatedNormal<T>(
 /// ```
 @available(*, deprecated, message: "truncatedNormal is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func truncatedNormal<T>(
     low: ScalarOrArray, high: ScalarOrArray, _ shape: [Int]? = nil, type: T.Type = Float.self,
     key: MLXArray? = nil, stream: StreamOrDevice = .default
@@ -424,6 +444,7 @@ public func truncatedNormal<T>(
 /// ```
 @available(*, deprecated, message: "truncatedNormal is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func truncatedNormal(
     low: ScalarOrArray, high: ScalarOrArray, _ shape: [Int]? = nil, dtype: DType = .float32,
     key: MLXArray? = nil, stream: StreamOrDevice = .default
@@ -448,6 +469,7 @@ public func truncatedNormal(
 /// ```
 @available(*, deprecated, message: "gumbel is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func gumbel<T>(
     _ shape: [Int] = [], type: T.Type = Float.self, key: MLXArray? = nil,
     stream: StreamOrDevice = .default
@@ -471,6 +493,7 @@ public func gumbel<T>(
 /// ```
 @available(*, deprecated, message: "gumbel is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func gumbel(
     _ shape: [Int] = [], dtype: DType = .float32, key: MLXArray? = nil,
     stream: StreamOrDevice = .default
@@ -498,6 +521,7 @@ public func gumbel(
 ///     - logits: The *unnormalized* categorical distribution(s).
 @available(*, deprecated, message: "categorical is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func categorical(
     _ logits: MLXArray, axis: Int = -1, shape: [Int]? = nil, key: MLXArray? = nil,
     stream: StreamOrDevice = .default
@@ -523,6 +547,7 @@ public func categorical(
 ///     - logits: The *unnormalized* categorical distribution(s).
 @available(*, deprecated, message: "categorical is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func categorical(
     _ logits: MLXArray, axis: Int = -1, count: Int, key: MLXArray? = nil,
     stream: StreamOrDevice = .default
@@ -539,6 +564,7 @@ public func categorical(
 ///   - scale: scale "b" of the distribution
 @available(*, deprecated, message: "laplace is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func laplace(
     _ shape: [Int] = [], dtype: DType = .float32, loc: Float = 0, scale: Float = 1,
     key: MLXArray? = nil, stream: StreamOrDevice = .default

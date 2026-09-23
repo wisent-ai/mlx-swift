@@ -7,6 +7,7 @@ infix operator ** : BitwiseShiftPrecedence
 infix operator .&& : LogicalConjunctionPrecedence
 infix operator .|| : LogicalDisjunctionPrecedence
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXArray {
 
     // MARK: - Arithmetic Operators
@@ -898,6 +899,7 @@ extension MLXArray {
 
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXArray {
 
     // MARK: - Logical Operator Deprecations
@@ -1139,6 +1141,7 @@ extension MLXArray {
 
 // MARK: - Internal Functions
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXArray {
 
     func broadcast(to shape: [Int32], stream: StreamOrDevice = .default) -> MLXArray {
@@ -1169,6 +1172,7 @@ extension MLXArray {
 
 // MARK: - Public Functions
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXArray {
 
     /// Element-wise absolute value.

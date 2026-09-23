@@ -1,4 +1,5 @@
 // Copyright © 2023-2024 Apple Inc.
+#if __METAL_VERSION__ >= 310
 
 #include <metal_simdgroup>
 #include <metal_simdgroup_matrix>
@@ -699,3 +700,4 @@ winograd_conv_2d_output_transform(
 instantiate_winograd_conv_2d(float32, float);
 instantiate_winograd_conv_2d(bfloat16, bfloat16_t);
 instantiate_winograd_conv_2d(float16, half); // clang-format on
+#endif // __METAL_VERSION__ >= 310

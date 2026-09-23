@@ -14,6 +14,7 @@ import Foundation
 ///   - tangents: array of ``MLXArray`` which are the "vector" in the Jacobian-vector product.  The `tangents`
 ///     should be the same in number, shape and type as the inputs of `f`, e.g. the `primals`
 /// - Returns: array of the Jacobian-vector products which is the same in number, shape and type of the outputs of `f`
+@available(iOS 16, macOS 13.3, *)
 public func jvp(
     _ f: @escaping ([MLXArray]) -> [MLXArray], primals: some Collection<MLXArray>,
     tangents: some Collection<MLXArray>
@@ -51,6 +52,7 @@ public func jvp(
 ///   - cotangents: array of ``MLXArray`` which are the "vector" in the vector-Jacobian product.  The `cotangents`
 ///     should be the same in number, shape and type as the outputs of `f`
 /// - Returns: array of the vector-Jacobian products which is the same in number, shape and type of the outputs of `f`
+@available(iOS 16, macOS 13.3, *)
 public func vjp(
     _ f: @escaping ([MLXArray]) -> [MLXArray], primals: some Collection<MLXArray>,
     cotangents: some Collection<MLXArray>
@@ -80,6 +82,7 @@ public func vjp(
 /// Returns a function that computes the gradient and result of `f`, computing the gradient with respect to the ``NestedDictionary``.
 ///
 /// Note that this allows any parameters `<T>` s they will not be part of the gradient.
+@available(iOS 16, macOS 13.3, *)
 public func valueAndGrad<T>(
     _ f: @escaping (NestedDictionary<String, MLXArray>, T) -> [MLXArray]
 ) -> (NestedDictionary<String, MLXArray>, T) -> (

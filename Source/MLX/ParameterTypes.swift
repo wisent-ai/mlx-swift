@@ -12,6 +12,7 @@ import Foundation
 ///
 /// ### See Also:
 /// - ``IntOrArray``
+@available(iOS 16, macOS 13.3, *)
 public struct IntOrPair: ExpressibleByIntegerLiteral, ExpressibleByArrayLiteral, Sendable {
     public let values: (Int, Int)
 
@@ -51,6 +52,7 @@ public struct IntOrPair: ExpressibleByIntegerLiteral, ExpressibleByArrayLiteral,
 ///
 /// ### See Also:
 /// - ``IntOrPair``
+@available(iOS 16, macOS 13.3, *)
 public struct IntOrTriple: ExpressibleByIntegerLiteral, ExpressibleByArrayLiteral, Sendable {
     public let values: (Int, Int, Int)
 
@@ -95,6 +97,7 @@ public struct IntOrTriple: ExpressibleByIntegerLiteral, ExpressibleByArrayLitera
 /// ### See Also:
 /// - ``IntOrPair``
 /// - ``FloatOrArray``
+@available(iOS 16, macOS 13.3, *)
 public enum IntOrArray: ExpressibleByIntegerLiteral, ExpressibleByArrayLiteral, Sendable {
     case int(Int)
     case array([Int])
@@ -155,6 +158,7 @@ public enum IntOrArray: ExpressibleByIntegerLiteral, ExpressibleByArrayLiteral, 
 ///
 /// ### See Also:
 /// - ``IntOrArray``
+@available(iOS 16, macOS 13.3, *)
 public enum FloatOrArray: ExpressibleByFloatLiteral, ExpressibleByArrayLiteral, Sendable {
     case float(Float)
     case array([Float])

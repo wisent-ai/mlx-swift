@@ -3,6 +3,7 @@
 import Cmlx
 import Foundation
 
+@available(iOS 16, macOS 13.3, *)
 public enum MLXFFT {
 
     /// One dimensional discrete Fourier Transform.
@@ -395,6 +396,7 @@ public enum MLXFFT {
 ///
 /// ### See Also
 /// - <doc:MLXFFT>
+@available(iOS 16, macOS 13.3, *)
 public func fft(_ array: MLXArray, n: Int? = nil, axis: Int = -1, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -413,6 +415,7 @@ public func fft(_ array: MLXArray, n: Int? = nil, axis: Int = -1, stream: Stream
 ///
 /// ### See Also
 /// - <doc:MLXFFT>
+@available(iOS 16, macOS 13.3, *)
 public func ifft(
     _ array: MLXArray, n: Int? = nil, axis: Int = -1, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -431,6 +434,7 @@ public func ifft(
 ///
 /// ### See Also
 /// - <doc:MLXFFT>
+@available(iOS 16, macOS 13.3, *)
 public func fft2(
     _ array: MLXArray, s: (some Collection<Int>)? = [Int]?.none,
     axes: (some Collection<Int>)? = [-2, -1], stream: StreamOrDevice = .default
@@ -450,6 +454,7 @@ public func fft2(
 ///
 /// ### See Also
 /// - <doc:MLXFFT>
+@available(iOS 16, macOS 13.3, *)
 public func ifft2(
     _ array: MLXArray, s: (some Collection<Int>)? = [Int]?.none,
     axes: (some Collection<Int>)? = [-2, -1], stream: StreamOrDevice = .default
@@ -469,6 +474,7 @@ public func ifft2(
 ///
 /// ### See Also
 /// - <doc:MLXFFT>
+@available(iOS 16, macOS 13.3, *)
 public func fftn(
     _ array: MLXArray, s: (some Collection<Int>)? = [Int]?.none,
     axes: (some Collection<Int>)? = [Int]?.none, stream: StreamOrDevice = .default
@@ -488,6 +494,7 @@ public func fftn(
 ///
 /// ### See Also
 /// - <doc:MLXFFT>
+@available(iOS 16, macOS 13.3, *)
 public func ifftn(
     _ array: MLXArray, s: (some Collection<Int>)? = [Int]?.none,
     axes: (some Collection<Int>)? = [Int]?.none, stream: StreamOrDevice = .default
@@ -510,6 +517,7 @@ public func ifftn(
 ///
 /// ### See Also
 /// - <doc:MLXFFT>
+@available(iOS 16, macOS 13.3, *)
 public func rfft(
     _ array: MLXArray, n: Int? = nil, axis: Int = -1, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -531,6 +539,7 @@ public func rfft(
 ///
 /// ### See Also
 /// - <doc:MLXFFT>
+@available(iOS 16, macOS 13.3, *)
 public func irfft(
     _ array: MLXArray, n: Int? = nil, axis: Int = -1, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -553,6 +562,7 @@ public func irfft(
 ///
 /// ### See Also
 /// - <doc:MLXFFT>
+@available(iOS 16, macOS 13.3, *)
 public func rfft2(
     _ array: MLXArray, s: (some Collection<Int>)? = [Int]?.none,
     axes: (some Collection<Int>)? = [-2, -1], stream: StreamOrDevice = .default
@@ -577,6 +587,7 @@ public func rfft2(
 ///
 /// ### See Also
 /// - <doc:MLXFFT>
+@available(iOS 16, macOS 13.3, *)
 public func irfft2(
     _ array: MLXArray, s: (some Collection<Int>)? = [Int]?.none,
     axes: (some Collection<Int>)? = [-2, -1],
@@ -601,6 +612,7 @@ public func irfft2(
 ///
 /// ### See Also
 /// - <doc:MLXFFT>
+@available(iOS 16, macOS 13.3, *)
 public func rfftn(
     _ array: MLXArray, s: (some Collection<Int>)? = [Int]?.none,
     axes: (some Collection<Int>)? = [Int]?.none, stream: StreamOrDevice = .default
@@ -625,6 +637,7 @@ public func rfftn(
 ///
 /// ### See Also
 /// - <doc:MLXFFT>
+@available(iOS 16, macOS 13.3, *)
 public func irfftn(
     _ array: MLXArray, s: (some Collection<Int>)? = [Int]?.none,
     axes: (some Collection<Int>)? = [Int]?.none, stream: StreamOrDevice = .default

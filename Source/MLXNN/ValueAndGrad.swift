@@ -51,6 +51,7 @@ import MLX
 ///
 /// ### See Also
 /// - <doc:training>
+@available(iOS 16, macOS 13.3, *)
 public func valueAndGrad<Model: Module>(
     model: Model, _ f: @escaping (Model, MLXArray, MLXArray) -> MLXArray
 ) -> (Model, MLXArray, MLXArray) -> (MLXArray, ModuleParameters) {
@@ -97,6 +98,7 @@ public func valueAndGrad<Model: Module>(
 /// ### See Also
 /// - <doc:training>
 /// - ``valueAndGrad(model:_:)-12a2c``
+@available(iOS 16, macOS 13.3, *)
 public func valueAndGrad<Model: Module>(
     model: Model, _ f: @escaping (Model, [MLXArray]) -> [MLXArray]
 ) -> (Model, [MLXArray]) -> ([MLXArray], ModuleParameters) {
@@ -141,6 +143,7 @@ public func valueAndGrad<Model: Module>(
 /// ### See Also
 /// - <doc:training>
 /// - ``valueAndGrad(model:_:)-12a2c``
+@available(iOS 16, macOS 13.3, *)
 public func valueAndGrad<Model: Module, Arguments>(
     model: Model, _ f: @escaping (Model, Arguments) -> [MLXArray]
 ) -> (Model, Arguments) -> ([MLXArray], ModuleParameters) {

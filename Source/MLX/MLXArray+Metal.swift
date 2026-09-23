@@ -6,6 +6,7 @@ import Metal
 
 // MARK: - Metal
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXArray {
 
     /// Return the contents as a Metal buffer in the native ``dtype``.

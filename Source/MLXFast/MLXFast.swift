@@ -7,6 +7,7 @@ import MLX
     *, deprecated,
     message: "`import MLXFast` is deprecated. All methods are now available through `import MLX"
 )
+@available(iOS 16, macOS 13.3, *)
 public let deprecationWarning: Void = ()
 
 /// Optimized implementation of `NN.RoPE`.
@@ -30,6 +31,7 @@ public let deprecationWarning: Void = ()
 /// > Note: `MLXNN.RoPE` uses this implementation internally.
 @available(*, deprecated, message: "RoPE is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func RoPE(
     _ array: MLXArray, dimensions: Int, traditional: Bool, base: Float?, scale: Float, offset: Int,
     freqs: MLXArray? = nil, stream: StreamOrDevice = .default
@@ -65,6 +67,7 @@ public func RoPE(
     *, deprecated, message: "scaledDotProductAttention is now available in the main MLX module"
 )
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func scaledDotProductAttention(
     queries: MLXArray, keys: MLXArray, values: MLXArray, scale: Float, mask: MLXArray?,
     memoryEfficientThreshold: Int? = nil, stream: StreamOrDevice = .default
@@ -86,6 +89,7 @@ public func scaledDotProductAttention(
 ///   - stream: stream or device to evaluate on
 @available(*, deprecated, message: "rmsNorm is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func rmsNorm(_ x: MLXArray, weight: MLXArray, eps: Float, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -106,6 +110,7 @@ public func rmsNorm(_ x: MLXArray, weight: MLXArray, eps: Float, stream: StreamO
 ///   - stream: stream or device to evaluate on
 @available(*, deprecated, message: "layerNorm is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func layerNorm(
     _ x: MLXArray, weight: MLXArray? = nil, bias: MLXArray? = nil, eps: Float,
     stream: StreamOrDevice = .default

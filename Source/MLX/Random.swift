@@ -84,6 +84,7 @@ import Foundation
 /// ```
 ///
 /// Each task will have separate ``RandomState`` that will be used implicitly (if no other key is passed in).
+@available(iOS 16, macOS 13.3, *)
 public enum MLXRandom {
 
     /// Seed the global PRNG.
@@ -787,6 +788,7 @@ public enum MLXRandom {
 /// - ``key(_:)``
 /// - ``MLXRandom/RandomState``
 /// - ``MLXRandom/globalState``
+@available(iOS 16, macOS 13.3, *)
 public func seed(_ seed: UInt64) {
     return MLXRandom.seed(seed)
 }
@@ -796,6 +798,7 @@ public func seed(_ seed: UInt64) {
 /// Return a value that can be used as a PRNG key.  All ``MLXRandom``
 /// functions take an optional key -- this will let you control the
 /// random number generation.
+@available(iOS 16, macOS 13.3, *)
 public func key(_ seed: UInt64) -> MLXArray {
     return MLXRandom.key(seed)
 }
@@ -804,6 +807,7 @@ public func key(_ seed: UInt64) -> MLXArray {
 ///
 /// ### See Also
 /// - ``split(key:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func split(key: MLXArray, into num: Int, stream: StreamOrDevice = .default) -> [MLXArray] {
     return MLXRandom.split(key: key, into: num, stream: stream)
 }
@@ -812,6 +816,7 @@ public func split(key: MLXArray, into num: Int, stream: StreamOrDevice = .defaul
 ///
 /// ### See Also
 /// - ``split(key:into:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func split(key: MLXArray, stream: StreamOrDevice = .default) -> (MLXArray, MLXArray) {
     return MLXRandom.split(key: key, stream: stream)
 }
@@ -830,6 +835,7 @@ public func split(key: MLXArray, stream: StreamOrDevice = .default) -> (MLXArray
 /// // same, but in range 0.5 ..< 1
 /// let array = MLXRandom.uniform(0.5 ..< 1, [50], key: key)
 /// ```
+@available(iOS 16, macOS 13.3, *)
 public func uniform(
     _ range: Range<some HasDType>, _ shape: some Collection<Int> = [],
     type: (some HasDType & BinaryFloatingPoint).Type = Float.self,
@@ -846,6 +852,7 @@ public func uniform(
 /// let key = MLXRandom.key(0)
 /// let array = MLXRandom.uniform(0.5 ..< 1, [50], key: key)
 /// ```
+@available(iOS 16, macOS 13.3, *)
 public func uniform(
     _ range: Range<Float> = 0 ..< 1, _ shape: some Collection<Int> = [],
     type: (some HasDType & BinaryFloatingPoint).Type = Float.self,
@@ -868,6 +875,7 @@ public func uniform(
 /// // and one in the range 10 ..< 100
 /// let value = MLXRandom.uniform(low: [0, 10], high: [10, 100], key: key)
 /// ```
+@available(iOS 16, macOS 13.3, *)
 public func uniform(
     low: some ScalarOrArray, high: some ScalarOrArray,
     _ shape: (some Collection<Int>)? = [Int]?.none,
@@ -891,6 +899,7 @@ public func uniform(
 /// // and one in the range 10 ..< 100
 /// let value = MLXRandom.uniform(low: [0, 10], high: [10, 100], key: key)
 /// ```
+@available(iOS 16, macOS 13.3, *)
 public func uniform(
     low: some ScalarOrArray, high: some ScalarOrArray,
     _ shape: (some Collection<Int>)? = [Int]?.none, dtype: DType,
@@ -921,6 +930,7 @@ public func uniform(
 ///   - scale: standard deviation of the distribution
 ///   - key: PRNG key
 ///   - stream: stream or device to evaluate on
+@available(iOS 16, macOS 13.3, *)
 public func normal(
     _ shape: some Collection<Int> = [],
     type: (some HasDType & BinaryFloatingPoint).Type = Float.self, loc: Float = 0, scale: Float = 1,
@@ -951,6 +961,7 @@ public func normal(
 ///   - scale: standard deviation of the distribution
 ///   - key: PRNG key
 ///   - stream: stream or device to evaluate on
+@available(iOS 16, macOS 13.3, *)
 public func normal(
     _ shape: some Collection<Int> = [], dtype: DType, loc: Float = 0, scale: Float = 1,
     key: (some RandomStateOrKey)? = MLXArray?.none, stream: StreamOrDevice = .default
@@ -975,6 +986,7 @@ public func normal(
 ///   - dtype: DType of the result
 ///   - key: PRNG key
 ///   - stream: stream or device to evaluate on
+@available(iOS 16, macOS 13.3, *)
 public func multivariateNormal(
     mean: MLXArray, covariance: MLXArray, shape: some Collection<Int> = [], dtype: DType,
     key: (some RandomStateOrKey)? = MLXArray?.none, stream: StreamOrDevice = .default
@@ -998,6 +1010,7 @@ public func multivariateNormal(
 /// // generate an array of shape [50] random Int32
 /// let array = MLXRandom.randInt(Int32(0) ..< 100, [50], key: key)
 /// ```
+@available(iOS 16, macOS 13.3, *)
 public func randInt(
     _ range: Range<some HasDType & BinaryInteger>, _ shape: some Collection<Int> = [],
     key: (some RandomStateOrKey)? = MLXArray?.none, stream: StreamOrDevice = .default
@@ -1018,6 +1031,7 @@ public func randInt(
 /// // and one in the range 10 ..< 100
 /// let array = MLXRandom.randInt(low: [0, 10], high: [10, 100], key: key)
 /// ```
+@available(iOS 16, macOS 13.3, *)
 public func randInt(
     low: some ScalarOrArray, high: some ScalarOrArray,
     _ shape: (some Collection<Int>)? = [Int]?.none, key: (some RandomStateOrKey)? = MLXArray?.none,
@@ -1040,6 +1054,7 @@ public func randInt(
 /// // and one in the range 10 ..< 100
 /// let array = MLXRandom.randInt(low: [0, 10], high: [10, 100], type: Int8.self, key: key)
 /// ```
+@available(iOS 16, macOS 13.3, *)
 public func randInt(
     low: some ScalarOrArray, high: some ScalarOrArray,
     _ shape: (some Collection<Int>)? = [Int]?.none, type: (some HasDType & BinaryInteger).Type,
@@ -1062,6 +1077,7 @@ public func randInt(
 /// // generate an array of shape [50, 2] of random Bool
 /// let array = MLXRandom.bernoulli([50, 2], key: key)
 /// ```
+@available(iOS 16, macOS 13.3, *)
 public func bernoulli(
     _ shape: some Collection<Int> = [], key: (some RandomStateOrKey)? = MLXArray?.none,
     stream: StreamOrDevice = .default
@@ -1087,6 +1103,7 @@ public func bernoulli(
 /// // generate an array of [3] Bool with the given p values
 /// let array = MLXRandom.bernoulli(MLXArray(convert: [0.1, 0.5, 0.8]), key: key)
 /// ```
+@available(iOS 16, macOS 13.3, *)
 public func bernoulli(
     _ p: some ScalarOrArray, _ shape: (some Collection<Int>)? = [Int]?.none,
     key: (some RandomStateOrKey)? = MLXArray?.none, stream: StreamOrDevice = .default
@@ -1112,6 +1129,7 @@ public func bernoulli(
 ///
 /// ### See also
 /// - [JAX Documentation](https://jax.readthedocs.io/en/latest/_modules/jax/_src/random.html#truncated_normal)
+@available(iOS 16, macOS 13.3, *)
 public func truncatedNormal(
     _ range: Range<some HasDType>, _ shape: some Collection<Int> = [],
     type: (some HasDType & BinaryFloatingPoint).Type = Float.self,
@@ -1128,6 +1146,7 @@ public func truncatedNormal(
 /// let key = MLXRandom.key(0)
 /// let array = MLXRandom.truncatedNormal(0.5 ..< 1, [50], key: key)
 /// ```
+@available(iOS 16, macOS 13.3, *)
 public func truncatedNormal(
     _ range: Range<Float>, _ shape: some Collection<Int> = [],
     type: (some HasDType & BinaryFloatingPoint).Type = Float.self,
@@ -1149,6 +1168,7 @@ public func truncatedNormal(
 /// // and one in the range 10 ..< 100
 /// let value = MLXRandom.truncatedNormal([0, 10], [10, 100], key: key)
 /// ```
+@available(iOS 16, macOS 13.3, *)
 public func truncatedNormal(
     low: some ScalarOrArray, high: some ScalarOrArray,
     _ shape: (some Collection<Int>)? = [Int]?.none,
@@ -1172,6 +1192,7 @@ public func truncatedNormal(
 /// // and one in the range 10 ..< 100
 /// let value = MLXRandom.truncatedNormal([0, 10], [10, 100], key: key)
 /// ```
+@available(iOS 16, macOS 13.3, *)
 public func truncatedNormal(
     low: some ScalarOrArray, high: some ScalarOrArray,
     _ shape: (some Collection<Int>)? = [Int]?.none, dtype: DType,
@@ -1195,6 +1216,7 @@ public func truncatedNormal(
 /// // generate an array of Float with Gumbel distribution in shape [10, 5]
 /// let array = MLXRandom.gumbel([10, 5], key: key)
 /// ```
+@available(iOS 16, macOS 13.3, *)
 public func gumbel(
     _ shape: some Collection<Int> = [],
     type: (some HasDType & BinaryFloatingPoint).Type = Float.self,
@@ -1217,6 +1239,7 @@ public func gumbel(
 /// // generate an array of Float with Gumbel distribution in shape [10, 5]
 /// let array = MLXRandom.gumbel([10, 5], key: key)
 /// ```
+@available(iOS 16, macOS 13.3, *)
 public func gumbel(
     _ shape: some Collection<Int> = [], dtype: DType,
     key: (some RandomStateOrKey)? = MLXArray?.none, stream: StreamOrDevice = .default
@@ -1246,6 +1269,7 @@ public func gumbel(
 ///   - shape: optional shape of the output -- this must be broadcast compatible with the shape of logits
 ///   - key: optional PRNG key
 ///   - stream: stream or device to evaluate on
+@available(iOS 16, macOS 13.3, *)
 public func categorical(
     _ logits: MLXArray, axis: Int = -1, shape: (some Collection<Int>)? = [Int]?.none,
     key: (some RandomStateOrKey)? = MLXArray?.none, stream: StreamOrDevice = .default
@@ -1273,6 +1297,7 @@ public func categorical(
 ///   - count: number of samples to draw from logits
 ///   - key: optional PRNG key
 ///   - stream: stream or device to evaluate on
+@available(iOS 16, macOS 13.3, *)
 public func categorical(
     _ logits: MLXArray, axis: Int = -1, count: Int, key: (some RandomStateOrKey)? = MLXArray?.none,
     stream: StreamOrDevice = .default
@@ -1289,6 +1314,7 @@ public func categorical(
 ///   - scale: scale "b" of the distribution
 ///   - key: optional PRNG key
 ///   - stream: stream or device to evaluate on
+@available(iOS 16, macOS 13.3, *)
 public func laplace(
     _ shape: some Collection<Int> = [], dtype: DType, loc: Float = 0, scale: Float = 1,
     key: (some RandomStateOrKey)? = MLXArray?.none, stream: StreamOrDevice = .default

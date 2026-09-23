@@ -4,15 +4,19 @@ import Foundation
 import MLX
 
 /// `NestedDictionary` structure of `MLXArray`
+@available(iOS 16, macOS 13.3, *)
 public typealias ModuleParameters = NestedDictionary<String, MLXArray>
 
 /// `NestedDictionary` structure of `Module`
+@available(iOS 16, macOS 13.3, *)
 public typealias ModuleChildren = NestedDictionary<String, Module>
 
 /// `NestedDictionary` structure of `ModuleValue` from ``Module/items()``
+@available(iOS 16, macOS 13.3, *)
 public typealias ModuleItems = NestedDictionary<String, ModuleValue>
 
 /// Single item from ``Module/items()``
+@available(iOS 16, macOS 13.3, *)
 public typealias ModuleItem = NestedItem<String, ModuleValue>
 
 /// Base class for building neural networks with MLX.
@@ -94,6 +98,7 @@ public typealias ModuleItem = NestedItem<String, ModuleValue>
 ///
 /// ### See Also
 /// - <doc:custom-layers>
+@available(iOS 16, macOS 13.3, *)
 open class Module {
 
     /// Flag to indicate whether the module is being trained.  Manipulated via
@@ -985,6 +990,7 @@ open class Module {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension Module: IndentedDescription {
 
     public func description(indent: Int) -> String {
@@ -1009,6 +1015,7 @@ extension Module: IndentedDescription {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension Module: Updatable, Evaluatable {
     public func innerState() -> [MLXArray] {
         filterMap(filter: Self.filterAll, map: Self.mapParameters())
@@ -1023,12 +1030,14 @@ extension Module: Updatable, Evaluatable {
 /// ### See Also
 /// - <doc:layers>
 /// - ``Sequential``
+@available(iOS 16, macOS 13.3, *)
 public protocol UnaryLayer: Module {
     func callAsFunction(_ x: MLXArray) -> MLXArray
 }
 
 // MARK: - Filters and Maps
 
+@available(iOS 16, macOS 13.3, *)
 extension Module {
 
     /// Return `true` if the given parameter name is valid -- should be considered for
@@ -1273,6 +1282,7 @@ extension Module {
 /// - ``Module/filterMap(filter:map:isLeaf:)``
 /// - ``ModuleItems``
 /// - ``ModuleItem``
+@available(iOS 16, macOS 13.3, *)
 public enum ModuleValue {
     case none
 
@@ -1387,6 +1397,7 @@ public enum ModuleValue {
 /// ### See Also
 /// - <doc:custom-layers>
 /// - ``ModuleInfo``
+@available(iOS 16, macOS 13.3, *)
 @propertyWrapper public class ParameterInfo<T> {
     var value: T?
     let key: String?
@@ -1436,10 +1447,12 @@ public enum ModuleValue {
 }
 
 /// Helper protocol for writing back through ``ModuleInfo``, e.g. via ``Module/update(modules:)``
+@available(iOS 16, macOS 13.3, *)
 private protocol TypeErasedSetter {
     func updateModule(_ value: Any) throws
 }
 
+@available(iOS 16, macOS 13.3, *)
 private protocol TypeErasedSetterProvider {
     func typeErasedSetter() -> TypeErasedSetter
 }
@@ -1500,6 +1513,7 @@ private protocol TypeErasedSetterProvider {
 /// ### See Also
 /// - <doc:custom-layers>
 /// - ``ParameterInfo``
+@available(iOS 16, macOS 13.3, *)
 @propertyWrapper public class ModuleInfo<T>: TypeErasedSetterProvider {
     var module: T?
     let key: String?
@@ -1581,6 +1595,7 @@ private protocol TypeErasedSetterProvider {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 public enum UpdateError: Error {
     case unableToCollectModulesFromContainer(path: [String], modules: [String])
     case mismatchedContainers(base: String, key: String)
@@ -1595,6 +1610,7 @@ public enum UpdateError: Error {
     case unexpectedStructure(key: String, item: String)
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension UpdateError: LocalizedError {
     public var errorDescription: String? {
         switch self {
@@ -1635,6 +1651,7 @@ extension UpdateError: LocalizedError {
 
 // MARK: - Private Functions
 
+@available(iOS 16, macOS 13.3, *)
 private func unwrapProperty(_ property: Any) -> (String?, Any?)? {
     let label: String?
     let value: Any?
@@ -1665,6 +1682,7 @@ private func unwrapProperty(_ property: Any) -> (String?, Any?)? {
     return (label, value)
 }
 
+@available(iOS 16, macOS 13.3, *)
 private func isModuleInfo(_ property: Any) -> (String?, Any, TypeErasedSetter)? {
     let m = Mirror(reflecting: property)
     let c = m.children.map { $0 }
@@ -1678,6 +1696,7 @@ private func isModuleInfo(_ property: Any) -> (String?, Any, TypeErasedSetter)? 
     return nil
 }
 
+@available(iOS 16, macOS 13.3, *)
 private func unwrapModule(_ property: Any) -> (String?, Any)? {
     if let (key, value, _) = isModuleInfo(property) {
         return (key, value)
@@ -1686,6 +1705,7 @@ private func unwrapModule(_ property: Any) -> (String?, Any)? {
     return nil
 }
 
+@available(iOS 16, macOS 13.3, *)
 private enum MirrorAction {
     /// stop iterating
     case stop
@@ -1695,6 +1715,7 @@ private enum MirrorAction {
 }
 
 /// Mirror wrapper that traverses types up to `Module` and visits their children.
+@available(iOS 16, macOS 13.3, *)
 private func mirrorUpToModule(module: Module, visit: (Mirror.Child) throws -> MirrorAction) rethrows
 {
     var m = Mirror(reflecting: module)
@@ -1715,6 +1736,7 @@ private func mirrorUpToModule(module: Module, visit: (Mirror.Child) throws -> Mi
 }
 
 /// convenience for describing the type of a value
+@available(iOS 16, macOS 13.3, *)
 private func describeType<T>(_ value: T) -> String {
     String(describing: type(of: value))
 }

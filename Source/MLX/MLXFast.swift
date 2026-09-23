@@ -2,6 +2,7 @@
 
 import Cmlx
 
+@available(iOS 16, macOS 13.3, *)
 public enum MLXFast {
 
     /// Optimized implementation of `NN.RoPE`.
@@ -280,6 +281,7 @@ public enum MLXFast {
 /// ```
 ///
 /// > Note: `MLXNN.RoPE` uses this implementation internally.
+@available(iOS 16, macOS 13.3, *)
 public func RoPE(
     _ array: MLXArray, dimensions: Int, traditional: Bool, base: Float?, scale: Float, offset: Int,
     freqs: MLXArray? = nil, stream: StreamOrDevice = .default
@@ -292,6 +294,7 @@ public func RoPE(
 /// Optimized implementation of `NN.RoPE` with array offset for batched inference.
 ///
 /// > Note: `MLXNN.RoPE` uses this implementation internally.
+@available(iOS 16, macOS 13.3, *)
 public func RoPE(
     _ array: MLXArray, dimensions: Int, traditional: Bool, base: Float?, scale: Float,
     offset: MLXArray,
@@ -324,6 +327,7 @@ public func RoPE(
 ///
 /// return matmul(scores, values).transposed(0, 2, 1, 3)
 /// ```
+@available(iOS 16, macOS 13.3, *)
 public func scaledDotProductAttention(
     queries: MLXArray, keys: MLXArray, values: MLXArray, scale: Float, mask: MLXArray?,
     memoryEfficientThreshold: Int? = nil, stream: StreamOrDevice = .default
@@ -343,6 +347,7 @@ public func scaledDotProductAttention(
 ///     with the same size as the last axis of `x`.
 ///   - eps: A small additive constant for numerical stability
 ///   - stream: stream or device to evaluate on
+@available(iOS 16, macOS 13.3, *)
 public func rmsNorm(_ x: MLXArray, weight: MLXArray, eps: Float, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -361,6 +366,7 @@ public func rmsNorm(_ x: MLXArray, weight: MLXArray, eps: Float, stream: StreamO
 ///     with the same size as the last axis of `x`.  It not given no offset will occur.
 ///   - eps: A small additive constant for numerical stability
 ///   - stream: stream or device to evaluate on
+@available(iOS 16, macOS 13.3, *)
 public func layerNorm(
     _ x: MLXArray, weight: MLXArray? = nil, bias: MLXArray? = nil, eps: Float,
     stream: StreamOrDevice = .default

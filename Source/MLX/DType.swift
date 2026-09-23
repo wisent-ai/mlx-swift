@@ -24,6 +24,7 @@ import Numerics
 /// - ``MLXArray/asType(_:stream:)-(DType,StreamOrDevice)``
 /// - ``MLXArray/asType(_:stream:)-(HasDType.Type,StreamOrDevice)``
 /// - ``MLXArray/init(_:dtype:)``
+@available(iOS 16, macOS 13.3, *)
 public enum DType: Hashable, Sendable, CaseIterable {
     case bool
     case uint8
@@ -212,12 +213,14 @@ public enum DType: Hashable, Sendable, CaseIterable {
 
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension DType: Encodable {
     public func encode(to encoder: any Encoder) throws {
         try self.cmlxDtype.rawValue.encode(to: encoder)
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension DType: Decodable {
     public init(from decoder: any Decoder) throws {
         let rawValue = try UInt32(from: decoder)
@@ -231,22 +234,26 @@ extension DType: Decodable {
 /// where possible.
 ///
 /// See also ``ScalarOrArray``.
+@available(iOS 16, macOS 13.3, *)
 public protocol HasDType: ScalarOrArray {
 
     /// Return the type's ``DType``
     static var dtype: DType { get }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension HasDType {
     public func asMLXArray(dtype: DType?) -> MLXArray {
         MLXArray(self, dtype: dtype ?? Self.dtype)
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension Bool: HasDType {
     static public var dtype: DType { .bool }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension Int: HasDType {
     static public var dtype: DType { .int64 }
 
@@ -257,6 +264,7 @@ extension Int: HasDType {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension Int8: HasDType {
     static public var dtype: DType { .int8 }
 
@@ -265,6 +273,7 @@ extension Int8: HasDType {
         return MLXArray(self, dtype: dtype == .bool ? Self.dtype : dtype)
     }
 }
+@available(iOS 16, macOS 13.3, *)
 extension Int16: HasDType {
     static public var dtype: DType { .int16 }
 
@@ -273,6 +282,7 @@ extension Int16: HasDType {
         return MLXArray(self, dtype: dtype == .bool ? Self.dtype : dtype)
     }
 }
+@available(iOS 16, macOS 13.3, *)
 extension Int32: HasDType {
     static public var dtype: DType { .int32 }
 
@@ -281,6 +291,7 @@ extension Int32: HasDType {
         return MLXArray(self, dtype: dtype == .bool ? Self.dtype : dtype)
     }
 }
+@available(iOS 16, macOS 13.3, *)
 extension Int64: HasDType {
     static public var dtype: DType { .int64 }
 
@@ -290,6 +301,7 @@ extension Int64: HasDType {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension UInt8: HasDType {
     static public var dtype: DType { .uint8 }
 
@@ -298,6 +310,7 @@ extension UInt8: HasDType {
         return MLXArray(self, dtype: dtype == .bool ? Self.dtype : dtype)
     }
 }
+@available(iOS 16, macOS 13.3, *)
 extension UInt16: HasDType {
     static public var dtype: DType { .uint16 }
 
@@ -306,6 +319,7 @@ extension UInt16: HasDType {
         return MLXArray(self, dtype: dtype == .bool ? Self.dtype : dtype)
     }
 }
+@available(iOS 16, macOS 13.3, *)
 extension UInt32: HasDType {
     static public var dtype: DType { .uint32 }
 
@@ -314,6 +328,7 @@ extension UInt32: HasDType {
         return MLXArray(self, dtype: dtype == .bool ? Self.dtype : dtype)
     }
 }
+@available(iOS 16, macOS 13.3, *)
 extension UInt64: HasDType {
     static public var dtype: DType { .uint64 }
 
@@ -322,6 +337,7 @@ extension UInt64: HasDType {
         return MLXArray(self, dtype: dtype == .bool ? Self.dtype : dtype)
     }
 }
+@available(iOS 16, macOS 13.3, *)
 extension UInt: HasDType {
     static public var dtype: DType { .uint64 }
 
@@ -332,6 +348,7 @@ extension UInt: HasDType {
 }
 
 #if !arch(x86_64)
+    @available(iOS 16, macOS 13.3, *)
     extension Float16: HasDType {
         static public var dtype: DType { .float16 }
 
@@ -341,6 +358,7 @@ extension UInt: HasDType {
         }
     }
 #endif
+@available(iOS 16, macOS 13.3, *)
 extension Float32: HasDType {
     static public var dtype: DType { .float32 }
 
@@ -350,6 +368,7 @@ extension Float32: HasDType {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension Float64: HasDType {
     static public var dtype: DType { .float64 }
 
@@ -360,11 +379,13 @@ extension Float64: HasDType {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension Complex<Float>: HasDType {
     static public var dtype: DType { .complex64 }
 }
 
 /// Protocol for promoting a value (e.g. a scalar) to an MLXArray.
+@available(iOS 16, macOS 13.3, *)
 public protocol ScalarOrArray {
     /// Convert to ``MLXArray`` using the optional suggested ``DType``.
     ///
@@ -383,18 +404,21 @@ public protocol ScalarOrArray {
     func asMLXArray(dtype: DType?) -> MLXArray
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension Complex<Float>: ScalarOrArray {
     public func asMLXArray(dtype: DType?) -> MLXArray {
         MLXArray(self)
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXArray: ScalarOrArray {
     public func asMLXArray(dtype: DType?) -> MLXArray {
         self
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension Array: ScalarOrArray where Element: HasDType {
     public func asMLXArray(dtype: DType?) -> MLXArray {
         MLXArray(self).asType(dtype ?? Element.dtype)
@@ -420,6 +444,7 @@ extension Array: ScalarOrArray where Element: HasDType {
 ///
 /// See also ``ScalarOrArray``.
 @_documentation(visibility: internal)
+@available(iOS 16, macOS 13.3, *)
 public func toArrays(_ a: some ScalarOrArray, _ b: some ScalarOrArray) -> (MLXArray, MLXArray) {
     if let a = a as? MLXArray {
         if let b = b as? MLXArray {

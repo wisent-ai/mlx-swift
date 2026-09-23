@@ -5,6 +5,7 @@ import Foundation
 
 // see Transforms+Variants for generated grad() functions
 
+@available(iOS 16, macOS 13.3, *)
 private func valueAndGradient(
     apply valueAndGrad: mlx_closure_value_and_grad, arrays: some Collection<MLXArray>
 )
@@ -26,6 +27,7 @@ private func valueAndGradient(
     return (mlx_vector_array_values(r0), mlx_vector_array_values(r1))
 }
 
+@available(iOS 16, macOS 13.3, *)
 func buildGradient(_ f: @escaping ([MLXArray]) -> [MLXArray], argumentNumbers: some Collection<Int>)
     -> (
         [MLXArray]
@@ -44,6 +46,7 @@ func buildGradient(_ f: @escaping ([MLXArray]) -> [MLXArray], argumentNumbers: s
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 func buildValueAndGradient(
     _ f: @escaping ([MLXArray]) -> [MLXArray], argumentNumbers: some Collection<Int>
 ) -> (
@@ -62,6 +65,7 @@ func buildValueAndGradient(
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 func buildValueAndGradient<T>(
     _ f: @escaping (NestedDictionary<String, MLXArray>, T) -> [MLXArray]
 ) -> (NestedDictionary<String, MLXArray>, T) -> (

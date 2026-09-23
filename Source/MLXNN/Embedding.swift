@@ -6,6 +6,7 @@ import MLX
 /// Implements a simple lookup table that maps each input integer to a high-dimensional vector.
 ///
 /// Typically used to embed discrete tokens for processing by neural networks.
+@available(iOS 16, macOS 13.3, *)
 open class Embedding: Module, UnaryLayer, Quantizable {
     public let weight: MLXArray
 

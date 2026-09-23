@@ -10,6 +10,7 @@ import MLX
 ///
 /// ### See also
 /// - <doc:normalization>
+@available(iOS 16, macOS 13.3, *)
 open class InstanceNorm: Module, UnaryLayer {
 
     public let dimensions: Int
@@ -68,6 +69,7 @@ open class InstanceNorm: Module, UnaryLayer {
 ///
 /// ### See also
 /// - <doc:normalization>
+@available(iOS 16, macOS 13.3, *)
 open class LayerNorm: Module, UnaryLayer {
 
     public let dimensions: Int
@@ -124,6 +126,7 @@ open class LayerNorm: Module, UnaryLayer {
 ///
 /// ### See also
 /// - <doc:normalization>
+@available(iOS 16, macOS 13.3, *)
 open class RMSNorm: Module, UnaryLayer {
 
     public let weight: MLXArray
@@ -152,6 +155,7 @@ open class RMSNorm: Module, UnaryLayer {
 ///
 /// ### See also
 /// - <doc:normalization>
+@available(iOS 16, macOS 13.3, *)
 open class GroupNorm: Module, UnaryLayer {
 
     public let groupCount: Int
@@ -250,6 +254,7 @@ open class GroupNorm: Module, UnaryLayer {
 ///
 /// ### See also
 /// - <doc:normalization>
+@available(iOS 16, macOS 13.3, *)
 open class BatchNorm: Module, UnaryLayer {
 
     public let featureCount: Int

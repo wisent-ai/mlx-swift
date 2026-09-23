@@ -3,6 +3,7 @@
 import Cmlx
 import Foundation
 
+@available(iOS 16, macOS 13.3, *)
 public enum MLXLinalg {
 
     /// Types of norms available.
@@ -459,6 +460,7 @@ public enum MLXLinalg {
 ///
 /// ### See Also
 /// - ``norm(_:ord:axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func norm(
     _ array: MLXArray, ord: MLXLinalg.NormKind? = nil, axes: some Collection<Int>,
     keepDims: Bool = false,
@@ -508,6 +510,7 @@ public func norm(
 ///
 /// ### See Also
 /// - ``norm(_:ord:axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func norm(
     _ array: MLXArray, ord: MLXLinalg.NormKind? = nil, axis: Int, keepDims: Bool = false,
     stream: StreamOrDevice = .default
@@ -518,6 +521,7 @@ public func norm(
 /// Matrix or vector norm.
 ///
 /// See ``norm(_:ord:axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func norm(
     _ array: MLXArray, ord: Double, axis: Int, keepDims: Bool = false,
     stream: StreamOrDevice = .default
@@ -528,6 +532,7 @@ public func norm(
 /// Matrix or vector norm.
 ///
 /// - ``norm(_:ord:axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func norm(
     _ array: MLXArray, ord: MLXLinalg.NormKind? = nil, axis: IntOrArray? = nil,
     keepDims: Bool = false, stream: StreamOrDevice = .default
@@ -538,6 +543,7 @@ public func norm(
 /// Matrix or vector norm.
 ///
 /// See ``norm(_:ord:axes:keepDims:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func norm(
     _ array: MLXArray, ord: Double, axis: IntOrArray? = nil,
     keepDims: Bool = false, stream: StreamOrDevice = .default
@@ -552,6 +558,7 @@ public func norm(
 /// the input.
 ///
 /// - Returns: the `Q` and `R` matrices
+@available(iOS 16, macOS 13.3, *)
 public func qr(_ array: MLXArray, stream: StreamOrDevice = .default) -> (MLXArray, MLXArray) {
     return MLXLinalg.qr(array, stream: stream)
 }
@@ -567,6 +574,7 @@ public func qr(_ array: MLXArray, stream: StreamOrDevice = .default) -> (MLXArra
 ///   - stream: stream or device to evaluate on
 /// - Returns: The `U`, `S`, and `Vt` matrices, such that `A = matmul(U, matmul(diag(S), Vt))`
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func svd(_ array: MLXArray, stream: StreamOrDevice = .default) -> (
     MLXArray, MLXArray, MLXArray
 ) {
@@ -583,6 +591,7 @@ public func svd(_ array: MLXArray, stream: StreamOrDevice = .default) -> (
 ///   - array: input array
 ///   - stream: stream or device to evaluate on
 /// - Returns: `ainv` such that `dot(a, ainv) = dot(ainv, a) = eye(a.shape[0])`
+@available(iOS 16, macOS 13.3, *)
 public func inv(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     return MLXLinalg.inv(array, stream: stream)
 }
@@ -598,6 +607,7 @@ public func inv(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArra
 ///   - upper: true if the array is an upper triangular matrix
 ///   - stream: stream or device to evaluate on
 /// - Returns: `ainv` such that `dot(a, ainv) = dot(ainv, a) = eye(a.shape[0])`
+@available(iOS 16, macOS 13.3, *)
 public func triInv(
     _ array: MLXArray, upper: Bool = false,
     stream: StreamOrDevice = .default
@@ -618,6 +628,7 @@ public func triInv(
 ///   - upper: if true return the upper triangular Cholesky factor, otherwise the lower triangular
 ///         Cholesky factor.
 ///   - stream: stream or device to evaluate on
+@available(iOS 16, macOS 13.3, *)
 public func cholesky(_ array: MLXArray, upper: Bool = false, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -637,6 +648,7 @@ public func cholesky(_ array: MLXArray, upper: Bool = false, stream: StreamOrDev
 ///   - upper: if true return the upper triangular Cholesky factor, otherwise the lower triangular
 ///         Cholesky factor.
 ///   - stream: stream or device to evaluate on
+@available(iOS 16, macOS 13.3, *)
 public func choleskyInv(_ array: MLXArray, upper: Bool = false, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -654,6 +666,7 @@ public func choleskyInv(_ array: MLXArray, upper: Bool = false, stream: StreamOr
 ///   - b: input array
 ///   - axis: axis along which to compute the cross product
 ///   - stream: stream or device to evaluate on
+@available(iOS 16, macOS 13.3, *)
 public func cross(_ a: MLXArray, _ b: MLXArray, axis: Int = -1, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -674,6 +687,7 @@ public func cross(_ a: MLXArray, _ b: MLXArray, axis: Int = -1, stream: StreamOr
 /// -Parameters:
 ///   - a: input array.
 ///   - stream: stream or device
+@available(iOS 16, macOS 13.3, *)
 public func lu(_ a: MLXArray, stream: StreamOrDevice = .default)
     -> (MLXArray, MLXArray, MLXArray)
 {
@@ -685,6 +699,7 @@ public func lu(_ a: MLXArray, stream: StreamOrDevice = .default)
 /// -Parameters:
 ///   - a: input array.
 ///   - stream: stream or device
+@available(iOS 16, macOS 13.3, *)
 public func lu_factor(_ a: MLXArray, stream: StreamOrDevice = .default)
     -> (MLXArray, MLXArray)
 {
@@ -697,6 +712,7 @@ public func lu_factor(_ a: MLXArray, stream: StreamOrDevice = .default)
 ///   - a: input array.
 ///   - b: input array.
 ///   - stream: stream or device
+@available(iOS 16, macOS 13.3, *)
 public func solve(_ a: MLXArray, _ b: MLXArray, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -710,6 +726,7 @@ public func solve(_ a: MLXArray, _ b: MLXArray, stream: StreamOrDevice = .defaul
 ///   - b: input array.
 ///   - upper: Whether the array is upper or lower triangular
 ///   - stream: stream or device
+@available(iOS 16, macOS 13.3, *)
 public func solveTriangular(
     _ a: MLXArray, _ b: MLXArray, upper: Bool = false, stream: StreamOrDevice = .default
 )

@@ -9,6 +9,7 @@ import MLX
 /// - ``ConvTransposed2d``
 /// - ``ConvTransposed3d``
 /// - ``init(inputChannels:outputChannels:kernelSize:stride:padding:dilation:groups:bias:)``
+@available(iOS 16, macOS 13.3, *)
 open class ConvTransposed1d: Module, UnaryLayer {
 
     public let weight: MLXArray
@@ -84,6 +85,7 @@ open class ConvTransposed1d: Module, UnaryLayer {
 /// - ``ConvTransposed1d``
 /// - ``ConvTransposed3d``
 /// - ``init(inputChannels:outputChannels:kernelSize:stride:padding:dilation:groups:bias:)``
+@available(iOS 16, macOS 13.3, *)
 open class ConvTransposed2d: Module, UnaryLayer {
 
     public let weight: MLXArray
@@ -159,6 +161,7 @@ open class ConvTransposed2d: Module, UnaryLayer {
 /// - ``ConvTransposed1d``
 /// - ``ConvTransposed2d``
 /// - ``init(inputChannels:outputChannels:kernelSize:stride:padding:dilation:groups:bias:)``
+@available(iOS 16, macOS 13.3, *)
 open class ConvTransposed3d: Module, UnaryLayer {
 
     public let weight: MLXArray

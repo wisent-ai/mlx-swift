@@ -17,6 +17,7 @@ import Foundation
 /// ### See Also
 ///     - ``MLXArray/at``
 ///     - ``ArrayAtIndices``
+@available(iOS 16, macOS 13.3, *)
 public struct ArrayAt {
 
     let array: MLXArray
@@ -85,6 +86,7 @@ public struct ArrayAt {
 /// ### See Also
 ///     - ``MLXArray/at``
 ///     - ``ArrayAt``
+@available(iOS 16, macOS 13.3, *)
 public struct ArrayAtIndices {
 
     let array: MLXArray

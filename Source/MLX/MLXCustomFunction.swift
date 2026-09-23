@@ -1,20 +1,24 @@
 import Cmlx
 import Foundation
 
+@available(iOS 16, macOS 13.3, *)
 public enum MLXCustomFunctionComponent {
     case forward(([MLXArray]) -> [MLXArray])
     case vjp(([MLXArray], [MLXArray]) -> [MLXArray])
 }
 
+@available(iOS 16, macOS 13.3, *)
 public func Forward(_ f: @escaping ([MLXArray]) -> [MLXArray]) -> MLXCustomFunctionComponent {
     .forward(f)
 }
 
+@available(iOS 16, macOS 13.3, *)
 public func VJP(_ f: @escaping ([MLXArray], [MLXArray]) -> [MLXArray]) -> MLXCustomFunctionComponent
 {
     .vjp(f)
 }
 
+@available(iOS 16, macOS 13.3, *)
 final class _CustomFunctionState: @unchecked Sendable {
 
     private let lock = NSLock()
@@ -116,6 +120,7 @@ final class _CustomFunctionState: @unchecked Sendable {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 public enum MLXCustomFunctionBuilder {
     @resultBuilder
     public struct Builder {
@@ -145,6 +150,7 @@ public enum MLXCustomFunctionBuilder {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 public func CustomFunction(
     @MLXCustomFunctionBuilder.Builder _ build: () -> ([MLXArray]) -> [MLXArray]
 ) -> ([MLXArray]) -> [MLXArray] {

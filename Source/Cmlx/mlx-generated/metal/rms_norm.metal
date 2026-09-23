@@ -1,4 +1,5 @@
 // Copyright © 2024 Apple Inc.
+#if __METAL_VERSION__ >= 310
 
 #include <metal_common>
 #include <metal_simdgroup>
@@ -389,3 +390,4 @@ template <typename T, int N_READS = RMS_N_READS>
 instantiate_rms(float32, float)
 instantiate_rms(float16, half)
 instantiate_rms(bfloat16, bfloat16_t) // clang-format on
+#endif // __METAL_VERSION__ >= 310

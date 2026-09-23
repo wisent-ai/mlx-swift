@@ -3,6 +3,7 @@
 import Foundation
 
 /// Protocol for types that can provide an indented description, e.g. nested types.
+@available(iOS 16, macOS 13.3, *)
 public protocol IndentedDescription: CustomStringConvertible {
 
     /// Return the `description` with the given indent level.
@@ -12,6 +13,7 @@ public protocol IndentedDescription: CustomStringConvertible {
     func description(indent: Int) -> String
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension IndentedDescription {
     public var description: String {
         description(indent: 0)
@@ -20,6 +22,7 @@ extension IndentedDescription {
 
 /// Return `description` or ``IndentedDescription/description(indent:)`` if possible.
 @_documentation(visibility: internal)
+@available(iOS 16, macOS 13.3, *)
 public func indentedDescription(_ value: Any, _ indent: Int) -> String {
     if let value = value as? IndentedDescription {
         return value.description(indent: indent)
@@ -40,6 +43,7 @@ public func indentedDescription(_ value: Any, _ indent: Int) -> String {
 /// - ``NestedDictionary/mapValues(transform:)-((Element)->Result)``
 /// - ``NestedDictionary/flattened(prefix:)``
 /// - ``NestedDictionary/unflattened(_:)-([String:Element])``
+@available(iOS 16, macOS 13.3, *)
 public indirect enum NestedItem<Key: Hashable, Element>: IndentedDescription {
     case none
     case value(Element)
@@ -626,9 +630,11 @@ public indirect enum NestedItem<Key: Hashable, Element>: IndentedDescription {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension NestedItem: Equatable where Element: Equatable {
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension NestedItem: Sendable where Element: Sendable, Key: Sendable {
 }
 
@@ -681,6 +687,7 @@ extension NestedItem: Sendable where Element: Sendable, Key: Sendable {
 ///
 /// ### See Also
 /// - ``NestedItem``
+@available(iOS 16, macOS 13.3, *)
 public struct NestedDictionary<Key: Hashable, Element>: CustomStringConvertible {
     var contents = [Key: NestedItem<Key, Element>]()
 
@@ -990,12 +997,15 @@ public struct NestedDictionary<Key: Hashable, Element>: CustomStringConvertible 
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension NestedDictionary: Equatable where Element: Equatable {
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension NestedDictionary: Sendable where Element: Sendable, Key: Sendable {
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension NestedDictionary: Collection {
     public typealias CollectionElement = Dictionary<Key, NestedItem<Key, Element>>.Element
     public typealias Index = Dictionary<Key, NestedItem<Key, Element>>.Index

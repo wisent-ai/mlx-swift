@@ -12,6 +12,7 @@ import MLX
 /// - ``AvgPool1d``
 /// - ``AvgPool2d``
 /// - ``AvgPool3d``
+@available(iOS 16, macOS 13.3, *)
 open class Pool: Module, UnaryLayer {
 
     public let kernelSize: [Int]
@@ -75,6 +76,7 @@ open class Pool: Module, UnaryLayer {
 }
 
 /// Applies 1-dimensional max pooling.
+@available(iOS 16, macOS 13.3, *)
 open class MaxPool1d: Pool {
 
     /// Applies 1-dimensional max pooling.
@@ -98,6 +100,7 @@ open class MaxPool1d: Pool {
 }
 
 /// Applies 2-dimensional max pooling.
+@available(iOS 16, macOS 13.3, *)
 open class MaxPool2d: Pool {
 
     /// Applies 2-dimensional max pooling.
@@ -121,6 +124,7 @@ open class MaxPool2d: Pool {
 }
 
 /// Applies 3-dimensional max pooling.
+@available(iOS 16, macOS 13.3, *)
 open class MaxPool3d: Pool {
 
     /// Applies 3-dimensional max pooling.
@@ -148,6 +152,7 @@ open class MaxPool3d: Pool {
 }
 
 /// Applies 1-dimensional average pooling.
+@available(iOS 16, macOS 13.3, *)
 open class AvgPool1d: Pool {
 
     /// Applies 1-dimensional average pooling.
@@ -171,6 +176,7 @@ open class AvgPool1d: Pool {
 }
 
 /// Applies 2-dimensional average pooling.
+@available(iOS 16, macOS 13.3, *)
 open class AvgPool2d: Pool {
 
     /// Applies 2-dimensional average pooling.
@@ -194,6 +200,7 @@ open class AvgPool2d: Pool {
 }
 
 /// Applies 3-dimensional average pooling.
+@available(iOS 16, macOS 13.3, *)
 open class AvgPool3d: Pool {
 
     /// Applies 3-dimensional average pooling.

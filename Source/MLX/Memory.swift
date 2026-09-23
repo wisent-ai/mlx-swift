@@ -60,6 +60,7 @@ import Foundation
 /// - ``cacheLimit``
 /// - ``memoryLimit``
 /// - ``snapshot()``
+@available(iOS 16, macOS 13.3, *)
 public enum Memory {
 
     static let queue = DispatchQueue(label: "GPUEnum")

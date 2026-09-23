@@ -3,11 +3,13 @@
 import Cmlx
 import Foundation
 
+@available(iOS 16, macOS 13.3, *)
 public enum LoadSaveError: Error {
     case unableToOpen(URL, String)
     case unknownExtension(String)
 }
 
+@available(iOS 16, macOS 13.3, *)
 extension LoadSaveError: LocalizedError {
     public var errorDescription: String? {
         switch self {
@@ -30,6 +32,7 @@ extension LoadSaveError: LocalizedError {
 /// - ``save(arrays:metadata:url:stream:)``
 /// - ``loadArray(url:stream:)``
 /// - ``loadArrays(url:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func save(array: MLXArray, url: URL, stream: StreamOrDevice = .default) throws {
     precondition(url.isFileURL)
     let path = url.path(percentEncoded: false)
@@ -56,6 +59,7 @@ public func save(array: MLXArray, url: URL, stream: StreamOrDevice = .default) t
 /// - ``save(arrays:metadata:url:stream:)``
 /// - ``loadArray(url:stream:)``
 /// - ``loadArrays(url:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func save(
     arrays: [String: MLXArray], metadata: [String: String] = [:], url: URL,
     stream: StreamOrDevice = .default
@@ -90,6 +94,7 @@ public func save(
 /// - ``loadArrays(url:stream:)``
 /// - ``save(array:url:stream:)``
 /// - ``save(arrays:metadata:url:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func loadArray(url: URL, stream: StreamOrDevice = .cpu) throws -> MLXArray {
     precondition(url.isFileURL)
     let path = url.path(percentEncoded: false)
@@ -118,6 +123,7 @@ public func loadArray(url: URL, stream: StreamOrDevice = .cpu) throws -> MLXArra
 /// - ``loadArraysAndMetadata(url:stream:)``
 /// - ``save(array:url:stream:)``
 /// - ``save(arrays:metadata:url:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func loadArrays(url: URL, stream: StreamOrDevice = .cpu) throws -> [String: MLXArray] {
     precondition(url.isFileURL)
     let path = url.path(percentEncoded: false)
@@ -148,6 +154,7 @@ public func loadArrays(url: URL, stream: StreamOrDevice = .cpu) throws -> [Strin
 /// ### See Also
 /// - ``loadArrays(url:stream:)``
 /// - ``loadArray(url:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func loadArraysAndMetadata(url: URL, stream: StreamOrDevice = .cpu) throws -> (
     [String: MLXArray], [String: String]
 ) {
@@ -173,6 +180,7 @@ public func loadArraysAndMetadata(url: URL, stream: StreamOrDevice = .cpu) throw
 
 // MARK: - Memory I/O
 
+@available(iOS 16, macOS 13.3, *)
 private class IOState {
     var offset = 0
     var data = Data()
@@ -183,8 +191,10 @@ private class IOState {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 private let label: StaticString = "<memory IO stream>\0"
 
+@available(iOS 16, macOS 13.3, *)
 private func getData(_ writer: mlx_io_writer) -> Data {
     var ptr: UnsafeMutableRawPointer?
     mlx_io_writer_descriptor(&ptr, writer)
@@ -192,6 +202,7 @@ private func getData(_ writer: mlx_io_writer) -> Data {
     return state.data
 }
 
+@available(iOS 16, macOS 13.3, *)
 private func new_mlx_io_vtable_dataIO() -> mlx_io_vtable {
     mlx_io_vtable { ptr in
         ptr != nil
@@ -251,11 +262,13 @@ private func new_mlx_io_vtable_dataIO() -> mlx_io_vtable {
     }
 }
 
+@available(iOS 16, macOS 13.3, *)
 private func new_mlx_io_reader_dataIO(_ data: Data) -> mlx_io_reader {
     let ptr = Unmanaged.passRetained(IOState(data: data)).toOpaque()
     return mlx_io_reader_new(ptr, new_mlx_io_vtable_dataIO())
 }
 
+@available(iOS 16, macOS 13.3, *)
 private func new_mlx_io_writer_dataIO() -> mlx_io_writer {
     let ptr = Unmanaged.passRetained(IOState()).toOpaque()
     return mlx_io_writer_new(ptr, new_mlx_io_vtable_dataIO())
@@ -271,6 +284,7 @@ private func new_mlx_io_writer_dataIO() -> mlx_io_writer {
 /// - ``save(arrays:metadata:url:stream:)``
 /// - ``loadArrays(data:stream:)``
 /// - ``loadArraysAndMetadata(data:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func saveToData(
     arrays: [String: MLXArray], metadata: [String: String] = [:]
 ) throws -> Data {
@@ -297,6 +311,7 @@ public func saveToData(
 /// ### See Also
 /// - ``saveToData(arrays:metadata:)``
 /// - ``loadArraysAndMetadata(data:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func loadArrays(data: Data, stream: StreamOrDevice = .cpu) throws -> [String: MLXArray] {
     let reader = new_mlx_io_reader_dataIO(data)
     defer { mlx_io_reader_free(reader) }
@@ -322,6 +337,7 @@ public func loadArrays(data: Data, stream: StreamOrDevice = .cpu) throws -> [Str
 /// ### See Also
 /// - ``saveToData(arrays:metadata:)``
 /// - ``loadArrays(data:stream:)``
+@available(iOS 16, macOS 13.3, *)
 public func loadArraysAndMetadata(data: Data, stream: StreamOrDevice = .cpu) throws -> (
     [String: MLXArray], [String: String]
 ) {

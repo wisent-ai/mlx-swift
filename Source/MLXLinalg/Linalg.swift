@@ -8,6 +8,7 @@ import MLX
     *, deprecated,
     message: "`import MLXLinalg` is deprecated. All methods are now available through `import MLX"
 )
+@available(iOS 16, macOS 13.3, *)
 public let deprecationWarning: Void = ()
 
 /// Matrix or vector norm.
@@ -53,6 +54,7 @@ public let deprecationWarning: Void = ()
 /// - ``norm(_:ord:axes:keepDims:stream:)``
 @available(*, deprecated, message: "norm is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func norm(
     _ array: MLXArray, ord: MLXLinalg.NormKind? = nil, axes: [Int], keepDims: Bool = false,
     stream: StreamOrDevice = .default
@@ -103,6 +105,7 @@ public func norm(
 /// - ``norm(_:ord:axes:keepDims:stream:)-4dwwp``
 @available(*, deprecated, message: "norm is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func norm(
     _ array: MLXArray, ord: Double, axes: [Int], keepDims: Bool = false,
     stream: StreamOrDevice = .default
@@ -115,6 +118,7 @@ public func norm(
 /// See ``norm(_:ord:axes:keepDims:stream:)-4dwwp``
 @available(*, deprecated, message: "norm is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func norm(
     _ array: MLXArray, ord: MLXLinalg.NormKind? = nil, axis: Int, keepDims: Bool = false,
     stream: StreamOrDevice = .default
@@ -127,6 +131,7 @@ public func norm(
 /// See ``norm(_:ord:axes:keepDims:stream:)``
 @available(*, deprecated, message: "norm is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func norm(
     _ array: MLXArray, ord: Double, axis: Int, keepDims: Bool = false,
     stream: StreamOrDevice = .default
@@ -139,6 +144,7 @@ public func norm(
 /// See ``norm(_:ord:axes:keepDims:stream:)-4dwwp``
 @available(*, deprecated, message: "norm is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func norm(
     _ array: MLXArray, ord: MLXLinalg.NormKind? = nil, axis: IntOrArray? = nil,
     keepDims: Bool = false, stream: StreamOrDevice = .default
@@ -151,6 +157,7 @@ public func norm(
 /// See ``norm(_:ord:axes:keepDims:stream:)``
 @available(*, deprecated, message: "norm is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func norm(
     _ array: MLXArray, ord: Double, axis: IntOrArray? = nil,
     keepDims: Bool = false, stream: StreamOrDevice = .default
@@ -167,6 +174,7 @@ public func norm(
 /// - Returns: the `Q` and `R` matrices
 @available(*, deprecated, message: "qr is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func qr(_ array: MLXArray, stream: StreamOrDevice = .default) -> (MLXArray, MLXArray) {
     return MLXLinalg.qr(array, stream: stream)
 }
@@ -183,6 +191,7 @@ public func qr(_ array: MLXArray, stream: StreamOrDevice = .default) -> (MLXArra
 /// - Returns: The `U`, `S`, and `Vt` matrices, such that `A = matmul(U, matmul(diag(S), Vt))`
 @available(*, deprecated, message: "svd is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func svd(_ array: MLXArray, stream: StreamOrDevice = .default) -> (
     MLXArray, MLXArray, MLXArray
 ) {
@@ -201,6 +210,7 @@ public func svd(_ array: MLXArray, stream: StreamOrDevice = .default) -> (
 /// - Returns: `ainv` such that `dot(a, ainv) = dot(ainv, a) = eye(a.shape[0])`
 @available(*, deprecated, message: "inv is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func inv(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArray {
     return MLXLinalg.inv(array, stream: stream)
 }
@@ -218,6 +228,7 @@ public func inv(_ array: MLXArray, stream: StreamOrDevice = .default) -> MLXArra
 /// - Returns: `ainv` such that `dot(a, ainv) = dot(ainv, a) = eye(a.shape[0])`
 @available(*, deprecated, message: "triInv is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func triInv(
     _ array: MLXArray, upper: Bool = false,
     stream: StreamOrDevice = .default
@@ -240,6 +251,7 @@ public func triInv(
 ///   - stream: stream or device to evaluate on
 @available(*, deprecated, message: "cholesky is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func cholesky(_ array: MLXArray, upper: Bool = false, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -261,6 +273,7 @@ public func cholesky(_ array: MLXArray, upper: Bool = false, stream: StreamOrDev
 ///   - stream: stream or device to evaluate on
 @available(*, deprecated, message: "choleskyInv is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func choleskyInv(_ array: MLXArray, upper: Bool = false, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -280,6 +293,7 @@ public func choleskyInv(_ array: MLXArray, upper: Bool = false, stream: StreamOr
 ///   - stream: stream or device to evaluate on
 @available(*, deprecated, message: "cross is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func cross(_ a: MLXArray, _ b: MLXArray, axis: Int = -1, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -302,6 +316,7 @@ public func cross(_ a: MLXArray, _ b: MLXArray, axis: Int = -1, stream: StreamOr
 ///   - stream: stream or device
 @available(*, deprecated, message: "lu is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func lu(_ a: MLXArray, stream: StreamOrDevice = .default)
     -> (MLXArray, MLXArray, MLXArray)
 {
@@ -315,6 +330,7 @@ public func lu(_ a: MLXArray, stream: StreamOrDevice = .default)
 ///   - stream: stream or device
 @available(*, deprecated, message: "lu_factor is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func lu_factor(_ a: MLXArray, stream: StreamOrDevice = .default)
     -> (MLXArray, MLXArray)
 {
@@ -329,6 +345,7 @@ public func lu_factor(_ a: MLXArray, stream: StreamOrDevice = .default)
 ///   - stream: stream or device
 @available(*, deprecated, message: "solve is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func solve(_ a: MLXArray, _ b: MLXArray, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -344,6 +361,7 @@ public func solve(_ a: MLXArray, _ b: MLXArray, stream: StreamOrDevice = .defaul
 ///   - stream: stream or device
 @available(*, deprecated, message: "solveTriangular is now available in the main MLX module")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func solveTriangular(
     _ a: MLXArray, _ b: MLXArray, upper: Bool = false, stream: StreamOrDevice = .default
 )

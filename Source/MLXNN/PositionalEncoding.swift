@@ -4,6 +4,7 @@ import Foundation
 import MLX
 
 /// A `Layer`  (``Module`` subclass) that can be evaluated with an array and offset.
+@available(iOS 16, macOS 13.3, *)
 public protocol OffsetLayer: Module {
     func callAsFunction(_ x: MLXArray, offset: Int) -> MLXArray
 }
@@ -18,6 +19,7 @@ public protocol OffsetLayer: Module {
 ///
 /// Layers that support this protocol should broadcast the `offset` over the remaining dimensions
 /// of `x` as appropriate.
+@available(iOS 16, macOS 13.3, *)
 public protocol ArrayOffsetLayer: Module {
     func callAsFunction(_ x: MLXArray, offset: MLXArray) -> MLXArray
 }
@@ -33,6 +35,7 @@ public protocol ArrayOffsetLayer: Module {
 ///
 /// ### See Also
 /// - <doc:positional-encoding>
+@available(iOS 16, macOS 13.3, *)
 final public class RoPE: Module, UnaryLayer, OffsetLayer, ArrayOffsetLayer {
 
     let dimensions: Int
@@ -87,6 +90,7 @@ final public class RoPE: Module, UnaryLayer, OffsetLayer, ArrayOffsetLayer {
 ///
 /// ### See Also
 /// - <doc:positional-encoding>
+@available(iOS 16, macOS 13.3, *)
 open class SinusoidalPositionalEncoding: Module, UnaryLayer {
 
     let _sigmas: MLXArray
@@ -141,6 +145,7 @@ open class SinusoidalPositionalEncoding: Module, UnaryLayer {
 
 /// ### See Also
 /// - <doc:positional-encoding>
+@available(iOS 16, macOS 13.3, *)
 final public class ALiBi: Module {
 
     struct Key: Hashable {

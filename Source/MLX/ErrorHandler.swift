@@ -6,6 +6,7 @@ import Foundation
 ///   - handler: An error handler. Pass nil to reset to the default error handler. Pass
 ///   ``fatalErrorHandler`` to make the error handler call `fatalError` for improved Xcode debugging.
 @available(*, deprecated, message: "please use withErrorHandler() or withError()")
+@available(iOS 16, macOS 13.3, *)
 public func setErrorHandler(
     _ handler: (@convention(c) (UnsafePointer<CChar>?, UnsafeMutableRawPointer?) -> Void)?,
     data: UnsafeMutableRawPointer? = nil,
@@ -16,6 +17,7 @@ public func setErrorHandler(
 
 /// An error handler that calls `fatalError`.
 @available(*, deprecated, message: "please use withErrorHandler() or withError()")
+@available(iOS 16, macOS 13.3, *)
 public let fatalErrorHandler:
     @convention(c) (UnsafePointer<CChar>?, UnsafeMutableRawPointer?) -> Void = { message, _ in
         fatalError(message.map { String(cString: $0) } ?? "")
@@ -49,6 +51,7 @@ public let fatalErrorHandler:
 /// ### See Also
 /// - ``withError(_:)-6g4wn``
 /// - ``withError(_:)-2wfiu``
+@available(iOS 16, macOS 13.3, *)
 public func withErrorHandler<R>(
     _ handler: @escaping @Sendable (String) -> Void, _ body: () throws -> R
 ) rethrows -> R {
@@ -83,6 +86,7 @@ public func withErrorHandler<R>(
 /// ### See Also
 /// - ``withError(_:)-4tvdu``
 /// - ``withError(_:)-7f0hv``
+@available(iOS 16, macOS 13.3, *)
 public func withErrorHandler<R>(
     _ handler: @escaping @Sendable (String) -> Void, _ body: () async throws -> R
 ) async rethrows -> R {
@@ -117,6 +121,7 @@ public func withErrorHandler<R>(
 /// ### See Also
 /// - ``withError(_:)-6g4wn``
 /// - ``withError(_:)-7f0hv``
+@available(iOS 16, macOS 13.3, *)
 public func withError<R>(_ body: (ErrorBox) throws -> R) throws -> R {
     try errorHandler.withError(body)
 }
@@ -144,6 +149,7 @@ public func withError<R>(_ body: (ErrorBox) throws -> R) throws -> R {
 /// ### See Also
 /// - ``withError(_:)-2wfiu``
 /// - ``withError(_:)-4tvdu``
+@available(iOS 16, macOS 13.3, *)
 public func withError<R>(_ body: () throws -> R) throws -> R {
     try errorHandler.withError({ _ in try body() })
 }
@@ -179,6 +185,7 @@ public func withError<R>(_ body: () throws -> R) throws -> R {
 /// ### See Also
 /// - ``withError(_:)-2wfiu``
 /// - ``withError(_:)-4tvdu``
+@available(iOS 16, macOS 13.3, *)
 public func withError<R>(_ body: (ErrorBox) async throws -> R) async throws -> R {
     try await errorHandler.withError(body)
 }
@@ -209,11 +216,13 @@ public func withError<R>(_ body: (ErrorBox) async throws -> R) async throws -> R
 /// ### See Also
 /// - ``withError(_:)-6g4wn``
 /// - ``withError(_:)-7f0hv``
+@available(iOS 16, macOS 13.3, *)
 public func withError<R>(_ body: () async throws -> R) async throws -> R {
     try await errorHandler.withError({ _ in try await body() })
 }
 
 /// Error type for caught errors during ``withError(_:)-6g4wn``.
+@available(iOS 16, macOS 13.3, *)
 public enum MLXError: LocalizedError, Sendable, Equatable {
     case caught(String)
 
@@ -247,6 +256,7 @@ public enum MLXError: LocalizedError, Sendable, Equatable {
 ///
 /// In some cases it may be more convenient to use the ``withError(_:)-6g4wn`` form
 /// that doesn't expose this value -- any error will be thrown when the block exits.
+@available(iOS 16, macOS 13.3, *)
 public final class ErrorBox: @unchecked Sendable {
     private let lock = NSLock()
     private var _firstError: Error?
@@ -277,24 +287,28 @@ public final class ErrorBox: @unchecked Sendable {
 /// `errorHandlerTrampoline` which forwards it to the singleton `ErrorHandler`.
 ///
 /// This will be called once (and only once) when there is a call to `withError`.
+@available(iOS 16, macOS 13.3, *)
 private let errorHandler: ErrorHandler = {
     mlx_set_error_handler(errorHandlerTrampoline(message:data:), nil, nil)
     return ErrorHandler()
 }()
 
 /// Ensure that the error handler is installed.
+@available(iOS 16, macOS 13.3, *)
 func initError() {
     _ = errorHandler
 }
 
 /// Forward the error to the `ErrorHandler` singleton.  See `errorHandler` (above) for how this is
 /// installed.
+@available(iOS 16, macOS 13.3, *)
 private func errorHandlerTrampoline(message: UnsafePointer<CChar>?, data: UnsafeMutableRawPointer?)
 {
     errorHandler.dispatch(message.map { String(cString: $0) } ?? "")
 }
 
 /// Thread safe and task local implementation of error handling.
+@available(iOS 16, macOS 13.3, *)
 private final class ErrorHandler: @unchecked Sendable {
 
     /// task local error handler stack, if any

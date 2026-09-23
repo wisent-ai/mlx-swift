@@ -5,6 +5,7 @@ import MLX
     *, deprecated,
     message: "`import MLXFFT` is deprecated. All methods are now available through `import MLX"
 )
+@available(iOS 16, macOS 13.3, *)
 public let deprecationWarning: Void = ()
 
 /// One dimensional discrete Fourier Transform.
@@ -21,6 +22,7 @@ public let deprecationWarning: Void = ()
 /// - <doc:MLXFFT>
 @available(*, deprecated, message: "fft is now available in the main MLX module.")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func fft(_ array: MLXArray, n: Int? = nil, axis: Int = -1, stream: StreamOrDevice = .default)
     -> MLXArray
 {
@@ -41,6 +43,7 @@ public func fft(_ array: MLXArray, n: Int? = nil, axis: Int = -1, stream: Stream
 /// - <doc:MLXFFT>
 @available(*, deprecated, message: "ifft is now available in the main MLX module.")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func ifft(
     _ array: MLXArray, n: Int? = nil, axis: Int = -1, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -61,6 +64,7 @@ public func ifft(
 /// - <doc:MLXFFT>
 @available(*, deprecated, message: "fft2 is now available in the main MLX module.")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func fft2(
     _ array: MLXArray, s: [Int]? = nil, axes: [Int]? = [-2, -1], stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -81,6 +85,7 @@ public func fft2(
 /// - <doc:MLXFFT>
 @available(*, deprecated, message: "ifft2 is now available in the main MLX module.")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func ifft2(
     _ array: MLXArray, s: [Int]? = nil, axes: [Int]? = [-2, -1], stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -101,6 +106,7 @@ public func ifft2(
 /// - <doc:MLXFFT>
 @available(*, deprecated, message: "fftn is now available in the main MLX module.")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func fftn(
     _ array: MLXArray, s: [Int]? = nil, axes: [Int]? = nil, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -121,6 +127,7 @@ public func fftn(
 /// - <doc:MLXFFT>
 @available(*, deprecated, message: "ifftn is now available in the main MLX module.")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func ifftn(
     _ array: MLXArray, s: [Int]? = nil, axes: [Int]? = nil, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -144,6 +151,7 @@ public func ifftn(
 /// - <doc:MLXFFT>
 @available(*, deprecated, message: "rfft is now available in the main MLX module.")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func rfft(
     _ array: MLXArray, n: Int? = nil, axis: Int = -1, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -165,6 +173,7 @@ public func rfft(
 ///
 /// ### See Also
 /// - <doc:MLXFFT>
+@available(iOS 16, macOS 13.3, *)
 public func irfft(
     _ array: MLXArray, n: Int? = nil, axis: Int = -1, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -189,6 +198,7 @@ public func irfft(
 /// - <doc:MLXFFT>
 @available(*, deprecated, message: "rfft2 is now available in the main MLX module.")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func rfft2(
     _ array: MLXArray, s: [Int]? = nil, axes: [Int]? = [-2, -1], stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -214,6 +224,7 @@ public func rfft2(
 /// - <doc:MLXFFT>
 @available(*, deprecated, message: "irfft2 is now available in the main MLX module.")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func irfft2(
     _ array: MLXArray, s: [Int]? = nil, axes: [Int]? = [-2, -1], stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -238,6 +249,7 @@ public func irfft2(
 /// - <doc:MLXFFT>
 @available(*, deprecated, message: "rfftn is now available in the main MLX module.")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func rfftn(
     _ array: MLXArray, s: [Int]? = nil, axes: [Int]? = nil, stream: StreamOrDevice = .default
 ) -> MLXArray {
@@ -263,6 +275,7 @@ public func rfftn(
 /// - <doc:MLXFFT>
 @available(*, deprecated, message: "irfftn is now available in the main MLX module.")
 @_disfavoredOverload
+@available(iOS 16, macOS 13.3, *)
 public func irfftn(
     _ array: MLXArray, s: [Int]? = nil, axes: [Int]? = nil, stream: StreamOrDevice = .default
 ) -> MLXArray {

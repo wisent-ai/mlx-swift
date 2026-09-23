@@ -26,6 +26,7 @@ import MLX
 /// let out = kernel([a])
 /// ```
 @available(*, deprecated, renamed: "MLXFast.MLXFastKernel")
+@available(iOS 16, macOS 13.3, *)
 public typealias MLXFastKernel = MLXFast.MLXFastKernel
 
 /// A jit-compiled custom Metal kernel defined from a source string.
@@ -43,6 +44,7 @@ public typealias MLXFastKernel = MLXFast.MLXFastKernel
 ///   - atomicOutputs: whether to use atomic outputs in the function signature,
 ///   e.g. `device atomic<float>`
 /// - Returns: an ``MLXFastKernel`` -- see that for information on how to call it
+@available(iOS 16, macOS 13.3, *)
 public func metalKernel(
     name: String, inputNames: [String], outputNames: [String],
     source: String, header: String = "",

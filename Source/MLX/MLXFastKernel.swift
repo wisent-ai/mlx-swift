@@ -10,12 +10,17 @@ import Cmlx
 /// - `DType`
 ///
 /// See also: ``MLXFast/MLXFastKernel``
+@available(iOS 16, macOS 13.3, *)
 public protocol KernelTemplateArg {}
 
+@available(iOS 16, macOS 13.3, *)
 extension Bool: KernelTemplateArg {}
+@available(iOS 16, macOS 13.3, *)
 extension Int: KernelTemplateArg {}
+@available(iOS 16, macOS 13.3, *)
 extension DType: KernelTemplateArg {}
 
+@available(iOS 16, macOS 13.3, *)
 extension MLXFast {
 
     /// Container for a kernel created by

@@ -4,6 +4,7 @@ import Foundation
 import MLX
 
 /// A placeholder identity operator that is argument-insensitive.
+@available(iOS 16, macOS 13.3, *)
 public class Identity: Module, UnaryLayer {
     public func callAsFunction(_ x: MLXArray) -> MLXArray {
         x
@@ -67,6 +68,7 @@ public class Identity: Module, UnaryLayer {
 /// - <doc:custom-layers>
 /// - ``QuantizedLinear``
 /// - ``Bilinear``
+@available(iOS 16, macOS 13.3, *)
 open class Linear: Module, UnaryLayer, Quantizable {
 
     public let weight: MLXArray
@@ -160,6 +162,7 @@ open class Linear: Module, UnaryLayer, Quantizable {
 /// ### See Also
 /// - <doc:custom-layers>
 /// - ``Linear``
+@available(iOS 16, macOS 13.3, *)
 open class Bilinear: Module {
 
     public let weight: MLXArray
